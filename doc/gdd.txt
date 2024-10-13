@@ -1,0 +1,201 @@
+Game Design Document (GDD)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ ## 1. Game Title
+Name: "Life or Death"
+
+ ## 2. Story
+	Story description: The player takes on the role of a man who has less than a few days to live due to a worm that is eating him from the inside, and the only medicine that exists in this world is a flower that grows at the top of a mountain. To reach it, one must go through forgotten temples. Our character is an ordinary man, with weak spiritual strength, no combat skills, but like any person, he will do anything to continue living. Therefore, he will fight for his life every second, face numerous enemies, psychological trials, and make difficult decisions, ultimately striving to maintain his sanity.
+
+ ## 3. Characters
+Hero:
+	Name: Mark
+	Health points: 100
+	Mental state: 100
+	Spiritual power: 0
+	Type: human
+	Skills: none
+	
+Companions:
+	Animals:
+		- Cat
+			Health points: 20
+			Attack power: 0
+			Strength level: low
+			Skills: healing
+			
+	Spirits:
+		Health points: 15
+		Attack power: 2
+		Strength level: low
+		Skills: magic
+	
+Enemies:
+	Shadows:
+		Health points: 20
+		Attack power: 1
+		Strength level: low
+		Skills: Can change appearance to look like someone close to you, strong hit to the hero's mental state
+		Points for destruction:
+		
+	Goblin:
+		Health points: 25
+		Attack power: 5
+		Strength level: low
+		Skills: magic
+		Points for destruction:
+	Rat:
+		Health points: 15
+		Attack power: 3
+		Strength level: low
+		Skills: Spits poison from a distance
+		Points for destruction:
+			
+	Mountain Lord:	
+		Health points:
+		Attack power:
+		Strength level: very strong
+		Skills:
+		Points for destruction:
+
+ ## 4. Level/Environment Design
+	- Chests with various items, such as:
+		Books on how to use spiritual power
+		Various weapons
+		Armor
+		Food
+		Artifacts to increase spiritual strength
+		Companion (as an animal or spirit)
+	- Traps
+		Chests
+		In the ground
+	- Doors to open
+	- Choice of doors between a more difficult room and an easier one, but with different psychological burdens
+	- Rooms for rescuing people or animals to improve the mental state
+
+ ## 5. Gameplay
+
+Mechanics:
+	- Psychological trials:
+		For example, choosing doors in one room: 'There are 10 goblins in the room, and the chance of passing is 40 percent', while in the other: 'There is a person in the room, and the chance of passing is 98 percent.' The doors open after killing all in the room.
+		You can enter a room where there will be a riddle on the door. After opening it, you must defeat enemies and rescue a person, animal, or good spirit to improve the mental state.
+	- Resource gathering: Collecting artifacts
+	- Puzzle solving: Opening locks and chests
+	- Combat: For survival and character development
+	- Companion: You can take a companion from the chest who will help you. However, if you neglect him and do not feed or play with him, he may attack you.
+	- Points are added to experience after defeating enemies.
+	- As experience increases, the power of attacks and spiritual power also increases.
+
+ ## 6. User Interface and Controls
+
+Interface:
+	- At the top, there will be text with hints and tips
+	- On the left side, the game itself, and on the right side of the game, slots for the backpack.
+	- 12 backpack slots
+	- At the bottom, a bar showing the level of the dungeon, health points, experience, mental state, attack power, and spiritual attack power.
+
+Controls:
+	- Keyboard: W - forward, S - backward, A - left, D - right
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+ ## 1. Tytuł gry
+Nazwa: "Life or Death"
+
+ ## 2. Historia
+	Opis fabuły: Gracz wciela się w rolę człowieka, któremu zostało żyć mniej niż kilka dni przez robaka, który pożera go od środka, a jedynym lekiem, który istnieje w tym świecie, jest kwiat rosnący na szczycie góry, do której, aby dotrzeć, trzeba przejść przez zapomniane świątynie. Nasza postać jest najzwyklejszym człowiekiem, z słabą siłą duchową, bez nawyków bojowych, ale jak każdy człowiek zrobi wszystko, żeby żyć dalej. Dlatego będzie walczyć o swoje życie co sekundę, przechodzić przez mnóstwo wrogów, psychologicznych prób i podejmować trudne decyzje, a na koniec nie stracić zmysłów.
+
+ ## 3. Postacie
+Bohater:
+	Imię: Mark
+	Punkty zdrowia: 100
+	Stan psychiczny: 100
+	Moc duchowa: 0
+	Typ: człowiek
+	Umiejętności: brak
+Towarzysze:
+
+	Zwierzęta:
+		- Kot
+			Punkty zdrowia: 20
+			Siła uderzenia: 0
+			Poziom siły: niski
+			Umiejętności: leczy
+	Duchy:
+		Punkty zdrowia: 15
+		Siła uderzenia: 2
+		Poziom siły: niski
+		Umiejętności: magia
+		
+Przeciwnicy:
+	- Cienie:
+		Punkty zdrowia: 20
+		Siła uderzenia: 1
+		Poziom siły: niski
+		Umiejętności: Może zmieniać wygląd na osobę, która jest ci bliska, silny cios w stan psychiczny bohatera
+		Punkty za zniszczenie:
+		
+	- Goblin:
+		Punkty zdrowia: 25
+		Siła uderzenia: 5
+		Poziom siły: niski
+		Umiejętności: magia
+		Punkty za zniszczenie:
+		
+	- Szczur:
+		Punkty zdrowia: 15
+		Siła uderzenia: 3
+		Poziom siły: niski
+		Umiejętności: Pluje jadem daleko
+		Punkty za zniszczenie:
+		
+	- Władca góry:
+		Punkty zdrowia:
+		Siła uderzenia:
+		Poziom siły: bardzo silny
+		Umiejętności:
+		Punkty za zniszczenie:
+		
+ ## 4. Projekt poziomów/środowiska
+	-Skrytki z różnymi przedmiotami, takimi jak:
+		Książki do nauki, jak korzystać z mocy duchowej
+		Różna broń
+		Zbroja
+		Jedzenie
+		Artefakty do zwiększenia siły duchowej
+	- Towarzysz (jako zwierzę lub duch)
+	- Pułapki
+		Skrytki
+		W ziemi
+	- Drzwi do otwierania
+	- Wybór drzwi między trudniejszym pokojem a łatwiejszym, ale z różnym obciążeniem psychologicznym
+	- Pomieszczenia do ratowania ludzi lub zwierząt w celu poprawy stanu psychicznego.
+	
+ ## 5. Rozgrywka
+Mechaniki:
+
+	- Psychologiczne próby:
+		Na przykład wybór drzwi w jednym pokoju: 'W pokoju jest 10 goblinów, a szansa na przejście wynosi 40 procent', a w drugim: 'W pokoju jest człowiek, a szansa na przejście wynosi 98 procent'. Drzwi otwierają się po zabiciu wszystkich w pokoju.
+		Możesz wejść do pomieszczenia, gdzie na drzwiach będzie zagadka. Po ich otwarciu musisz pokonać wrogów i uratować człowieka, zwierzę lub dobrego ducha, aby poprawić stan psychiczny.
+	- Zbieranie zasobów: Artefakty do zbierania
+	- Rozwiązywanie zagadek: Otwieranie zamków i skrytek
+	- Walka: o przetrwanie i rozwój bohatera
+	- Towarzysz: Możesz wziąć ze skrytki towarzysza, który będzie ci pomagał. Jednak jeśli go zaniedbasz i nie będziesz go karmić ani bawić się z nim, może zaatakować cię.
+	- Po zniszczeniu wrogów dodawane są punkty do doświadczenia.
+	- Przy zwiększeniu doświadczenia zwiększa się siła uderzeń oraz siła uderzenia mocy duchowej
+
+ ## 6. Interfejs użytkownika i sterowanie
+Interfejs:
+
+	- Na górze będzie tekst z napisami i podpowiedziami
+	- Po lewej stronie sama gra, a po prawej stronie od gry sloty na plecak.
+	- 12 slotów plecaka
+	- Na dole pasek poziomu podziemia, punktów zdrowia, doświadczenia, stanu psychicznego, siły uderzenia, siły uderzenia mocy duchowej
+Sterowanie:
+
+	- Klawiatura: W - przód, S - tył, A - lewo, D - prawo
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
