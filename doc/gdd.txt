@@ -1,103 +1,5 @@
 Game Design Document (GDD)
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
- ## 1. Game Title
-Name: "Life or Death"
-
- ## 2. Story
-	Story description: The player takes on the role of a man who has less than a few days to live due to a worm that is eating him from the inside, and the only medicine that exists in this world is a flower that grows at the top of a mountain. To reach it, one must go through forgotten temples. Our character is an ordinary man, with weak spiritual strength, no combat skills, but like any person, he will do anything to continue living. Therefore, he will fight for his life every second, face numerous enemies, psychological trials, and make difficult decisions, ultimately striving to maintain his sanity.
-
- ## 3. Characters
-Hero:
-	Name: Mark
-	Health points: 100
-	Mental state: 100
-	Spiritual power: 0
-	Type: human
-	Skills: none
-	
-Companions:
-	Animals:
-		- Cat
-			Health points: 20
-			Attack power: 0
-			Strength level: low
-			Skills: healing
-			
-	Spirits:
-		Health points: 15
-		Attack power: 2
-		Strength level: low
-		Skills: magic
-	
-Enemies:
-	Shadows:
-		Health points: 20
-		Attack power: 1
-		Strength level: low
-		Skills: Can change appearance to look like someone close to you, strong hit to the hero's mental state
-		Points for destruction:
-		
-	Goblin:
-		Health points: 25
-		Attack power: 5
-		Strength level: low
-		Skills: magic
-		Points for destruction:
-	Rat:
-		Health points: 15
-		Attack power: 3
-		Strength level: low
-		Skills: Spits poison from a distance
-		Points for destruction:
-			
-	Mountain Lord:	
-		Health points:
-		Attack power:
-		Strength level: very strong
-		Skills:
-		Points for destruction:
-
- ## 4. Level/Environment Design
-	- Chests with various items, such as:
-		Books on how to use spiritual power
-		Various weapons
-		Armor
-		Food
-		Artifacts to increase spiritual strength
-		Companion (as an animal or spirit)
-	- Traps
-		Chests
-		In the ground
-	- Doors to open
-	- Choice of doors between a more difficult room and an easier one, but with different psychological burdens
-	- Rooms for rescuing people or animals to improve the mental state
-
- ## 5. Gameplay
-
-Mechanics:
-	- Psychological trials:
-		For example, choosing doors in one room: 'There are 10 goblins in the room, and the chance of passing is 40 percent', while in the other: 'There is a person in the room, and the chance of passing is 98 percent.' The doors open after killing all in the room.
-		You can enter a room where there will be a riddle on the door. After opening it, you must defeat enemies and rescue a person, animal, or good spirit to improve the mental state.
-	- Resource gathering: Collecting artifacts
-	- Puzzle solving: Opening locks and chests
-	- Combat: For survival and character development
-	- Companion: You can take a companion from the chest who will help you. However, if you neglect him and do not feed or play with him, he may attack you.
-	- Points are added to experience after defeating enemies.
-	- As experience increases, the power of attacks and spiritual power also increases.
-
- ## 6. User Interface and Controls
-
-Interface:
-	- At the top, there will be text with hints and tips
-	- On the left side, the game itself, and on the right side of the game, slots for the backpack.
-	- 12 backpack slots
-	- At the bottom, a bar showing the level of the dungeon, health points, experience, mental state, attack power, and spiritual attack power.
-
-Controls:
-	- Keyboard: W - forward, S - backward, A - left, D - right
-
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -106,96 +8,307 @@ Controls:
 Nazwa: "Life or Death"
 
  ## 2. Historia
-	Opis fabuły: Gracz wciela się w rolę człowieka, któremu zostało żyć mniej niż kilka dni przez robaka, który pożera go od środka, a jedynym lekiem, który istnieje w tym świecie, jest kwiat rosnący na szczycie góry, do której, aby dotrzeć, trzeba przejść przez zapomniane świątynie. Nasza postać jest najzwyklejszym człowiekiem, z słabą siłą duchową, bez nawyków bojowych, ale jak każdy człowiek zrobi wszystko, żeby żyć dalej. Dlatego będzie walczyć o swoje życie co sekundę, przechodzić przez mnóstwo wrogów, psychologicznych prób i podejmować trudne decyzje, a na koniec nie stracić zmysłów.
+	Opis fabuły: Gracz wciela się w rolę człowieka, któremu zostało żyć mniej niż kilka dni przez robaka, który pożera go od środka i wpełzł do jego gardła, gdy bohater spał. Jedynym sposobem na zniszczenie robaka, który istnieje w tym świecie, jest lek przygotowany z kwiatu rosnącego na szczycie góry. Aby tam dotrzeć, trzeba przejść przez zapomniane świątynie. 
+	Nasz bohater jest najzwyklejszym człowiekiem, z niską siłą duchową, bez nawyków bojowych, ale jak każdy człowiek zrobi wszystko, żeby żyć dalej. Dlatego będzie walczyć o swoje życie co sekundę, przechodzić przez mnóstwo wrogów, psychologicznych prób i podejmować trudne decyzje, a na koniec nie stracić zmysłów.
 
  ## 3. Postacie
-Bohater:
-	Imię: Mark
-	Punkty zdrowia: 100
-	Stan psychiczny: 100
-	Moc duchowa: 0
-	Typ: człowiek
-	Umiejętności: brak
-Towarzysze:
-
-	Zwierzęta:
-		- Kot
-			Punkty zdrowia: 20
-			Siła uderzenia: 0
-			Poziom siły: niski
-			Umiejętności: leczy
-	Duchy:
-		Punkty zdrowia: 15
-		Siła uderzenia: 2
-		Poziom siły: niski
-		Umiejętności: magia
-		
-Przeciwnicy:
-	- Cienie:
-		Punkty zdrowia: 20
-		Siła uderzenia: 1
-		Poziom siły: niski
-		Umiejętności: Może zmieniać wygląd na osobę, która jest ci bliska, silny cios w stan psychiczny bohatera
-		Punkty za zniszczenie:
-		
-	- Goblin:
-		Punkty zdrowia: 25
+	Bohater:
+		Wygląd: @
+		Imię: Mark
+		Punkty zdrowia: 100
+		Stan psychiczny: 100
+		Moc duchowa: 0
 		Siła uderzenia: 5
-		Poziom siły: niski
-		Umiejętności: magia
-		Punkty za zniszczenie:
+		Typ: człowiek
+		Umiejętności: brak
 		
-	- Szczur:
-		Punkty zdrowia: 15
-		Siła uderzenia: 3
-		Poziom siły: niski
-		Umiejętności: Pluje jadem daleko
-		Punkty za zniszczenie:
-		
-	- Władca góry:
-		Punkty zdrowia:
-		Siła uderzenia:
-		Poziom siły: bardzo silny
-		Umiejętności:
-		Punkty za zniszczenie:
-		
+	Towarzysze:
+		Zwierzęta:
+			- Kot
+				Wygląd:
+				Punkty zdrowia: 20
+				Siła uderzenia: 0
+				Moc duchowa: 5
+				Poziom siły: niski
+				Umiejętności: Stan psychiczny bohatera zyskuje punkt 5 razy po zabiciu 10 wrogów i ucieka
+				
+			- Sowa
+				Wygląd:
+				Punkty zdrowia: 20
+				Siła uderzenia: 0
+				Moc duchowa: 5
+				Poziom siły: niski
+				Umiejętności: leczy bohatera 5 razy i odlatuje
+				
+			- Duch:
+				Wygląd:
+				Punkty zdrowia: 15
+				Siła uderzenia: 0
+				Moc duchowa: 3
+				Poziom siły: niski
+				Umiejętności: magia
+				
+			- Człowiek:
+				Wygląd:
+					
+			- Zwłoki:
+				Wygląd:
+								
+	Przeciwnicy:
+		Psychologiczni przeciwnicy
+			- Cienie:
+				Wygląd:
+				Punkty zdrowia: 20
+				Siła uderzenia: 1
+				Poziom siły: niski
+				Umiejętności: Może zmieniać wygląd na osobę, która jest ci bliska, silny cios w stan psychiczny bohatera
+				Punkty za zniszczenie:
+			
+			- Statua:
+				Wygląd:
+				Punkty zdrowia: 40
+				Siła uderzenia: 1
+				Poziom siły: niski
+				Umiejętności: Rzuca różnymi częściami ludzi, jeśli podejdziesz bliżej niż na 2 pola wokół niego
+				Punkty za zniszczenie:
+				
+		Zwykli przeciwnicy
+			- Goblin:
+				Wygląd:
+				Punkty zdrowia: 25
+				Siła uderzenia: 0
+				Moc duchowa: 5
+				Poziom siły: niski
+				Umiejętności: magia
+				Punkty za zniszczenie:
+				
+			- Szczur:
+				Wygląd:
+				Punkty zdrowia: 15
+				Siła uderzenia: 3
+				Poziom siły: niski
+				Umiejętności: Pluje jadem daleko
+				Punkty za zniszczenie:
+				
+		Rzadcy przeciwnicy:
+				
+		Władca góry:
+			Wygląd:
+			Punkty zdrowia:
+			Siła uderzenia:
+			Poziom siły: bardzo silny
+			Umiejętności:
+			Punkty za zniszczenie:
+			
  ## 4. Projekt poziomów/środowiska
-	-Skrytki z różnymi przedmiotami, takimi jak:
-		Książki do nauki, jak korzystać z mocy duchowej
-		Różna broń
-		Zbroja
-		Jedzenie
-		Artefakty do zwiększenia siły duchowej
-	- Towarzysz (jako zwierzę lub duch)
-	- Pułapki
-		Skrytki
-		W ziemi
-	- Drzwi do otwierania
-	- Wybór drzwi między trudniejszym pokojem a łatwiejszym, ale z różnym obciążeniem psychologicznym
-	- Pomieszczenia do ratowania ludzi lub zwierząt w celu poprawy stanu psychicznego.
-	
+ 	Środowisko
+		- Ściany
+			= Wygląd:
+		
+		- Podłoga
+			= Wygląd:
+		
+		- Pokoje
+			= Zwykłe pokoje
+			= Pomieszczenia do ratowania (ludzi lub zwierząt w celu poprawy stanu psychicznego)
+			
+		- Na końcu losowej świątyni wybór drzwi (między trudniejszym pokojem a łatwiejszym, ale z różnym obciążeniem psychologicznym)	
+			
+	Przedmioty:
+		- Skrytki z różnymi przedmiotami, takimi jak:
+		
+			= Książki do nauki 
+				(+ powiększa duchową moc)
+				+ Wygląd:
+					"Księga Starożytnych Zaklęć"
+						Efekt: 5 
+						Opis: Zawiera potężne zaklęcia i sekrety dawnych magów
+						
+					"Sztuka Medytacji"
+						Efekt: 3 
+						Opis: Poradnik, który uczy technik medytacji, pomagających w walce ze stresem
+						
+					"Opowieści o Duchach"
+						Efekt: 4 
+						Opis: Zbiór legend i opowieści o duchach, które inspirują i wzmacniają
+						
+					"Zasady Alchemii"
+						Efekt:  6 
+						Opis: Książka zawierająca sekrety alchemii, odkrywająca tajniki transmutacji
+						
+					"Księga Rytuałów"
+						Efekt:  5 
+						Opis: Opisuje różne rytuały, które można przeprowadzać w celu wzmocnienia mocy
+						
+					"Tajemnice Magii"
+						Efekt: 4 
+						Opis: Książka, która wyjaśnia podstawowe zasady magii oraz sztuk tajemnych.
+					
+					"Filozofia Przemiany"
+						Efekt: 3 
+						Opis: Książka, która zachęca do refleksji i rozwoju duchowego.
+						
+					"Księga Snów"
+						Efekt: 2 
+						Opis: Zawiera techniki interpretacji snów i pracy z podświadomością.
+						
+					"Mistyka Natury"
+						Efekt: 4
+						Opis: Książka, która uczy o duchowych połączeniach z naturą i jej siłami
+						
+					
+			= Zbroja
+				(+ Siła uderzenia równa się: siła uderzenia gracza + siła uderzenia zbroi)
+					-- Broń bliskiego zasięgu
+						(+ Odległość: 1 )
+							* Miecz
+								+ Wygląd:
+								+ Siła uderzenia:
+							
+							* Topór
+								+ Wygląd:
+								+ Siła uderzenia:
+								
+							* Kaptur
+								+ Wygląd:
+								+ Siła uderzenia:
+							
+					-- Broń dystansowa
+						(+ Bez amunicji broń nie działa)
+						(+ Odległość: 3 )
+							* Łuk
+								+ Wygląd:
+								+ Amunicja: Strzały
+								+ Siła uderzenia: 
+								
+							* Młotek:
+								+ Wygląd: 
+								+ Amunicja: Gwoździe
+								+ Siła uderzenia: 
+								
+			= Jedzenie
+				*Jabłko
+					Efekt: 4 
+				* Zupa z grzybów
+					Efekt: 10 
+				* Suszone mięso
+					Efekt: 8 
+				* Miód
+					Efekt: 3 
+				* Owoce pradawnego drzewa
+					Efekt: 15 
+				* Czekoladowy muffin
+					Efekt: 5 
+
+			= Artefakty 
+				(+ dla zwiększenia siły duchowej podczas ataku)
+				(+ Wygląd)
+					* Amulet Mocy
+						Efekt: 5 
+						Opis: Starożytny amulet, który wzmacnia magiczne uderzenia
+						
+					* Zbroja Duchów
+						Efekt: 3  
+						Opis: Zbroja stworzona z esencji duchów, które chronią noszącego oraz zapewnia dodatkową obronę przed atakami psychicznymi
+						
+					* Amulet Przetrwania
+						Efekt: 5 
+						Opis: Amulet stworzony przez dawnych kapłanów, który wzmacnia wolę przetrwania w obliczu zagrożenia
+						
+					* Runiczny Księżyc
+						Efekt: 5
+						Opis: Artefakt związany z mocą księżyca, który wzmacnia duchowe zdolności postaci
+					
+					* Eliksir Ostatecznego Wyboru
+						Efekt: Zwiększa siłę duchową o 10 punktów, ale wymaga ofiary zdrowia (obniża zdrowie o 15 punkty)
+						Opis: Potężny eliksir, który dodaje mocy, ale wymaga poświęcenia, zmuszając do trudnych wyborów
+				
+			= Klucz
+				+ Wygląd:
+			
+ 	Interaktywne elementy:	
+		- Skrytki:
+			+ Wygląd:
+			= Otwarte skrytki
+			= Zamknięte skrytki z zagadką
+				
+		- Drzwi:
+			+ Wygląd:
+			= Otwarte drzwi
+			= Zamknięte drzwi na klucz
+			= Zamknięte drzwi z zagadką
+			
+		- Przyciski 
+			(+ które otwierają ścianę prowadzącą do sekretnego pokoju)
+				+ Wygląd:
+
  ## 5. Rozgrywka
 Mechaniki:
-
-	- Psychologiczne próby:
-		Na przykład wybór drzwi w jednym pokoju: 'W pokoju jest 10 goblinów, a szansa na przejście wynosi 40 procent', a w drugim: 'W pokoju jest człowiek, a szansa na przejście wynosi 98 procent'. Drzwi otwierają się po zabiciu wszystkich w pokoju.
-		Możesz wejść do pomieszczenia, gdzie na drzwiach będzie zagadka. Po ich otwarciu musisz pokonać wrogów i uratować człowieka, zwierzę lub dobrego ducha, aby poprawić stan psychiczny.
-	- Zbieranie zasobów: Artefakty do zbierania
-	- Rozwiązywanie zagadek: Otwieranie zamków i skrytek
-	- Walka: o przetrwanie i rozwój bohatera
-	- Towarzysz: Możesz wziąć ze skrytki towarzysza, który będzie ci pomagał. Jednak jeśli go zaniedbasz i nie będziesz go karmić ani bawić się z nim, może zaatakować cię.
-	- Po zniszczeniu wrogów dodawane są punkty do doświadczenia.
-	- Przy zwiększeniu doświadczenia zwiększa się siła uderzeń oraz siła uderzenia mocy duchowej
+	-Wybór drzwi:
+		(+ Aby otworzyć drzwi, trzeba znaleźć klucz (jeden klucz wystarcza na otwarcie jednych z dwóch drzwi))
+		(+ Drzwi otwierają się po zabiciu wszystkich w pokoju)
+			= 'W pierwszym pokoju jest 10 wrogów', a szansa na przejście wynosi 30 procent. 'W drugim pokoju jest człowiek', a szansa na przejście wynosi 98 procent
+				 (+ Jeżeli wybierzesz drugą opcję, tracisz 25 punktów do stanu psychicznego)
+				
+			= 'W pierwszym pokoju jest 10 wrogów', a szansa na przejście wynosi 30 procent. 'W drugim pokoju jest kilka cieni', a szansa na przejście wynosi 90 procent
+				 (+ Jeżeli wybierzesz drugą opcję, tracisz 15 punktów do stanu psychicznego)
+		
+			= Po środku pokoju znajduje się statua, która rzuca różnymi częściami ludzi, jeśli podejdziesz bliżej niż na 2 pola wokół niej
+				(+ Jeśli trafi, tracisz 10 punktów do stanu psychicznego)
+		
+	- Pomieszczenia do ratowania 
+		= Na drzwiach będzie zagadka. Po ich otwarciu musisz pokonać wrogów i uratować 
+			+ człowieka (otrzymujesz 20 punków do stanu psychicznego)
+			+ zwierzę lub dobrego ducha(otrzymujesz 10 punków do stanu psychicznego) 
+	
+	- Sekretny pokój 
+		= pokój wypełniony jest gazem trującym z gromadą trupów
+			( + jezegi wylosuje taki pokój, tracisz 20 punktów do stanu psychicznego)
+		= Pokój, w którym będą tylko wrogowie 
+			(+ ilość oraz rodzaje wrogów zostały losowo wygenerowane)
+		=Pokój z kilkoma skrytkami
+		
+	- Rozwiązywanie zagadek, aby otwierać zamki 
+		* Kod:
+			= Kod Morse’a: 
+				+ Opis: Gracz musi zdekodować wiadomość zapisaną w kodzie Morse’a, aby uzyskać wskazówkę do odblokowania skrytki
+	 		= Szyfr Cezara: 
+	 			+ Opis: Gracz otrzymuje zaszyfrowaną wiadomość i musi odszyfrować ją, aby znaleźć kod do zamka
+	 	* zegar
+	 		= Zagadka na ten temat, ile czasu pozostało do ...
+	 			+ 'Jeśli na zegarze wskazuje {hour}:{minute}, to ile godzin pozostało do północy?'
+	 			+ Losowe generowanie czasu
+	 			+ Obliczanie czasu pozostałego do północy
+	 			+ Porównania z czasem podanym
+	 		
+	- Znalerzenia klucza 
+	- Zbieranie zasobów z skrytek
+	
+	- Walka
+		= Po zabiciu wroga uzyskujesz punkty doświadczenia, a po osiągnięciu nowego poziomu zwiększa się początkowa siła uderzenia і moc duchowa
+	
+	- Towarzysz: 
+		(+ Bohater może mieć tylko jednego towarzysza, a innego trzeba będzie porzucić)
+			= Jeżeli uratujesz zwierzę lub ducha, możesz go oswoić, a on będzie ci pomagał
+				+ Jednak jeśli go zaniedbasz i nie będziesz go karmić ani bawić się z nim, może zaatakować cię
 
  ## 6. Interfejs użytkownika i sterowanie
 Interfejs:
-
-	- Na górze będzie tekst z napisami i podpowiedziami
-	- Po lewej stronie sama gra, a po prawej stronie od gry sloty na plecak.
+	- Na górze znajdą się teksty z napisami i podpowiedziami
+	
+	- Po lewej stronie sama gra, a po prawej stronie od gry sloty na plecak
+	
 	- 12 slotów plecaka
-	- Na dole pasek poziomu podziemia, punktów zdrowia, doświadczenia, stanu psychicznego, siły uderzenia, siły uderzenia mocy duchowej
+	
+	- Na dole pasek 
+		= poziomu podziemia
+		= punktów zdrowia
+		= doświadczenia
+		= stanu psychicznego
+		= siły uderzenia
+		= siły uderzenia mocy duchowej
+	
 Sterowanie:
-
 	- Klawiatura: W - przód, S - tył, A - lewo, D - prawo
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
