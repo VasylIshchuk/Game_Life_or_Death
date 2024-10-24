@@ -51,8 +51,6 @@ Nazwa: "Life or Death"
 			- Człowiek:
 				Wygląd:
 					
-			- Zwłoki:
-				Wygląd:
 								
 	Przeciwnicy:
 		Psychologiczni przeciwnicy
@@ -103,10 +101,10 @@ Nazwa: "Life or Death"
  ## 4. Projekt poziomów/środowiska
  	Środowisko
 		- Ściany
-			= Wygląd:
+			= Wygląd: '|' '—'
 		
 		- Podłoga
-			= Wygląd:
+			= Wygląd: '·'
 		
 		- Pokoje
 			= Zwykłe pokoje
@@ -226,6 +224,9 @@ Nazwa: "Life or Death"
 			= Klucz
 				+ Wygląd:
 			
+			= Zwłoki:
+				Wygląd:
+			
  	Interaktywne elementy:	
 		- Skrytki:
 			+ Wygląd:
@@ -251,10 +252,13 @@ Mechaniki:
 				 (+ Jeżeli wybierzesz drugą opcję, tracisz 25 punktów do stanu psychicznego)
 				
 			= 'W pierwszym pokoju jest 10 wrogów', a szansa na przejście wynosi 30 procent. 'W drugim pokoju jest kilka cieni', a szansa na przejście wynosi 90 procent
-				 (+ Jeżeli wybierzesz drugą opcję, tracisz 15 punktów do stanu psychicznego)
+				 (+ Jeżeli wybierzesz drugą opcję, tracisz 20 punktów do stanu psychicznego)
 		
 			= Po środku pokoju znajduje się statua, która rzuca różnymi częściami ludzi, jeśli podejdziesz bliżej niż na 2 pola wokół niej
 				(+ Jeśli trafi, tracisz 10 punktów do stanu psychicznego)
+				
+			= 'W pierwszym pokoju jest 10 wrogów', a szansa na przejście wynosi 30 procent. 'W drugim pokoju będzie góra wokół', a szansa na przejście wynosi 100 procent
+				(+ Jeżeli wybierzesz drugą opcję, tracisz 20 punktów do stanu psychicznego)
 		
 	- Pomieszczenia do ratowania 
 		= Na drzwiach będzie zagadka. Po ich otwarciu musisz pokonać wrogów i uratować 
@@ -262,11 +266,11 @@ Mechaniki:
 			+ zwierzę lub dobrego ducha(otrzymujesz 10 punków do stanu psychicznego) 
 	
 	- Sekretny pokój 
-		= pokój wypełniony jest gazem trującym z gromadą trupów
+		= Pokój wypełniony jest gazem trującym z gromadą trupów
 			( + jezegi wylosuje taki pokój, tracisz 20 punktów do stanu psychicznego)
 		= Pokój, w którym będą tylko wrogowie 
 			(+ ilość oraz rodzaje wrogów zostały losowo wygenerowane)
-		=Pokój z kilkoma skrytkami
+		= Pokój z kilkoma skrytkami
 		
 	- Rozwiązywanie zagadek, aby otwierać zamki 
 		* Kod:
