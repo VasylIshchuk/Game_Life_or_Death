@@ -71,7 +71,7 @@ class Map:
 
     # Finds an item by its position
     def _find_item(self, position: Position):
-        for entity in self.entity_report:
+        for entity in self.items:
             if entity.position == position:
                 return entity
         return None
