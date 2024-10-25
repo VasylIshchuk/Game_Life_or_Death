@@ -1,6 +1,7 @@
-from item import *
-from creature import *
-from tile import *
+from item import Item
+from creature import Creature
+from tile import Tile
+from position import Position
 
 
 class Map:
@@ -9,12 +10,13 @@ class Map:
         self.grid = []
         self.load_map()
         self.creatures = []
+        self.items = []
         self.entity_report = []
 
     # Loads map data from a file and sends it for processing
     def load_map(self):
         try:
-            with open('map_layout.txt', 'r') as file:
+            with open('../map_layout.txt', 'r') as file:
                 self.parse_layout(file.read())
         except FileNotFoundError:
             print("File not found")
@@ -42,6 +44,7 @@ class Map:
         if self.is_item_placement_valid(position):
             self.grid[position.x][position.y] = Tile(item.icon)
             item.set_position(position)
+            self.items.append(item)
             self.entity_report.append(item)
             return True
         return False
@@ -57,22 +60,40 @@ class Map:
         return False
 
     # Removes an item from the specified position
-    def remove_item(self, item: Item, position: Position) -> bool:
-        if self.grid[position.x][position.y].element == item.icon:
+    def remove_item(self, position: Position) -> bool:
+        item = self._find_item(position)
+        if item:
             self.grid[position.x][position.y] = Tile(Tile.FLOOR)
+            item.set_position(Position(None, None))
             self.entity_report.remove(item)
             return True
         return False
 
+    # Finds an item by its position
+    def _find_item(self, position: Position):
+        for entity in self.entity_report:
+            if entity.position == position:
+                return entity
+        return None
+
     # Removes a creature from the specified position
-    def remove_creature(self, creature: Creature, position: Position) -> bool:
-        if self.grid[position.x][position.y].element == creature.icon:
+    def remove_creature(self, position: Position) -> bool:
+        creature = self._find_creature(position)
+        if creature:
             self.grid[position.x][position.y] = Tile(Tile.FLOOR)
             creature.set_position(Position(None, None))
             self.entity_report.remove(creature)
             return True
         return False
 
+    # Finds a creature by its position
+    def _find_creature(self, position: Position):
+        for creature in self.creatures:
+            if creature.position == position:
+                return creature
+        return None
+
+    # Generates a report of all entities on the map
     def generate_report(self):
         for entity in self.entity_report:
             print(

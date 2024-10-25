@@ -9,9 +9,9 @@ class Tile:
 
     # Check if the tile is passable
     def is_passable(self):
-        if self.element in self.CONDITIONAL :
+        if self.element in self.CONDITIONAL:
             return 'conditional'
-        elif self.element  in self.BARRIER:
+        elif self.element in self.BARRIER:
             return 'impassable'
-        else :
+        else:
             return 'passable'
