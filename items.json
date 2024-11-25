@@ -198,5 +198,8 @@
     "category": "Misc",
     "icon": "",
     "description": "A key for opening locked areas"
+  },
+  "Corpse": {
+    "icon": ""
   }
 }

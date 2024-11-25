@@ -20,12 +20,18 @@
       }
     }
   },
-  "Human": {
-    "icon": ""
-  },
-  "Corpse": {
-    "icon": ""
-  },
+   "Human": {
+    "category": "Human",
+    "icon": "0",
+    "description": "Ordinary human",
+    "health_points": 50,
+    "defense": 0,
+    "spiritual_power": 0,
+    "strike_power": 1,
+    "agility": 2,
+    "attack_range": 1,
+    "skills": "None"
+   },
   "Cat": {
     "category": "Companions",
     "icon": "",

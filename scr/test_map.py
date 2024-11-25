@@ -1,5 +1,5 @@
 # Run tests from the terminal:
-# python -m unittest -v map_test.py
+# python -m unittest -v test_map.py
 
 import unittest
 from map import Map
