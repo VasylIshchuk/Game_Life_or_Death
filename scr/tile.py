@@ -3,15 +3,15 @@ class Tile:
     BARRIER = ('—', '|', '#')
     CONDITIONAL = '\\'
 
-    def __init__(self, element):
-        self.element = element
+    def __init__(self, icon):
+        self.icon = icon
         self.state = self.is_passable()
 
     # Check if the tile is passable
-    def is_passable(self):
-        if self.element in self.CONDITIONAL:
+    def __is_passable(self):
+        if self.icon in self.CONDITIONAL:
             return 'conditional'
-        elif self.element in self.BARRIER:
+        elif self.icon in self.BARRIER:
             return 'impassable'
         else:
             return 'passable'

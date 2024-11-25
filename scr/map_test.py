@@ -11,16 +11,15 @@ from position import Position
 def print_map(map):
     print('\n')
     for row in map.grid:
-        print(''.join(elem.element for elem in row))
+        print(''.join(elem.icon for elem in row))
     print('\n')
 
 
 class TestMap(unittest.TestCase):
     def setUp(self):
         self.map = Map()
-        self.item = Item("+", 'Zbroja Duchów',
-                         'Zbroja stworzona z esencji duchów, które chronią noszącego oraz zapewnia dodatkową obronę przed atakami psychicznymi')
-        self.creature = Creature("@", 'Mark', 'bohater')
+        self.item = Item('Zbroja Duchów')
+        self.creature = Creature('Mark')
 
     def test_load_map(self):
         print_map(self.map)

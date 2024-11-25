@@ -12,91 +12,234 @@ Nazwa: "Life or Death"
 	Nasz bohater jest najzwyklejszym człowiekiem, z niską siłą duchową, bez nawyków bojowych, ale jak każdy człowiek zrobi wszystko, żeby żyć dalej. Dlatego będzie walczyć o swoje życie co sekundę, przechodzić przez mnóstwo wrogów, psychologicznych prób i podejmować trudne decyzje, a na koniec nie stracić zmysłów.
 
  ## 3. Postacie
+ (+ Odległość mocy duchownej zawsze = 2)
 	Bohater:
 		Wygląd: @
+		Opis: Zwykły farmer
 		Imię: Mark
 		Punkty zdrowia: 100
 		Stan psychiczny: 100
+		Poziom: 1
+		Obrona: 0
 		Moc duchowa: 0
-		Siła uderzenia: 5
-		Typ: człowiek
+		Siła uderzenia: 3
+		Zwinność: 4
+		Odległość uderzenia: 1
 		Umiejętności: brak
 		
+		+ W plecaku:
+			Broń: widły
+			Jedzenia: jabłka x2, chleb x1
+		
+	Człowiek:
+		Wygląd:
+				
+	Zwłoki:
+		Wygląd:
+	
 	Towarzysze:
 		Zwierzęta:
 			- Kot
-				Wygląd:
+				Wygląd: 
+				Opis: Mały, czarny kot, porusza się cicho i z gracją, jego obecność dodaje otuchy bohaterowi
 				Punkty zdrowia: 20
+				Poziom: 4
+				Obrona: 0
 				Siła uderzenia: 0
-				Moc duchowa: 5
-				Poziom siły: niski
-				Umiejętności: Stan psychiczny bohatera zyskuje punkt 5 razy po zabiciu 10 wrogów i ucieka
+				Moc duchowa: 0
+				Odległość uderzenia: 1
+				Umiejętności: Stan psychiczny bohatera zyskuje 2 punktów, po zabiciu 10 wrogów
 				
 			- Sowa
-				Wygląd:
+				Wygląd: 
+				Opis: Wielka, biała sowa. Leczy bohatera unosząc się w pobliżu i wydając delikatne, uspokajające pohukiwanie
 				Punkty zdrowia: 20
+				Poziom: 4
+				Obrona: 0
 				Siła uderzenia: 0
-				Moc duchowa: 5
-				Poziom siły: niski
-				Umiejętności: leczy bohatera 5 razy i odlatuje
+				Moc duchowa: 0
+				Odległość leczenia: 3
+				Umiejętności: leczy bohatera 5 razy na 1 punkt
 				
 			- Duch:
 				Wygląd:
+				Opis: Niematerialna postać przypominająca dawno zapomnianą osobę
 				Punkty zdrowia: 15
+				Poziom: 4
+				Obrona: 0
 				Siła uderzenia: 0
 				Moc duchowa: 3
-				Poziom siły: niski
-				Umiejętności: magia
-				
-			- Człowiek:
-				Wygląd:
+				Odległość uderzenia: 2
+				Umiejętności: "Ochronna aura" – Na krótki czas zwiększa duchową odporność bohatera, co chroni przed atakami istot o wysokiej mocy duchowej
 					
 								
 	Przeciwnicy:
 		Psychologiczni przeciwnicy
 			- Cienie:
 				Wygląd:
-				Punkty zdrowia: 20
-				Siła uderzenia: 1
-				Poziom siły: niski
+				Opis:  Rozmyta, niematerialna sylwetka przypominająca cień człowieka. W mroku może przybierać wygląd osób, które bohater kochał lub darzył zaufaniem. 		Porusza się niepostrzeżenie, wywołując niepokój i wzmacniając lęki bohatera.  
+				Punkty zdrowia: 15
+				Poziom: 1
+				Obrona: 0
+				Siła uderzenia: 1 (+ Zmniejsza stan psychiczny z każdem ciosem)
+				Moc duchowa: 0
+				Zwinność: 4
+				Odległość uderzenia: 1
 				Umiejętności: Może zmieniać wygląd na osobę, która jest ci bliska, silny cios w stan psychiczny bohatera
-				Punkty za zniszczenie:
 			
 			- Statua:
 				Wygląd:
+				Opis: Kamienna postać, przypominająca posąg dawnego bóstwa lub wojownika w rękach dzierży fragmenty roztrzaskanych ciał, które wykorzystuje jako broń
 				Punkty zdrowia: 40
-				Siła uderzenia: 1
-				Poziom siły: niski
+				Poziom: 4
+				Obrona: 20
+				Siła uderzenia: 3 (+ Zmniejsza stan psychiczny z każdem ciosem)
+				Moc duchowa: 0
+				Zwinność: 0
+				Odległość uderzenia: 2
 				Umiejętności: Rzuca różnymi częściami ludzi, jeśli podejdziesz bliżej niż na 2 pola wokół niego
-				Punkty za zniszczenie:
 				
-		Zwykli przeciwnicy
-			- Goblin:
-				Wygląd:
-				Punkty zdrowia: 25
-				Siła uderzenia: 0
-				Moc duchowa: 5
-				Poziom siły: niski
-				Umiejętności: magia
-				Punkty za zniszczenie:
-				
-			- Szczur:
-				Wygląd:
+		Slabi przeciwnicy
+			- Cieniowy Widmo:
+				Wygląd: 
+				Opis: Półprzezroczysta istota o zmiennym kształcie. Przypomina czarny dym z jaskrawymi, żółtymi oczami
 				Punkty zdrowia: 15
-				Siła uderzenia: 3
-				Poziom siły: niski
+				Poziom: 1
+				Obrona: 0
+				Siła uderzenia: 0
+				Moc duchowa: 1
+				Odległość uderzenia: 2
+				Zwinność: 4
+				Umiejętności: brak
+		
+			- Głodny Upiór :
+				Wygląd: 
+				Opis: Postać przypominająca ducha, o kościstych rękach i twarzy z rozdziawionymi ustami, jakby wiecznie krzyczała 
+				Punkty zdrowia: 10
+				Poziom: 1
+				Obrona: 0
+				Siła uderzenia: 2
+				Moc duchowa: 0
+				Odległość uderzenia: 1
+				Zwinność: 4
+				Umiejętności: brak
+			 
+			- Pijawka Mroku:
+				Wygląd:
+				Opis: Długi, wijący się potwór, przypominający ogromnego robaka
+				Punkty zdrowia: 10
+				Poziom: 1
+				Obrona: 0
+				Siła uderzenia: 1
+				Moc duchowa: 0
+				Odległość uderzenia: 1
+				Zwinność: 4
+				Umiejętności: brak
+					
+		Zwykli przeciwnicy
+			- Szczur:
+				Wygląd: 
+				Opis: Mały gryzoń z czerwonymi oczami i długim ogonem. Jego zęby błyszczą od jadowitej śliny
+				Punkty zdrowia: 15
+				Poziom: 2
+				Obrona: 0
+				Siła uderzenia: 5
+				Moc duchowa: 0
+				Odległość uderzenia: 3
+				Zwinność: 8
 				Umiejętności: Pluje jadem daleko
-				Punkty za zniszczenie:
 				
-		Rzadcy przeciwnicy:
+			- Plugawy Czciciel:
+				Wygląd:
+				Opis: Człowiek o zdeformowanych rysach twarzy, ubrany w szaty kultysty, w rękach trzyma starą, zakrwawioną laskę
+				Punkty zdrowi: 20
+				Poziom: 2
+				Obrona: 5
+				Siła uderzenia: 0
+				Moc duchowa: 7
+				Odległość uderzenia: 2
+				Zwinność: 9
+				Umiejętności: magia zakrwawioną laskę
+
+			- Martwe Drzewo:
+				Wygląd: 
+				Opis: Starodrzew przypominający przerażającą, humanoidalną postać z wydrążonymi oczami. Jego korzenie poruszają się jak węże, a kora pokryta jest śladami krwi
+				Punkty zdrowia: 20
+				Poziom: 2
+				Obrona: 10
+				Siła uderzenia: 6
+				Moc duchowa: 0
+				Zwinność: 7
+				Odległość uderzenia: 3
+				Umiejętności: korzenie poruszają się jak węże
 				
+		Średni przeciwnik:
+			- Zatruty Mnich: 
+				Wygląd: 
+				Opis: Wychudzona, niemal szkieletowa postać w brudnym, zniszczonym habicie. Ręce pokryte wrzodami, oczy puste, usta wykrzywione w złowieszczym uśmiechu
+				Punkty zdrowia: 30
+				Poziom: 3
+				Obrona: 10	
+				Siła uderzenia: 0
+				Moc duchowa: 10
+				Odległość uderzenia: 2
+				Zwinność: 10
+				Umiejętności: zatruty oddech
+			
+			- Korzeń Strażnik:
+				Wygląd: 
+				Opis: Gigantyczny żyjący korzeń z kolczastymi pnączami, pokrytymi sokami przypominającymi krew
+				Punkty życia: 35
+				Poziom: 3
+				Obrona: 10
+				Siła uderzenia: 10
+				Moc duchowa: 0
+				Odległość uderzenia: 3
+				Zwinność: 5
+				Umiejętności: zatruty oddech
+				
+		Silni przeciwnicy	
+			- Ogniowy Dusiciel 
+				Wygląd: 
+				Opis: Demon o płonącej skórze, z długimi ramionami i czerwonymi oczami
+				Punkty zdrowia: 45
+				Poziom: 4
+				Obrona: 20
+				Siła uderzenia: 20   
+				Moc duchowa: 15
+				Odległość uderzenia: 1
+				Zwinność: 24
+				Umiejętności: płomienny chwyt a płomienne języki (jak moc duchowna)
+				
+			- Zgnilizna Żywa:
+				Wygląd: 
+				Opis: Wielki twór złożony z rozkładających się resztek ciał
+				Punkty zdrowia: 50
+				Poziom: 4
+				Obrona: 25
+				Siła uderzenia: 18
+				Moc duchowa: 0
+				Odległość uderzenia: 2
+				Zwinność: 20	
+				Umiejętności: rozpada się na części, które wybuchają + podczas śmierci wybucha,  z dodwójną siłą
+				
+		Bardzo silni:
+			- Skrzydlaty Koszmar
+				Wygląd:  
+				Opis: Wielki, skrzydlaty potwór, a skrzydła wyglądają jak rozdarte płachty skóry
+				Punkty zdrowia: 60
+				Poziom: 5
+				Obrona: 40
+				Siła uderzenia: 25
+				Moc duchowa: 20
+				Odległość uderzenia: 3
+				Zwinność: 31
+				Umiejętności: lotny atak
+							
 		Władca góry:
-			Wygląd:
-			Punkty zdrowia:
-			Siła uderzenia:
-			Poziom siły: bardzo silny
-			Umiejętności:
-			Punkty za zniszczenie:
+		 	- Strażnik Świątyń:
+					
+			
 			
  ## 4. Projekt poziomów/środowiska
  	Środowisko
@@ -114,92 +257,51 @@ Nazwa: "Life or Death"
 			
 	Przedmioty:
 		- Skrytki z różnymi przedmiotami, takimi jak:
+			(+ Każdy przedmiot pojawia się w grze tylko raz ( oprócz amunicji (strzały,gwoździe) ))
 		
 			= Książki do nauki 
 				(+ powiększa duchową moc)
 				+ Wygląd:
 					"Księga Starożytnych Zaklęć"
-						Efekt: 5 
+						Efekt: 3 
 						Opis: Zawiera potężne zaklęcia i sekrety dawnych magów
 						
 					"Sztuka Medytacji"
-						Efekt: 3 
+						Efekt: 1 
 						Opis: Poradnik, który uczy technik medytacji, pomagających w walce ze stresem
 						
 					"Opowieści o Duchach"
-						Efekt: 4 
+						Efekt: 2 
 						Opis: Zbiór legend i opowieści o duchach, które inspirują i wzmacniają
 						
 					"Zasady Alchemii"
-						Efekt:  6 
+						Efekt:  3 
 						Opis: Książka zawierająca sekrety alchemii, odkrywająca tajniki transmutacji
 						
 					"Księga Rytuałów"
-						Efekt:  5 
+						Efekt:  2 
 						Opis: Opisuje różne rytuały, które można przeprowadzać w celu wzmocnienia mocy
 						
 					"Tajemnice Magii"
-						Efekt: 4 
+						Efekt: 3 
 						Opis: Książka, która wyjaśnia podstawowe zasady magii oraz sztuk tajemnych.
 					
 					"Filozofia Przemiany"
-						Efekt: 3 
+						Efekt: 1 
 						Opis: Książka, która zachęca do refleksji i rozwoju duchowego.
 						
 					"Księga Snów"
-						Efekt: 2 
+						Efekt: 1 
 						Opis: Zawiera techniki interpretacji snów i pracy z podświadomością.
 						
 					"Mistyka Natury"
-						Efekt: 4
+						Efekt: 2
 						Opis: Książka, która uczy o duchowych połączeniach z naturą i jej siłami
 						
-					
-			= Zbroja
-				(+ Siła uderzenia równa się: siła uderzenia gracza + siła uderzenia zbroi)
-					-- Broń bliskiego zasięgu
-						(+ Odległość: 1 )
-							* Miecz
-								+ Wygląd:
-								+ Siła uderzenia:
-							
-							* Topór
-								+ Wygląd:
-								+ Siła uderzenia:
-								
-							* Kaptur
-								+ Wygląd:
-								+ Siła uderzenia:
-							
-					-- Broń dystansowa
-						(+ Bez amunicji broń nie działa)
-						(+ Odległość: 3 )
-							* Łuk
-								+ Wygląd:
-								+ Amunicja: Strzały
-								+ Siła uderzenia: 
-								
-							* Młotek:
-								+ Wygląd: 
-								+ Amunicja: Gwoździe
-								+ Siła uderzenia: 
-								
-			= Jedzenie
-				*Jabłko
-					Efekt: 4 
-				* Zupa z grzybów
-					Efekt: 10 
-				* Suszone mięso
-					Efekt: 8 
-				* Miód
-					Efekt: 3 
-				* Owoce pradawnego drzewa
-					Efekt: 15 
-				* Czekoladowy muffin
-					Efekt: 5 
-
 			= Artefakty 
-				(+ dla zwiększenia siły duchowej podczas ataku)
+				(+ Siła uderzenia równa się: duchowa moc gracza + efekt uderzenia artefaktu )
+				(+ Można użyć tylko raz )
+				(+ Odległość: 2 )
 				(+ Wygląd)
 					* Amulet Mocy
 						Efekt: 5 
@@ -210,22 +312,110 @@ Nazwa: "Life or Death"
 						Opis: Zbroja stworzona z esencji duchów, które chronią noszącego oraz zapewnia dodatkową obronę przed atakami psychicznymi
 						
 					* Amulet Przetrwania
-						Efekt: 5 
+						Efekt: 3 
 						Opis: Amulet stworzony przez dawnych kapłanów, który wzmacnia wolę przetrwania w obliczu zagrożenia
 						
 					* Runiczny Księżyc
-						Efekt: 5
+						Efekt: 4
 						Opis: Artefakt związany z mocą księżyca, który wzmacnia duchowe zdolności postaci
 					
 					* Eliksir Ostatecznego Wyboru
-						Efekt: Zwiększa siłę duchową o 10 punktów, ale wymaga ofiary zdrowia (obniża zdrowie o 15 punkty)
+						Efekt: Zwiększa siłę duchową o 8 punktów, ale wymaga ofiary zdrowia (obniża zdrowie o 15 punkty)
 						Opis: Potężny eliksir, który dodaje mocy, ale wymaga poświęcenia, zmuszając do trudnych wyborów
+					
+			= Broń
+					-- Broń bliskiego zasięgu
+						(+ Odległość: 1 )
+							* Widły:
+								+ Wygład:
+								+ Wytrzymałość: 30
+								+ Siła uderzenia: 1
+								
+							* Miecz:
+								+ Wygląd:
+								+ Wytrzymałość: 80
+								+ Siła uderzenia: 5
+							
+							* Topór:
+								+ Wygląd:
+								+ Wytrzymałość: 60
+								+ Siła uderzenia: 4
+								
+							* Oszczep:
+								+ Wygląd:
+								+ Wytrzymałość: 50
+								+ Siła uderzenia: 3
+							
+					-- Broń dystansowa
+						(+ Bez amunicji broń nie działa)
+						(+ Odległość: 3 )
+							* Łuk
+								+ Wygląd:
+								+ Amunicja: Strzały
+								+ Wytrzymałość: 25
+								+ Siła uderzenia: 3
+								
+							* Młotek:
+								+ Wygląd: 
+								+ Amunicja: Gwoździe
+								+ Wytrzymałość: 30
+								+ Siła uderzenia: 4
+								
+					-- Amunicja:
+							* Gwoździe:
+								+ Wygłąd:
+								+ Ilość: 5
+								
+							* Strzały:
+								+ Wygłąd:
+								+ Ilość: 5
+								
+					-- Odłamki:
+						(+ Po zużyciu broni, na zieme pojawają sie odłamki)
+							+ Wygłąd:
+					
+								
+			= Zbroja:
+				*Białe habicie:
+					+ Wygłąd:
+					+ Obrona: 20
+					
+				*Niebieskie habicie:
+					+ Wygłąd:
+					+ Obrona: 40
+					
+				*Czarne habicie:
+					+ Wygłąd:
+					+ Obrona: 60
+					
+						
+			= Jedzenie:
+				*Jabłko
+					Wygląd:
+					Efekt: 4 
+				* Zupa z grzybów
+					Wygląd:
+					Efekt: 10 
+				* Suszone mięso
+					Wygląd:
+					Efekt: 8 
+				* Miód
+					Wygląd:
+					Efekt: 3 
+				* Owoce pradawnego drzewa
+					Wygląd:
+					Efekt: 15 
+				* Czekoladowy muffin
+					Wygląd:
+					Efekt: 5 
+				* Chleb
+					Wygląd:
+					Efekt: 5
 				
 			= Klucz
 				+ Wygląd:
 			
-			= Zwłoki:
-				Wygląd:
+			
 			
  	Interaktywne elementy:	
 		- Skrytki:
@@ -245,25 +435,27 @@ Nazwa: "Life or Death"
 
  ## 5. Rozgrywka
 Mechaniki:
-	-Wybór drzwi:
+	- Jeśli psychiczny stan spada d0 o postać popada w obłed i gra sie kończy
+	
+	- Wybór drzwi:
 		(+ Aby otworzyć drzwi, trzeba znaleźć klucz (jeden klucz wystarcza na otwarcie jednych z dwóch drzwi))
 		(+ Drzwi otwierają się po zabiciu wszystkich w pokoju)
 			= 'W pierwszym pokoju jest 10 wrogów', a szansa na przejście wynosi 30 procent. 'W drugim pokoju jest człowiek', a szansa na przejście wynosi 98 procent
 				 (+ Jeżeli wybierzesz drugą opcję, tracisz 25 punktów do stanu psychicznego)
 				
 			= 'W pierwszym pokoju jest 10 wrogów', a szansa na przejście wynosi 30 procent. 'W drugim pokoju jest kilka cieni', a szansa na przejście wynosi 90 procent
-				 (+ Jeżeli wybierzesz drugą opcję, tracisz 20 punktów do stanu psychicznego)
+				 (+ Jeżeli wybierzesz drugą opcję, tracisz dużo do stanu psychicznego)
 		
 			= Po środku pokoju znajduje się statua, która rzuca różnymi częściami ludzi, jeśli podejdziesz bliżej niż na 2 pola wokół niej
-				(+ Jeśli trafi, tracisz 10 punktów do stanu psychicznego)
+				(+ Jeśli trafi, tracisz dużo do stanu psychicznego)
 				
 			= 'W pierwszym pokoju jest 10 wrogów', a szansa na przejście wynosi 30 procent. 'W drugim pokoju będzie góra wokół', a szansa na przejście wynosi 100 procent
 				(+ Jeżeli wybierzesz drugą opcję, tracisz 20 punktów do stanu psychicznego)
 		
 	- Pomieszczenia do ratowania 
 		= Na drzwiach będzie zagadka. Po ich otwarciu musisz pokonać wrogów i uratować 
-			+ człowieka (otrzymujesz 20 punków do stanu psychicznego)
-			+ zwierzę lub dobrego ducha(otrzymujesz 10 punków do stanu psychicznego) 
+			+ człowieka (otrzymujesz 10 punków do stanu psychicznego)
+			+ zwierzę lub dobrego ducha (otrzymujesz 5 punków do stanu psychicznego) 
 	
 	- Sekretny pokój 
 		= Pokój wypełniony jest gazem trującym z gromadą trupów
@@ -285,16 +477,30 @@ Mechaniki:
 	 			+ Obliczanie czasu pozostałego do północy
 	 			+ Porównania z czasem podanym
 	 		
-	- Znalerzenia klucza 
-	- Zbieranie zasobów z skrytek
+	- Znalerzenia klucza .
+	- Zbieranie zasobów z skrytek.
+	
+	- Przy pierwszym spotkaniu z przeciwnikami gracz traci punkty psychicznego stanu w zaleznosci od poziomu przeciwnika.
 	
 	- Walka
-		= Po zabiciu wroga uzyskujesz punkty doświadczenia, a po osiągnięciu nowego poziomu zwiększa się początkowa siła uderzenia і moc duchowa
+		= Mechanika trafienia postaci w walce wygląda następująco: wykorzystuję rzut 1k20. 
+			-- Trafienie następuje, gdy wynik: 1k20 + poziom postaci + siła uderzenia/moc duchowna + broń ≤ poziom przeciwnika + zręczność.
+				+ Jeśli postać ma zbroje, cios odbierany jest od zbroi. Jeśli brak zbroi lub zbroja się wyczerpała, cios odbierany jest od zdrowia postaci.
+				+ Jeśli atakuje bronią, wytrzymałość broni zmniejsza się o 1 punkt.
+					++ Po zużyciu broni, czyli gdy wytrzymałość osiąga 0, broń łamie się i znika z ekwipunku bohatera, a na zieme pojawają sie odłamki.
+				 
+		= Po zabiciu wroga uzyskujesz punkty doświadczenia: numer pozioma przeciwnika * 2
 	
+	- Poziomy doświadczenia:
+		= Aby osiągnąć nowy poziom należy zdobyć punkty według wzory: numer poziomu * 10 ;
+		= Po osiżgnięciu nowego poziomu za każdym razem zwiększają się statystyki:
+			+ siła uderzenia : + numer poziomu + 2
+			+ moc duchowa : + numer poziomu
+			+ Zwinność : + numer poziomu + 3
+
 	- Towarzysz: 
 		(+ Bohater może mieć tylko jednego towarzysza, a innego trzeba będzie porzucić)
 			= Jeżeli uratujesz zwierzę lub ducha, możesz go oswoić, a on będzie ci pomagał
-				+ Jednak jeśli go zaniedbasz i nie będziesz go karmić ani bawić się z nim, może zaatakować cię
 
  ## 6. Interfejs użytkownika i sterowanie
 Interfejs:

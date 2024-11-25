@@ -1,0 +1,202 @@
+{
+  "Book of Ancient Spells": {
+    "category": "Book",
+    "icon": "",
+    "effect": 3,
+    "description": "Contains powerful spells and secrets of ancient mages"
+  },
+  "The Art of Meditation": {
+    "category": "Book",
+    "icon": "",
+    "effect": 1,
+    "description": "A guide teaching meditation techniques that help combat stress"
+  },
+  "Tales of Ghosts": {
+    "category": "Book",
+    "icon": "",
+    "effect": 2,
+    "description": "A collection of legends and ghost stories that inspire and strengthen"
+  },
+  "Principles of Alchemy": {
+    "category": "Book",
+    "icon": "",
+    "effect": 3,
+    "description": "A book containing alchemical secrets and the mysteries of transmutation"
+  },
+  "Book of Rituals": {
+    "category": "Book",
+    "icon": "",
+    "effect": 2,
+    "description": "Describes various rituals to enhance power"
+  },
+  "Secrets of Magic": {
+    "category": "Book",
+    "icon": "",
+    "effect": 3,
+    "description": "Explains the basics of magic and arcane arts"
+  },
+  "Philosophy of Transformation": {
+    "category": "Book",
+    "icon": "",
+    "effect": 1,
+    "description": "Encourages reflection and spiritual growth"
+  },
+  "Book of Dreams": {
+    "category": "Book",
+    "icon": "",
+    "effect": 1,
+    "description": "Includes techniques for interpreting dreams and working with the subconscious"
+  },
+  "Mysticism of Nature": {
+    "category": "Book",
+    "icon": "",
+    "effect": 2,
+    "description": "Teaches spiritual connections with nature and its forces"
+  },
+  "Amulet of Power": {
+    "category": "Artifact",
+    "icon": "",
+    "effect": 5,
+    "description": "An ancient amulet that enhances magical strikes",
+    "attack_range": 2
+  },
+  "Spirit Armor": {
+    "category": "Artifact",
+    "icon": "",
+    "effect": 3,
+    "description": "Armor made from spirit essence, providing additional defense against psychic attacks",
+    "attack_range": 2
+  },
+  "Amulet of Survival": {
+    "category": "Artifact",
+    "icon": "",
+    "effect": 3,
+    "description": "Created by ancient priests, it strengthens the will to survive in the face of danger",
+    "attack_range": 2
+  },
+  "Runic Moon": {
+    "category": "Artifact",
+    "icon": "",
+    "effect": 4,
+    "description": "An artifact linked to the moon's power, boosting spiritual abilities",
+    "attack_range": 2
+  },
+  "Elixir of Final Choice": {
+    "category": "Artifact",
+    "icon": "",
+    "effect": {
+      "spiritual_power": 8,
+      "health_cost": 15
+    },
+    "description": "A powerful elixir that adds strength but demands sacrifice, forcing difficult choices"
+  },
+  "Pitchfork": {
+    "category": "Weapon",
+    "icon": "",
+    "durability": 30,
+    "strike_power": 1,
+    "attack_range": 1
+  },
+  "Sword": {
+    "category": "Weapon",
+    "icon": "",
+    "durability": 80,
+    "strike_power": 5,
+    "attack_range": 1
+  },
+  "Axe": {
+    "category": "Weapon",
+    "icon": "",
+    "durability": 60,
+    "strike_power": 4,
+    "attack_range": 1
+  },
+  "Spear": {
+    "category": "Weapon",
+    "icon": "",
+    "durability": 50,
+    "strike_power": 3,
+    "attack_range": 1
+  },
+  "Bow": {
+    "category": "Weapon",
+    "icon": "",
+    "ammo_type": "Arrows",
+    "durability": 25,
+    "strike_power": 3,
+    "attack_range": 3
+  },
+  "Hammer": {
+    "category": "Weapon",
+    "icon": "",
+    "ammo_type": "Nails",
+    "durability": 30,
+    "strike_power": 4,
+    "attack_range": 3
+  },
+  "Nails": {
+    "category": "Ammo",
+    "icon": "",
+    "quantity": 5
+  },
+  "Arrows": {
+    "category": "Ammo",
+    "icon": "",
+    "quantity": 5
+  },
+  "White Habit": {
+    "category": "Armor",
+    "icon": "",
+    "defense": 20
+  },
+  "Blue Habit": {
+    "category": "Armor",
+    "icon": "",
+    "defense": 40
+  },
+  "Black Habit": {
+    "category": "Armor",
+    "icon": "",
+    "defense": 60
+  },
+  "Apple": {
+    "category": "Food",
+    "icon": "",
+    "effect": 4
+  },
+  "Mushroom Soup": {
+    "category": "Food",
+    "icon": "",
+    "effect": 10
+  },
+  "Dried Meat": {
+    "category": "Food",
+    "icon": "",
+    "effect": 8
+  },
+  "Honey": {
+    "category": "Food","icon": "",
+
+    "effect": 3
+  },
+  "Fruits of the Ancient Tree": {
+    "category": "Food",
+    "icon": "",
+    "effect": 15
+  },
+  "Chocolate Muffin": {
+    "category": "Food",
+    "icon": "",
+    "effect": 5
+  },
+  "Bread": {
+    "category": "Food",
+    "icon": "",
+    "effect": 5
+  },
+  "Key": {
+    "category": "Misc",
+    "icon": "",
+    "description": "A key for opening locked areas"
+  }
+}
