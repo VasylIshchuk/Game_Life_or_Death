@@ -1,5 +1,5 @@
-from creature import Creature
+from fight_test import Fight
 
-Creature.test_heal()
+Fight.test_healing()
 
-Creature.test_attack_strength()
+Fight.test_combat()
