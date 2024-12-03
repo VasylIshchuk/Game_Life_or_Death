@@ -3,7 +3,7 @@
 
 import unittest
 from map import Map
-from item import Item
+from itemFactory import ItemFactory
 from creature import Creature
 from position import Position
 
@@ -18,7 +18,7 @@ def print_map(map):
 class TestMap(unittest.TestCase):
     def setUp(self):
         self.map = Map()
-        self.item = Item('Zbroja Duchów')
+        self.item = ItemFactory.create_item('Spear')
         self.creature = Creature('Mark')
 
     def test_load_map(self):

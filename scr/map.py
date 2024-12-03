@@ -1,4 +1,3 @@
-from item import Item
 from creature import Creature
 from tile import Tile
 from position import Position
@@ -33,14 +32,14 @@ class Map:
 
     # Checks if an item can be placed at the given position
     def is_item_placement_valid(self, position: Position) -> bool:
-        return self.grid[position.x][position.y].element == Tile.FLOOR
+        return self.grid[position.x][position.y].icon == Tile.FLOOR
 
     # Checks if a creature can be placed at the given position
     def is_creature_placement_valid(self, position: Position) -> bool:
-        return self.grid[position.x][position.y].element == Tile.FLOOR
+        return self.grid[position.x][position.y].icon == Tile.FLOOR
 
     # Places an item at the specified position on the map
-    def place_item(self, item: Item, position: Position) -> bool:
+    def place_item(self, item, position: Position) -> bool:
         if self.is_item_placement_valid(position):
             self.grid[position.x][position.y] = Tile(item.icon)
             item.set_position(position)
@@ -97,5 +96,5 @@ class Map:
     def generate_report(self):
         for entity in self.entity_report:
             print(
-                f"{type(entity).__name__} -> title: {entity.title}; icon: {entity.icon}; description: {entity.description}; "
+                f"{type(entity).__name__} -> title: {entity.title}; icon: {entity.icon};"
                 f"position: x = {entity.position.x} y = {entity.position.y}")
