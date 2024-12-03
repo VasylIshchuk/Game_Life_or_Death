@@ -100,140 +100,113 @@ Nazwa: "Life or Death"
 				Umiejętności: Rzuca różnymi częściami ludzi, jeśli podejdziesz bliżej niż na 2 pola wokół niego
 				
 		Slabi przeciwnicy
+			+ (Punkty zdrowia: 15-20; Obrona: 0-5; Zwinność: 2-4)
 			- Cieniowy Widmo:
 				Wygląd: 
 				Opis: Półprzezroczysta istota o zmiennym kształcie. Przypomina czarny dym z jaskrawymi, żółtymi oczami
 				Punkty zdrowia: 15
 				Poziom: 1
-				Obrona: 0
 				Siła uderzenia: 0
 				Moc duchowa: 1
 				Odległość uderzenia: 2
-				Zwinność: 4
 				Umiejętności: brak
 		
 			- Głodny Upiór :
 				Wygląd: 
 				Opis: Postać przypominająca ducha, o kościstych rękach i twarzy z rozdziawionymi ustami, jakby wiecznie krzyczała 
-				Punkty zdrowia: 10
 				Poziom: 1
-				Obrona: 0
 				Siła uderzenia: 2
 				Moc duchowa: 0
 				Odległość uderzenia: 1
-				Zwinność: 4
 				Umiejętności: brak
 			 
 			- Pijawka Mroku:
 				Wygląd:
 				Opis: Długi, wijący się potwór, przypominający ogromnego robaka
-				Punkty zdrowia: 10
 				Poziom: 1
-				Obrona: 0
 				Siła uderzenia: 1
 				Moc duchowa: 0
 				Odległość uderzenia: 1
-				Zwinność: 4
 				Umiejętności: brak
 					
 		Zwykli przeciwnicy
+			+ (Punkty zdrowia: 25-35; Obrona: 5-10; Zwinność: 6-8)
 			- Szczur:
 				Wygląd: 
 				Opis: Mały gryzoń z czerwonymi oczami i długim ogonem. Jego zęby błyszczą od jadowitej śliny
-				Punkty zdrowia: 15
 				Poziom: 2
-				Obrona: 0
-				Siła uderzenia: 5
+				Siła uderzenia: 6
 				Moc duchowa: 0
 				Odległość uderzenia: 3
-				Zwinność: 8
 				Umiejętności: Pluje jadem daleko
 				
 			- Plugawy Czciciel:
 				Wygląd:
 				Opis: Człowiek o zdeformowanych rysach twarzy, ubrany w szaty kultysty, w rękach trzyma starą, zakrwawioną laskę
-				Punkty zdrowi: 20
 				Poziom: 2
-				Obrona: 5
 				Siła uderzenia: 0
 				Moc duchowa: 7
 				Odległość uderzenia: 2
-				Zwinność: 9
 				Umiejętności: magia zakrwawioną laskę
 
 			- Martwe Drzewo:
 				Wygląd: 
 				Opis: Starodrzew przypominający przerażającą, humanoidalną postać z wydrążonymi oczami. Jego korzenie poruszają się jak węże, a kora pokryta jest śladami krwi
-				Punkty zdrowia: 20
 				Poziom: 2
-				Obrona: 10
-				Siła uderzenia: 6
+				Siła uderzenia: 8
 				Moc duchowa: 0
-				Zwinność: 7
 				Odległość uderzenia: 3
 				Umiejętności: korzenie poruszają się jak węże
 				
 		Średni przeciwnik:
+			+ (Punkty zdrowia: 40-50; Obrona: 15-20; Zwinność: 12-15)
 			- Zatruty Mnich: 
 				Wygląd: 
 				Opis: Wychudzona, niemal szkieletowa postać w brudnym, zniszczonym habicie. Ręce pokryte wrzodami, oczy puste, usta wykrzywione w złowieszczym uśmiechu
-				Punkty zdrowia: 30
 				Poziom: 3
-				Obrona: 10	
 				Siła uderzenia: 0
-				Moc duchowa: 10
+				Moc duchowa: 11
 				Odległość uderzenia: 2
-				Zwinność: 10
 				Umiejętności: zatruty oddech
 			
 			- Korzeń Strażnik:
 				Wygląd: 
 				Opis: Gigantyczny żyjący korzeń z kolczastymi pnączami, pokrytymi sokami przypominającymi krew
-				Punkty życia: 35
 				Poziom: 3
-				Obrona: 10
-				Siła uderzenia: 10
+				Siła uderzenia: 12
 				Moc duchowa: 0
 				Odległość uderzenia: 3
-				Zwinność: 5
 				Umiejętności: zatruty oddech
 				
-		Silni przeciwnicy	
+		Silni przeciwnicy
+			+ (Punkty zdrowia: 60-70; Obrona: 30-40; Zwinność: 20-22)	
 			- Ogniowy Dusiciel 
 				Wygląd: 
 				Opis: Demon o płonącej skórze, z długimi ramionami i czerwonymi oczami
-				Punkty zdrowia: 45
 				Poziom: 4
-				Obrona: 20
 				Siła uderzenia: 20   
 				Moc duchowa: 15
 				Odległość uderzenia: 1
-				Zwinność: 24
 				Umiejętności: płomienny chwyt a płomienne języki (jak moc duchowna)
 				
 			- Zgnilizna Żywa:
 				Wygląd: 
 				Opis: Wielki twór złożony z rozkładających się resztek ciał
-				Punkty zdrowia: 50
 				Poziom: 4
-				Obrona: 25
 				Siła uderzenia: 18
 				Moc duchowa: 0
 				Odległość uderzenia: 2
-				Zwinność: 20	
 				Umiejętności: rozpada się na części, które wybuchają + podczas śmierci wybucha,  z dodwójną siłą
 				
 		Bardzo silni:
+			+ (Punkty zdrowia: 80-90; Obrona: 50-60; Zwinność: 28-30)	
 			- Skrzydlaty Koszmar
 				Wygląd:  
 				Opis: Wielki, skrzydlaty potwór, a skrzydła wyglądają jak rozdarte płachty skóry
-				Punkty zdrowia: 60
 				Poziom: 5
-				Obrona: 40
 				Siła uderzenia: 25
 				Moc duchowa: 20
 				Odległość uderzenia: 3
-				Zwinność: 31
 				Umiejętności: lotny atak
 							
 		Władca góry:
@@ -484,7 +457,8 @@ Mechaniki:
 	
 	- Walka
 		= Mechanika trafienia postaci w walce wygląda następująco: wykorzystuję rzut 1k20. 
-			-- Trafienie następuje, gdy wynik: 1k20 + poziom postaci + siła uderzenia/moc duchowna + broń ≤ poziom przeciwnika + zręczność.
+			-- Trafienie następuje, gdy wynik: 1k20 + poziom postaci + siła uderzenia/moc duchowna + broń - (poziom przeciwnika + zręczność) przekładamy to na procenty i 			
+			to będzie nasza szansa na trafienie. Następnie, jeśli wylosowana liczba od 1 do 100 będzie mniejsza niż nasza szansa, to trafiliśmy:
 				+ Jeśli postać ma zbroje, cios odbierany jest od zbroi. Jeśli brak zbroi lub zbroja się wyczerpała, cios odbierany jest od zdrowia postaci.
 				+ Jeśli atakuje bronią, wytrzymałość broni zmniejsza się o 1 punkt.
 					++ Po zużyciu broni, czyli gdy wytrzymałość osiąga 0, broń łamie się i znika z ekwipunku bohatera, a na zieme pojawają sie odłamki.
@@ -496,7 +470,7 @@ Mechaniki:
 		= Po osiżgnięciu nowego poziomu za każdym razem zwiększają się statystyki:
 			+ siła uderzenia : + numer poziomu + 2
 			+ moc duchowa : + numer poziomu
-			+ Zwinność : + numer poziomu + 3
+			+ zwinność : + numer poziomu + 2
 
 	- Towarzysz: 
 		(+ Bohater może mieć tylko jednego towarzysza, a innego trzeba będzie porzucić)

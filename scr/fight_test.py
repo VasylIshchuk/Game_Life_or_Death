@@ -87,7 +87,7 @@ def _simulate_detailed_combat(creature_1, creature_2, use_physical_power_1, use_
 """Display creature characteristics"""
 def _display_characteristics(creature):
     print(
-        f"{creature.title} stats: [HP: {creature.health_points}, Level: {creature.level}, "
+        f"{creature.title} stats: [HP: {creature.health_points}, Defense: {creature.defense}, Level: {creature.level}, "
         f"Physical Attack: {creature.physical_attack_power}, Spiritual Power: {creature.spiritual_power}, "
         f"Agility: {creature.agility}]")
 
@@ -188,7 +188,6 @@ def _show_statistics(statistics, creature_1, creature_2, wins_creature_1, wins_c
     _show_sorted_statistics(statistics)
     _show_result_creature(creature_1, wins_creature_1, wins_creature_2)
     _show_result_creature(creature_2, wins_creature_2, wins_creature_1)
-    print(f"[ {creature_2.title}: won: {wins_creature_2}; lose: {wins_creature_1} ]\n")
     print("---------------------------------------------------------------------------------------------------")
 
 
