@@ -20,7 +20,7 @@ def _load_creatures_from_file():
 def _display_creatures(data):
     creatures = []
     for idx, creature in enumerate(data, start=1):
-        print(f"{idx}) {creature}")
+        print(f"{idx}) {creature} ")
         creatures.append(creature)
     return creatures
 
@@ -87,7 +87,7 @@ def _simulate_detailed_combat(creature_1, creature_2, use_physical_power_1, use_
 """Display creature characteristics"""
 def _display_characteristics(creature):
     print(
-        f"{creature.title} stats: [HP: {creature.health_points}, Defense: {creature.defense}, Level: {creature.level}, "
+        f"{creature.title} stats: [Category: {creature.category}, HP: {creature.health_points}, Defense: {creature.defense}, Level: {creature.level}, "
         f"Physical Attack: {creature.physical_attack_power}, Spiritual Power: {creature.spiritual_power}, "
         f"Agility: {creature.agility}]")
 
@@ -193,7 +193,7 @@ def _show_statistics(statistics, creature_1, creature_2, wins_creature_1, wins_c
 
 """ Shows all rounds, including total wins and losses."""
 def _show_result_creature(creature,wins,loses):
-    print(f"\n[ {creature.title}: won: {wins}; lose: {loses} ]\n")
+    print(f"\n[ {creature.title} (category: {creature.category}): won: {wins}; lose: {loses} ]\n")
 
 
 """Sorts and displays round statistics"""

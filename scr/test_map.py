@@ -3,7 +3,7 @@
 
 import unittest
 from map import Map
-from itemFactory import ItemFactory
+from item_factory import ItemFactory
 from creature import Creature
 from position import Position
 

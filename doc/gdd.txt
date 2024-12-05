@@ -78,8 +78,8 @@ Nazwa: "Life or Death"
 			- Cienie:
 				Wygląd:
 				Opis:  Rozmyta, niematerialna sylwetka przypominająca cień człowieka. W mroku może przybierać wygląd osób, które bohater kochał lub darzył zaufaniem. 		Porusza się niepostrzeżenie, wywołując niepokój i wzmacniając lęki bohatera.  
-				Punkty zdrowia: 15
-				Poziom: 1
+				Punkty zdrowia: 12
+				Poziom: 0
 				Obrona: 0
 				Siła uderzenia: 1 (+ Zmniejsza stan psychiczny z każdem ciosem)
 				Moc duchowa: 0
@@ -90,56 +90,61 @@ Nazwa: "Life or Death"
 			- Statua:
 				Wygląd:
 				Opis: Kamienna postać, przypominająca posąg dawnego bóstwa lub wojownika w rękach dzierży fragmenty roztrzaskanych ciał, które wykorzystuje jako broń
-				Punkty zdrowia: 40
+				Punkty zdrowia: 85
 				Poziom: 4
-				Obrona: 20
-				Siła uderzenia: 3 (+ Zmniejsza stan psychiczny z każdem ciosem)
+				Obrona: 45
+				Siła uderzenia: 5 (+ Zmniejsza stan psychiczny z każdem ciosem)
 				Moc duchowa: 0
 				Zwinność: 0
 				Odległość uderzenia: 2
 				Umiejętności: Rzuca różnymi częściami ludzi, jeśli podejdziesz bliżej niż na 2 pola wokół niego
 				
 		Slabi przeciwnicy
-			+ (Punkty zdrowia: 15-20; Obrona: 0-5; Zwinność: 2-4)
+			+ (Punkty zdrowia: 10-15; Obrona: 0; Zwinność: 0-2)
+			
 			- Cieniowy Widmo:
 				Wygląd: 
 				Opis: Półprzezroczysta istota o zmiennym kształcie. Przypomina czarny dym z jaskrawymi, żółtymi oczami
-				Punkty zdrowia: 15
-				Poziom: 1
+				Poziom: 0	
 				Siła uderzenia: 0
 				Moc duchowa: 1
 				Odległość uderzenia: 2
 				Umiejętności: brak
 		
-			- Głodny Upiór :
-				Wygląd: 
-				Opis: Postać przypominająca ducha, o kościstych rękach i twarzy z rozdziawionymi ustami, jakby wiecznie krzyczała 
-				Poziom: 1
-				Siła uderzenia: 2
-				Moc duchowa: 0
-				Odległość uderzenia: 1
-				Umiejętności: brak
 			 
 			- Pijawka Mroku:
 				Wygląd:
 				Opis: Długi, wijący się potwór, przypominający ogromnego robaka
-				Poziom: 1
-				Siła uderzenia: 1
+				Poziom: 0
+				Siła uderzenia: 2
 				Moc duchowa: 0
 				Odległość uderzenia: 1
 				Umiejętności: brak
-					
-		Zwykli przeciwnicy
-			+ (Punkty zdrowia: 25-35; Obrona: 5-10; Zwinność: 6-8)
+	
+		Podstawowy
+			+ (Punkty zdrowia: 20-30; Obrona: 0-5; Zwinność: 3-6)	
+			
+			- Głodny Upiór :
+				Wygląd: 
+				Opis: Postać przypominająca ducha, o kościstych rękach i twarzy z rozdziawionymi ustami, jakby wiecznie krzyczała 
+				Poziom: 1
+				Siła uderzenia: 0
+				Moc duchowa: 5
+				Odległość uderzenia: 1
+				Umiejętności: brak
+				
 			- Szczur:
 				Wygląd: 
 				Opis: Mały gryzoń z czerwonymi oczami i długim ogonem. Jego zęby błyszczą od jadowitej śliny
-				Poziom: 2
+				Poziom: 1
 				Siła uderzenia: 6
 				Moc duchowa: 0
 				Odległość uderzenia: 3
 				Umiejętności: Pluje jadem daleko
-				
+					
+		Zwykli przeciwnicy
+			+ (Punkty zdrowia: 30-40; Obrona: 5-10; Zwinność: 7-9)
+
 			- Plugawy Czciciel:
 				Wygląd:
 				Opis: Człowiek o zdeformowanych rysach twarzy, ubrany w szaty kultysty, w rękach trzyma starą, zakrwawioną laskę
@@ -463,7 +468,7 @@ Mechaniki:
 				+ Jeśli atakuje bronią, wytrzymałość broni zmniejsza się o 1 punkt.
 					++ Po zużyciu broni, czyli gdy wytrzymałość osiąga 0, broń łamie się i znika z ekwipunku bohatera, a na zieme pojawają sie odłamki.
 				 
-		= Po zabiciu wroga uzyskujesz punkty doświadczenia: numer pozioma przeciwnika * 2
+		= Po zabiciu wroga uzyskujesz punkty doświadczenia: numer pozioma przeciwnika * 2 + 1
 	
 	- Poziomy doświadczenia:
 		= Aby osiągnąć nowy poziom należy zdobyć punkty według wzory: numer poziomu * 10 ;

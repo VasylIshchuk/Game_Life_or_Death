@@ -1,11 +1,16 @@
 ENEMY_STATS = {
     "WeakEnemies": {
-        "health_points": (15, 20),
+        "health_points": (10, 20),
+        "defense": (0, 0),
+        "agility": (0, 2),
+    },
+    "BasicEnemies": {
+        "health_points": (20, 30),
         "defense": (0, 5),
-        "agility": (0, 4),
+        "agility": (3, 6),
     },
     "NormalEnemies": {
-        "health_points": (25, 35),
+        "health_points": (30, 40),
         "defense": (5, 10),
         "agility": (7, 9),
     },
