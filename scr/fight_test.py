@@ -202,8 +202,6 @@ def _show_sorted_statistics(statistics):
         print(f"{i}: {statistics[i]}")
 
 
-
-
 """Performs an attack by the attacker on the defender using either physical power or spiritual power"""
 def _perform_attack(attacker, defender, use_physical_power):
     if use_physical_power:
