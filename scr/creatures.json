@@ -6,9 +6,9 @@
     "description": "Ordinary farmer",
     "health_points": 100,
     "mental_state": 100,
-    "level": 1,
+    "level": 0,
     "defense": 0,
-    "spiritual_power": 0,
+    "spiritual_power": 2,
     "attack_power": 3,
     "agility": 4,
     "attack_range": 1,
@@ -40,7 +40,7 @@
     "level": 4,
     "attack_power": 0,
     "attack_range": 3,
-    "skills": "Heals the hero 5 times for 1 point"
+    "skills": "Heals the hero for 1 point"
   },
   "Spirit": {
     "type": "special",
@@ -58,7 +58,7 @@
     "icon": "",
     "description": "Blurred, immaterial silhouette resembling a human shadow. In the dark, it can take the form of loved ones or trusted individuals. Moves stealthily, inducing anxiety and strengthening the hero's fears.",
     "health_points": 12,
-    "level": 1,
+    "level": 0,
     "defense": 0,
     "attack_power": 1,
     "agility": 2,
@@ -134,7 +134,7 @@
     "icon": "",
     "description": "A ghostly figure with bony hands and a face with gaping mouth, seemingly screaming forever",
     "level": 1,
-    "attack_power": 4,
+    "attack_power": 5,
     "attack_range": 2,
     "skills": "Only spiritual attacks work on him"
   },
@@ -194,7 +194,7 @@
     "icon": "",
     "description": "Emaciated, almost skeletal figure in a dirty, tattered habit. Hands covered in sores, eyes vacant, mouth twisted into a sinister grin.",
     "level": 3,
-    "attack_power": 11,
+    "attack_power": 12,
     "attack_range": 2,
     "skills": "After death, a poisonous gas of double the power explodes"
   },
@@ -214,7 +214,7 @@
     "icon": "",
     "description": "A fanatical follower of a dark cult whose body was drained of life as a sacrifice to his master. His sinewy skin is covered in ritual markings.",
     "level": 3,
-    "attack_power": 10,
+    "attack_power": 11,
     "attack_range": 2,
     "skills": "Critical Hit - Every third attack deals double damage"
   },

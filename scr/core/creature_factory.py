@@ -37,7 +37,8 @@ def _init_special_creature(title):
         return FireChoker(title)
     elif title == "Rotting Flesh":
         return RottingFlesh(title)
-    else : return Creature(title)
+    else:
+        return Creature(title)
 
 
 class CreatureFactory:

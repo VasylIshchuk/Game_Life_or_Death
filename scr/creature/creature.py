@@ -4,7 +4,7 @@ from ..item.weapon import Weapon
 
 import random
 
-MAX_ATTACK_POINTS = 50
+MAX_ATTACK_POINTS = 60
 
 
 def _generate_random_value(min_value, max_value):
@@ -58,9 +58,8 @@ class Creature(GameEntity):
             self.defense = _generate_random_value(*stats["defense"])
             self.agility = _generate_random_value(*stats["agility"])
         else:
-            self.health_points = int(self._get_attribute("health_points") or 0)
-            self.defense = int(self._get_attribute("defense") or 0)
-            self.agility = int(self._get_attribute("agility") or 0)
+            attributes = ["health_points", "defense", "agility"]
+            self._initialize_general_attributes(attributes)
 
     def check_is_alive(self):
         """Update the creature's alive status based on its health."""
@@ -79,6 +78,7 @@ class Creature(GameEntity):
         result_dice = random.randint(1, 20)
 
         hit_probability = self.calculate_hit_chance(enemy, self.attack_power, result_dice)
+
         random_factor = random.random()
 
         if result_dice == 20 or (result_dice != 1 and random_factor <= hit_probability):
@@ -92,15 +92,16 @@ class Creature(GameEntity):
         defense_points = enemy.level + enemy.agility
 
         hit_probability = (attack_points - defense_points + MAX_ATTACK_POINTS) / (2 * MAX_ATTACK_POINTS)
+        hit_probability = self._clamp_chance(hit_probability)
         self.HIT_CHANCE = hit_probability
-        return self._clamp_chance(hit_probability)
+        return hit_probability
 
     def _clamp_chance(self, efficiency_chance):
         """Clamps the hit chance to a minimum of 10% and a maximum of 90%."""
         if efficiency_chance > 0.9:
             return 0.9
-        elif efficiency_chance < 0.1:
-            return 0.1
+        elif efficiency_chance < 0.2:
+            return 0.2
         else:
             return efficiency_chance
 

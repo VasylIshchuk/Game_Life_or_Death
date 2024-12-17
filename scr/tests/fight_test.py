@@ -97,9 +97,10 @@ def _display_characteristics(creature):
 def _execute_combat_round_hero(attacker, defender, use_physical_power):
     """Execute a single combat round between attacker and defender"""
     health_points_before_attack = defender.health_points
+    defense_points_before_attack = defender.defense
     _perform_attack_hero(attacker, defender, use_physical_power)
-    _display_combat(attacker, defender, health_points_before_attack)
-    if not defender.is_alive :
+    _display_combat(attacker, defender, health_points_before_attack, defense_points_before_attack)
+    if not defender.is_alive:
         print(f"{defender.title} is dead ;(")
         return True
 
@@ -110,8 +111,9 @@ def _execute_combat_round_hero(attacker, defender, use_physical_power):
 def _execute_combat_round(attacker, defender):
     """Execute a single combat round between attacker and defender"""
     health_points_before_attack = defender.health_points
+    defense_points_before_attack = defender.defense
     attacker.attack(defender)
-    _display_combat(attacker, defender, health_points_before_attack)
+    _display_combat(attacker, defender, health_points_before_attack, defense_points_before_attack)
     if not defender.is_alive:
         print(f"{defender.title} is dead ;(")
         return True
@@ -122,10 +124,9 @@ def _execute_combat_round(attacker, defender):
     return False
 
 
-def _display_combat(attacker, defender, health_points_before_attack):
+def _display_combat(attacker, defender, health_points_before_attack, defense_points_before_attack):
     _show_attack_details(attacker)
-    _display_attack_result(attacker, defender, health_points_before_attack)
-
+    _display_attack_result(attacker, defender, health_points_before_attack, defense_points_before_attack)
 
 
 def _show_attack_details(creature):
@@ -134,14 +135,15 @@ def _show_attack_details(creature):
     print(f"The {creature.title} has a {round(creature.HIT_CHANCE * 100, 2)}% chance of hitting the enemy.")
 
 
-def _display_attack_result(attacker, defender, health_points_before_attack):
+def _display_attack_result(attacker, defender, health_points_before_attack, defense_points_before_attack):
     """Display the result of an attack"""
-    if defender.health_points == health_points_before_attack:
+    if defender.health_points == health_points_before_attack and defender.defense == defense_points_before_attack:
         print(f"{attacker.title} missed :(")
     else:
         print(f"{attacker.title} hit successfully :)")
         print(f"The {defender.title} lost {health_points_before_attack - defender.health_points} HP.")
         print(f"The {defender.title} has {defender.health_points} HP left.")
+        print(f"The {defender.title} has {defender.defense} DP left.")
         if defender.category == "Hero":
             print(f"The {defender.title} has {defender.mental_state} MS left.")
 
@@ -292,10 +294,9 @@ def _print_separator():
 class Fight:
     """Class to manage and test fight scenarios between creatures"""
 
-    """Tests the healing mechanism for a creature by healing a specified number of points"""
-
     @staticmethod
     def test_healing():
+        """Tests the healing mechanism for a creature by healing a specified number of points"""
         mark = Creature("Mark")
         mark.health_points = 90
         print(f"Health points of {mark.title} = {mark.health_points}")
@@ -308,10 +309,9 @@ class Fight:
         mark.healing(heal_points)
         print(f"After healing by {heal_points} points: health points of {mark.title} = {mark.health_points}")
 
-    """Tests a combat scenario between creatures"""
-
     @staticmethod
     def test_combat():
+        """Tests a combat scenario between creatures"""
         creatures = _load_creatures_from_file()
         _print_separator()
 

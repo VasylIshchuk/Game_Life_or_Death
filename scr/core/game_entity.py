@@ -9,8 +9,6 @@ def _parse_attribute(data_creature: dict, attribute_name: str):
 
 
 def _load_data_from_file(file_path: str, title: str) -> dict:
-    # base_dir = os.path.dirname(os.path.abspath(__file__))
-    # file_path = os.path.join(base_dir, "..", file_name)
     try:
         with open(file_path, "r") as file:
             data = json.load(file)
