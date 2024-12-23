@@ -12,215 +12,243 @@ Nazwa: "Life or Death"
 	Nasz bohater jest najzwyklejszym człowiekiem, z niską siłą duchową, bez nawyków bojowych, ale jak każdy człowiek zrobi wszystko, żeby żyć dalej. Dlatego będzie walczyć o swoje życie co sekundę, przechodzić przez mnóstwo wrogów, psychologicznych prób i podejmować trudne decyzje, a na koniec nie stracić zmysłów.
 
  ## 3. Postacie
- (+ Odległość mocy duchownej zawsze = 2)
-	Bohater:
-		Wygląd: @
-		Opis: Zwykły farmer
-		Imię: Mark
-		Punkty zdrowia: 100
-		Stan psychiczny: 100
-		Poziom: 1
-		Obrona: 0
-		Moc duchowa: 0
-		Siła uderzenia: 3
-		Zwinność: 4
-		Odległość uderzenia: 1
-		Umiejętności: brak
-		
-		+ W plecaku:
-			Broń: widły
-			Jedzenia: jabłka x2, chleb x1
-		
-	Człowiek:
-		Wygląd:
-				
-	Zwłoki:
-		Wygląd:
-	
-	Towarzysze:
-		Zwierzęta:
-			- Kot
-				Wygląd: 
-				Opis: Mały, czarny kot, porusza się cicho i z gracją, jego obecność dodaje otuchy bohaterowi
-				Punkty zdrowia: 20
-				Poziom: 4
-				Obrona: 0
-				Siła uderzenia: 0
-				Moc duchowa: 0
-				Odległość uderzenia: 1
-				Umiejętności: Stan psychiczny bohatera zyskuje 2 punktów, po zabiciu 10 wrogów
-				
-			- Sowa
-				Wygląd: 
-				Opis: Wielka, biała sowa. Leczy bohatera unosząc się w pobliżu i wydając delikatne, uspokajające pohukiwanie
-				Punkty zdrowia: 20
-				Poziom: 4
-				Obrona: 0
-				Siła uderzenia: 0
-				Moc duchowa: 0
-				Odległość leczenia: 3
-				Umiejętności: leczy bohatera 5 razy na 1 punkt
-				
-			- Duch:
-				Wygląd:
-				Opis: Niematerialna postać przypominająca dawno zapomnianą osobę
-				Punkty zdrowia: 15
-				Poziom: 4
-				Obrona: 0
-				Siła uderzenia: 0
-				Moc duchowa: 3
-				Odległość uderzenia: 2
-				Umiejętności: "Ochronna aura" – Na krótki czas zwiększa duchową odporność bohatera, co chroni przed atakami istot o wysokiej mocy duchowej
-					
-								
-	Przeciwnicy:
-		Psychologiczni przeciwnicy
-			- Cienie:
-				Wygląd:
-				Typ: specjalny 
-				Opis:  Rozmyta, niematerialna sylwetka przypominająca cień człowieka. W mroku może przybierać wygląd osób, które bohater kochał lub darzył zaufaniem. 		Porusza się niepostrzeżenie, wywołując niepokój i wzmacniając lęki bohatera.  
-				Punkty zdrowia: 12
-				Poziom: 0
-				Obrona: 0
-				Siła uderzenia: 1 (+ Zmniejsza stan psychiczny z każdem ciosem)
-				Moc duchowa: 0
-				Zwinność: 4
-				Odległość uderzenia: 1
-				Umiejętności: Może zmieniać wygląd na osobę, która jest ci bliska, silny cios w stan psychiczny bohatera
-			
-			- Statua:
-				Wygląd:
-				Typ: specjalny 
-				Opis: Kamienna postać, przypominająca posąg dawnego bóstwa lub wojownika w rękach dzierży fragmenty roztrzaskanych ciał, które wykorzystuje jako broń
-				Punkty zdrowia: 85
-				Poziom: 4
-				Obrona: 45
-				Siła uderzenia: 5 (+ Zmniejsza stan psychiczny z każdem ciosem)
-				Moc duchowa: 0
-				Zwinność: 0
-				Odległość uderzenia: 2
-				Umiejętności: Rzuca różnymi częściami ludzi, jeśli podejdziesz bliżej niż na 2 pola wokół niego
-				
-		Slabi przeciwnicy
-			+ (Punkty zdrowia: 10-15; Obrona: 0; Zwinność: 0-2)
-			
-			- Cieniowy Widmo:
-				Wygląd: 
-				Opis: Półprzezroczysta istota o zmiennym kształcie. Przypomina czarny dym z jaskrawymi, żółtymi oczami
-				Poziom: 0	
-				Siła uderzenia: 0
-				Moc duchowa: 1
-				Odległość uderzenia: 2
-				Umiejętności: brak
-		
-			 
-			- Pijawka Mroku:
-				Wygląd:
-				Opis: Długi, wijący się potwór, przypominający ogromnego robaka
-				Poziom: 0
-				Siła uderzenia: 2
-				Moc duchowa: 0
-				Odległość uderzenia: 1
-				Umiejętności: brak
-	
-		Podstawowy
-			+ (Punkty zdrowia: 20-30; Obrona: 0-5; Zwinność: 3-6)	
-			
-			- Głodny Upiór :
-				Wygląd: 
-				Opis: Postać przypominająca ducha, o kościstych rękach i twarzy z rozdziawionymi ustami, jakby wiecznie krzyczała 
-				Poziom: 1
-				Siła uderzenia: 0
-				Moc duchowa: 5
-				Odległość uderzenia: 1
-				Umiejętności: brak
-				
-			- Szczur:
-				Wygląd: 
-				Typ: specjalny 
-				Opis: Mały gryzoń z czerwonymi oczami i długim ogonem. Jego zęby błyszczą od jadowitej śliny
-				Poziom: 1
-				Siła uderzenia: 3	
-				Moc duchowa: 0
-				Odległość uderzenia: 3
-				Umiejętności: Pluje jadem daleko + każdy atak zmniejsza zdrowie przeciwnika o 1 punkt przez 3 tury
-					
-		Zwykli przeciwnicy
-			+ (Punkty zdrowia: 30-40; Obrona: 5-10; Zwinność: 7-9)
+**Bohater:**
+	- Wygląd: @
+	- Opis: Zwykły farmer
+	- Imię: Mark
+	- Punkty zdrowia: 100
+	- Stan psychiczny: 100
+	- Poziom: 0
+	- Obrona: 0
+	- Moc duchowa: 0
+	- Siła uderzenia: 3
+	- Zwinność: 4
+	- Odległość uderzenia: 1
+	- Umiejętności: Brak
+	- **W plecaku:**
+	  - Broń: Widły
+	  - Jedzenie: Jabłka x2, Chleb x1
 
-			- Plugawy Czciciel:
-				Wygląd:
-				Opis: Człowiek o zdeformowanych rysach twarzy, ubrany w szaty kultysty, w rękach trzyma starą, zakrwawioną laskę
-				Poziom: 2
-				Siła uderzenia: 0
-				Moc duchowa: 7
-				Odległość uderzenia: 2
-				Umiejętności: magia zakrwawioną laskę
+---
 
-			- Martwe Drzewo:
-				Wygląd: 
-				Opis: Starodrzew przypominający przerażającą, humanoidalną postać z wydrążonymi oczami. Jego korzenie poruszają się jak węże, a kora pokryta jest śladami krwi
-				Poziom: 2
-				Siła uderzenia: 8
-				Moc duchowa: 0
-				Odległość uderzenia: 3
-				Umiejętności: korzenie poruszają się jak węże
-				
-		Średni przeciwnik:
-			+ (Punkty zdrowia: 40-50; Obrona: 15-20; Zwinność: 12-15)
-			- Zatruty Mnich: 
-				Wygląd: 
-				Opis: Wychudzona, niemal szkieletowa postać w brudnym, zniszczonym habicie. Ręce pokryte wrzodami, oczy puste, usta wykrzywione w złowieszczym uśmiechu
-				Poziom: 3
-				Siła uderzenia: 0
-				Moc duchowa: 11
-				Odległość uderzenia: 2
-				Umiejętności: zatruty oddech
-			
-			- Korzeń Strażnik:
-				Wygląd: 
-				Opis: Gigantyczny żyjący korzeń z kolczastymi pnączami, pokrytymi sokami przypominającymi krew
-				Poziom: 3
-				Siła uderzenia: 12
-				Moc duchowa: 0
-				Odległość uderzenia: 3
-				Umiejętności: zatruty oddech
-				
-		Silni przeciwnicy
-			+ (Punkty zdrowia: 60-70; Obrona: 30-40; Zwinność: 20-22)	
-			- Ogniowy Dusiciel 
-				Wygląd: 
-				Opis: Demon o płonącej skórze, z długimi ramionami i czerwonymi oczami
-				Poziom: 4
-				Siła uderzenia: 20   
-				Moc duchowa: 15
-				Odległość uderzenia: 1
-				Umiejętności: płomienny chwyt a płomienne języki (jak moc duchowna)
-				
-			- Zgnilizna Żywa:
-				Wygląd: 
-				Opis: Wielki twór złożony z rozkładających się resztek ciał
-				Poziom: 4
-				Siła uderzenia: 18
-				Moc duchowa: 0
-				Odległość uderzenia: 2
-				Umiejętności: rozpada się na części, które wybuchają + podczas śmierci wybucha,  z dodwójną siłą
-				
-		Bardzo silni:
-			+ (Punkty zdrowia: 80-90; Obrona: 50-60; Zwinność: 28-30)	
-			- Skrzydlaty Koszmar
-				Wygląd:  
-				Opis: Wielki, skrzydlaty potwór, a skrzydła wyglądają jak rozdarte płachty skóry
-				Poziom: 5
-				Siła uderzenia: 25
-				Moc duchowa: 20
-				Odległość uderzenia: 3
-				Umiejętności: lotny atak
-							
-		Władca góry:
-		 	- Strażnik Świątyń:
-					
-			
+**Towarzysze:**
+	+ (Punkty zdrowia: 15-25; Obrona: 0-5; Zwinność: 0-2)	
+	- **Kot:**
+	  - Wygląd:
+	  - Opis: Mały czarny kot, porusza się cicho i z gracją, jego obecność dodaje otuchy bohaterowi
+	  - Poziom: 4
+	  - Obrona: 0
+	  - Siła uderzenia: 0
+	  - Odległość uderzenia: 1
+	  - Umiejętności: Stan psychiczny bohatera zwiększa się o 2 punkty po zabiciu 10 wrogów
+
+	- **Sowa:**
+	  - Wygląd:
+	  - Opis: Wielka, biała sowa. Leczy bohatera unosząc się w pobliżu i wydając delikatne, uspokajające pohukiwanie
+	  - Poziom: 4
+	  - Obrona: 0
+	  - Siła uderzenia: 0
+	  - Odległość leczenia: 3
+	  - Umiejętności: Leczy bohatera za 1 punkt
+
+	- **Duch:**
+	  - Wygląd:
+	  - Opis: Niematerialna postać przypominająca dawno zapomnianą osobę
+	  - Poziom: 4
+	  - Obrona: 0
+	  - Siła uderzenia: 0
+	  - Moc duchowa: 3
+	  - Odległość uderzenia: 2
+	  - Umiejętności: "Ochronna aura" – Tymczasowo zwiększa duchową odporność bohatera
+
+---
+
+**Przeciwnicy:**
+
+	- **Psychologiczni przeciwnicy**
+		- **Cienie:**
+		  - Wygląd:
+		  - Typ: Psychologiczny
+		  - Opis: Rozmyta, niematerialna sylwetka przypominająca cień człowieka. W mroku może przybierać wygląd bliskich osób bohatera lub darzonych zaufaniem. Porusza się niepostrzeżenie, wywołując niepokój i wzmacniając lęki bohatera.
+		  - Punkty zdrowia: 12
+		  - Obrona: 0
+		  - Siła uderzenia: 1 (Zmniejsza stan psychiczny bohatera)
+		  - Moc duchowa: 0
+		  - Zwinność: 2
+		  - Odległość uderzenia: 2
+		  - Umiejętności: Może zmieniać wygląd na osobę bliską bohaterowi, zadając silny cios w stan psychiczny
+
+		- **Statua:**
+		  - Typ: Psychologiczny
+		  - Opis: Kamienna figura przypominająca starożytne bóstwo lub wojownika, trzymająca fragmenty połamanych cłonków jako broń
+		  - Punkty zdrowia: 85
+		  - Poziom: 4
+		  - Obrona: 45
+		  - Siła uderzenia: 5
+		  - Zwinność: 0
+		  - Odległość uderzenia: 3
+		  - Umiejętności: Rzuca fragmentami ciał po zbliżeniu się na dystans 3 pol
+		  
+	- **Slabi przeciwnicy**
+		+ (Punkty zdrowia: 10-20; Obrona: 0; Zwinność: 0-2)
+		- **Zgniły Życia:**
+		  - Wygląd:
+		  - Opis: Żyjąca masa przypominająca czarną, pełzającą maź
+		  - Poziom: 0
+		  - Siła uderzenia: 1
+		  - Odległość uderzenia: 1
+		  - Umiejętności: Brak
+
+		- **Zakrwawiona Pijawka:**
+		  - Wygląd:
+		  - Opis: Długie, wijące się stworzenie przypominające gigantycznego robaka
+		  - Poziom: 0
+		  - Siła uderzenia: 2
+		  - Odległość uderzenia: 1
+		  - Umiejętności: Brak
+
+		- **Rozwścieczony Strażnik:**
+		  - Wygląd:
+		  - Opis: Ogromna metalowa zbroja bez widocznego właściciela, której ciosy są powolne, ale niszczące
+		  - Poziom: 0
+		  - Siła uderzenia: 2
+		  - Odległość uderzenia: 1
+		  - Umiejętności: Każde otrzymane obrażenie zwiększa siłę uderzenia o 1 (maksymalnie +5)
+		  
+	- **Podstawowe przeciwnicy**
+		+ (Punkty zdrowia: 20-30; Obrona: 0-5; Zwinność: 3-6)	
+		- **Inkwizytor Agonii:**
+		  - Wygląd:
+		  - Opis: Były kapłan, który zamienił się w oprawcę, fanatycznie wierzący, że przez cierpienie "oczyszcza" dusze
+		  - Poziom: 1
+		  - Siła uderzenia: 6
+		  - Odległość uderzenia: 1
+		  - Umiejętności: Brak
+
+		- **Wyniszczony Mag:**
+		  - Wygląd:
+		  - Opis: Postać w kapturze unosząca się nad ziemią, z długimi, cienkimi ramionami
+		  - Poziom: 1
+		  - Siła uderzenia: 5
+		  - Odległość uderzenia: 2
+		  - Umiejętności: Brak
+
+		- **Głodny Widmo:**
+		  - Wygląd:
+		  - Opis: Upiorna postać z kościstymi dłońmi i twarzą z rozwartymi ustami, zdaje się wiecznie krzyczeć
+		  - Poziom: 1
+		  - Siła uderzenia: 5
+		  - Odległość uderzenia: 2
+		  - Umiejętności: Działają na niego tylko ataki duchowe
+
+		- **Szczur:**
+		  - Wygląd:
+		  - Opis: Mały gryzoń o czerwonych oczach i długim ogonie. Jego zęby błyszczą jadowitą śliną
+		  - Poziom: 1
+		  - Siła uderzenia: 4
+		  - Odległość uderzenia: 3
+		  - Umiejętności: Każdy atak zmniejsza zdrowie przeciwnika o 1 punkt przez 3 tury
+	
+	- **Zwykli przeciwnicy**
+		+ (Punkty zdrowia: 30-40; Obrona: 5-10; Zwinność: 7-9)
+		- **Zbrukany Kultysta:**
+		  - Wygląd:
+		  - Opis: Człowiek o zniekształconych rysach twarzy, ubrany w szaty kultysty, trzymający stary, zakrwawiony kostur
+		  - Poziom: 2
+		  - Siła uderzenia: 7
+		  - Odległość uderzenia: 2
+		  - Umiejętności: Brak
+
+		- **Martwe Drzewo:**
+		  - Wygląd:
+		  - Opis: Pradawne drzewo przypominające przerażającą, humanoidalną postać z pustymi oczodołami
+		  - Poziom: 2
+		  - Siła uderzenia: 8
+		  - Odległość uderzenia: 3
+		  - Umiejętności: Oddziałuje na stan psychiczny po trafieniu przeciwnika
+
+		- **Popielny Widmo:**
+		  - Wygląd:
+		  - Opis: Duch ofiary spalonej na stosie, którego ciało wciąż dymi od wiecznego gorąca
+		  - Poziom: 2
+		  - Siła uderzenia: 6
+		  - Odległość uderzenia: 2
+		  - Umiejętności: Działają na niego tylko ataki duchowe
+
+		- **Złamana Marionetka:**
+		  - Wygląd:
+		  - Opis: Porzucona kukła z drewnianymi kończynami, popękaną twarzą i porwanymi sznurkami
+		  - Poziom: 2
+		  - Siła uderzenia: 8
+		  - Odległość uderzenia: 1
+		  - Umiejętności: "Kradzież duszy" – Ataki przywracają 2 punkty zdrowia
+		  
+	- **Średni przeciwnicy**
+		+ (Punkty zdrowia: 40-50; Obrona: 15-20; Zwinność: 12-15)
+		- **Zatruty Mnich:**
+		  - Wygląd:
+		  - Opis: Wyniszczona postać w brudnym habicie. Jego ręce pokryte są wrzodami
+		  - Poziom: 3
+		  - Siła uderzenia: 12
+		  - Odległość uderzenia: 2
+		  - Umiejętności: Po śmierci eksploduje trującym gazem
+
+		- **Strażnik Korzeni:**
+		  - Wygląd:
+		  - Opis: Gigantyczny korzeń z kolczastymi pędami, pokryty sokami przypominającymi krew
+		  - Poziom: 3
+		  - Siła uderzenia: 13
+		  - Odległość uderzenia: 3
+		  - Umiejętności: Oddziałuje na stan psychiczny po trafieniu przeciwnika
+		  
+		- **Wyniszczony Akolita:**
+		  - Typ: Specjalny
+		  - Opis: Fanatyczny wyznawca mrocznego kultu, którego ciało zostało wyniszczone jako ofiara dla jego mistrza. Jego ścięgła skóra pokryta jest rytualnymi znakami.
+		  - Poziom: 3
+		  - Siła uderzenia: 11
+		  - Odległość uderzenia: 2
+		  - Umiejętności: "Krytyczne uderzenie" – Co trzeci atak zadaje podwójne obrażenia  
+		  
+	- **Silni przeciwnicy**
+		+ (Punkty zdrowia: 60-70; Obrona: 30-40; Zwinność: 20-22)
+		- **Ognisty Dusiciel:**
+		  - Wygląd:
+		  - Opis: Demon o płonącej skórze i czerwonych oczach
+		  - Poziom: 4
+		  - Siła uderzenia: 16
+		  - Odległość uderzenia: 3
+		  - Umiejętności: Zadaje 3 obrażenia każdemu w promieniu 2 pól przy ataku lub przy otrzymaniu obrażeń
+
+		- **Skrzydlaty Koszmar:**
+		  - Wygląd:
+		  - Opis: Ogromny stwór o skrzydłach przypominających podartą skórę
+		  - Poziom: 4
+		  - Siła uderzenia: 18
+		  - Odległość uderzenia: 2
+		  - Umiejętności: Tylko ataki dystansowe lub duchowe są skuteczne
+		  
+	- **Bardzo silni przeciwnicy**
+		+ (Punkty zdrowia: 80-90; Obrona: 50-60; Zwinność: 28-30)	
+		- **Gnijące Ciało:**
+		  - Wygląd:
+		  - Opis: Ogromny stwór zbudowany z rozkładających się części ciał
+		  - Poziom: 5
+		  - Siła uderzenia: 25
+		  - Odległość uderzenia: 2
+		  - Umiejętności: Co 3 tury przywołuje 2 "Zgniłe Życia" i oddziałuje na stan psychiczny przeciwnika	  
+	
+	- **Władca góry**
+		- **Strażnik Świątyni:**
+		  - Wygląd:
+		  - Opis: (Brak opisu)
+		  - Punkty zdrowia: 100
+		  - Poziom: 6
+		  - Obrona: 100
+		  - Siła uderzenia: 35
+		  - Odległość uderzenia: 2
+		  - Zwinność: 10
+		  - Umiejętności: Brak
+
 			
  ## 4. Projekt poziomów/środowiska
  	Środowisko
@@ -478,7 +506,7 @@ Mechaniki:
 		= Po osiżgnięciu nowego poziomu za każdym razem zwiększają się statystyki:
 			+ siła uderzenia : + numer poziomu + 2
 			+ moc duchowa : + numer poziomu
-			+ zwinność : + numer poziomu + 2
+			+ zwinność : + numer poziomu + 3
 
 	- Towarzysz: 
 		(+ Bohater może mieć tylko jednego towarzysza, a innego trzeba będzie porzucić)

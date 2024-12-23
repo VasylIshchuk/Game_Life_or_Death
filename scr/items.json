@@ -91,6 +91,7 @@
     "description": "A powerful elixir that adds strength but demands sacrifice, forcing difficult choices"
   },
   "Pitchfork": {
+    "type": "MeleeWeapon",
     "category": "Weapon",
     "icon": "",
     "durability": 30,
@@ -98,6 +99,7 @@
     "attack_range": 1
   },
   "Sword": {
+    "type": "MeleeWeapon",
     "category": "Weapon",
     "icon": "",
     "durability": 80,
@@ -105,6 +107,7 @@
     "attack_range": 1
   },
   "Axe": {
+    "type": "MeleeWeapon",
     "category": "Weapon",
     "icon": "",
     "durability": 60,
@@ -112,6 +115,7 @@
     "attack_range": 1
   },
   "Spear": {
+    "type": "MeleeWeapon",
     "category": "Weapon",
     "icon": "*",
     "durability": 50,
@@ -119,17 +123,19 @@
     "attack_range": 1
   },
   "Bow": {
+    "type": "RangedWeapon",
     "category": "Weapon",
     "icon": "",
-    "ammo_type": "Arrows",
+    "ammo": "Arrows",
     "durability": 25,
     "strike_power": 3,
     "attack_range": 3
   },
   "Hammer": {
+    "type": "RangedWeapon",
     "category": "Weapon",
     "icon": "",
-    "ammo_type": "Nails",
+    "ammo": "Nails",
     "durability": 30,
     "strike_power": 4,
     "attack_range": 3
@@ -175,8 +181,8 @@
     "effect": 8
   },
   "Honey": {
-    "category": "Food","icon": "",
-
+    "category": "Food",
+    "icon": "",
     "effect": 3
   },
   "Fruits of the Ancient Tree": {
