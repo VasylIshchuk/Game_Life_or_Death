@@ -3,9 +3,9 @@ import json
 from ..map.position import Position
 
 
-def parse_attribute(data: dict, attribute_name: str):
+def get_attribute(entity_data: dict, attribute_name: str):
     """Fetches the value of the given attribute from the data dictionary."""
-    return data.get(attribute_name)
+    return entity_data.get(attribute_name)
 
 
 def load_data_from_file(file_path: str, title: str) -> dict:
@@ -24,15 +24,15 @@ def load_data_from_file(file_path: str, title: str) -> dict:
         raise
 
 
-def initialize_additional_attributes(self, attributes: list[str], data: dict):
+def initialize_additional_attributes(self, attributes: list[str], entity_data: dict):
     """Initializes additional attributes for the entity based on the given list."""
     for attr in attributes:
-        setattr(self, attr, parse_attribute(data, attr))
+        setattr(self, attr, get_attribute(entity_data, attr))
 
 
-def initialize_general_attributes(self, data: dict):
+def initialize_general_attributes(self, entity_data: dict):
     """Initializes general attributes for the entity from the provided data."""
-    for key, value in data.items():
+    for key, value in entity_data.items():
         if hasattr(self, key):
             setattr(self, key, value)
 

@@ -10,7 +10,3 @@ class Ammo(GameEntity):
 
         data_ammo = load_data_from_file("./items.json", title)
         initialize_general_attributes(self, data_ammo)
-
-        # self.category = parse_attribute(data_ammo, "category")
-        # self.icon = parse_attribute(data_ammo, "icon")
-        # self.quantity = int(parse_attribute(data_ammo, "quantity") or 0)

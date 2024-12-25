@@ -55,14 +55,20 @@ class Creature(GameEntity):
         else:
             self.health_points += points
 
+    def is_within_range(self, enemy, range_radius):
+        """Check if an enemy is within a square range of the creature."""
+        return (
+                self.position.x - range_radius <= enemy.position.x <= self.position.x + range_radius and
+                self.position.y - range_radius <= enemy.position.y <= self.position.y + range_radius
+        )
+
     def attack(self, enemy):
         """Perform an attack on an enemy and calculate its result."""
-        result_dice = self._roll_dice()
+        self.luck = self._roll_dice()
 
-        hit_probability = self._calculate_hit_probability(enemy, self.attack_power, result_dice)
-        random_factor = random.random()
+        hit_probability = self._calculate_hit_probability(self.attack_power, enemy)
 
-        if self._perform_attack_check(enemy, result_dice, random_factor, hit_probability) :
+        if self._check_attack_hit(hit_probability):
             self._apply_damage_to_enemy(enemy, self.attack_power)
             return True
         return False
@@ -70,29 +76,38 @@ class Creature(GameEntity):
     def _roll_dice(self):
         return random.randint(1, 20)
 
-    def _calculate_hit_probability(self, enemy, attack, result_dice):
+    def _calculate_hit_probability(self, attack_power, enemy):
         """Calculate the probability of a successful hit on the enemy."""
-        attack_points = result_dice + self.level + attack
-        defense_points = enemy.level + enemy.agility
+        attack_points = self._calculate_attack_points(attack_power)
+        defense_points = self._calculate_defense_points(enemy)
 
         hit_probability = (attack_points - defense_points + MAX_ATTACK_POINTS) / (2 * MAX_ATTACK_POINTS)
         hit_probability = self._clamp_chance(hit_probability)
         self.HIT_CHANCE = hit_probability
         return hit_probability
 
-    def _clamp_chance(self, efficiency_chance):
-        """Clamps the hit chance to a minimum of 20% and a maximum of 90%."""
-        if efficiency_chance > 0.9:
-            return 0.9
-        elif efficiency_chance < 0.2:
-            return 0.2
-        else:
-            return efficiency_chance
+    def _calculate_attack_points(self, attack_power):
+        return self.luck + self.level + attack_power
 
-    def _perform_attack_check(self, enemy, result_dice, random_factor, hit_probability):
-        if result_dice == 20 or (result_dice != 1 and random_factor <= hit_probability):
+    def _calculate_defense_points(self, enemy):
+        return enemy.level + enemy.agility
+
+    def _check_attack_hit(self, hit_probability):
+        """Calculate the probability of a successful hit on the enemy."""
+        if self._is_critical_success() or (
+                not self._is_critical_failure() and self._is_hit(hit_probability)):
             return True
         return False
+
+    def _is_critical_success(self):
+        return self.luck == 20
+
+    def _is_critical_failure(self):
+        return self.luck == 1
+
+    def _is_hit(self, hit_probability):
+        random_factor = random.random()
+        return random_factor <= hit_probability
 
     def _apply_damage_to_enemy(self, enemy, attack):
         """Applies damage to the target considering its defense."""
@@ -108,9 +123,11 @@ class Creature(GameEntity):
             enemy.health_points = 0
             enemy.check_is_alive()
 
-    def is_within_range(self, enemy, range_radius):
-        """Check if an enemy is within a square range of the creature."""
-        return (
-                self.position.x - range_radius <= enemy.position.x <= self.position.x + range_radius and
-                self.position.y - range_radius <= enemy.position.y <= self.position.y + range_radius
-        )
+    def _clamp_chance(self, efficiency_chance):
+        """Clamps the hit chance to a minimum of 20% and a maximum of 90%."""
+        if efficiency_chance > 0.9:
+            return 0.9
+        elif efficiency_chance < 0.2:
+            return 0.2
+        else:
+            return efficiency_chance
