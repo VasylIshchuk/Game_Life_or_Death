@@ -1,7 +1,13 @@
 class Tile:
     FLOOR = '·'
-    BARRIER = ('—', '|', '#')
+    BARRIER = ('—', '|', '+', '#')
     CONDITIONAL = '\\'
+    WALL = '#'
+    BORDER_HORIZONTAL = '—'
+    BORDER_VERTICAL = '|'
+    BORDER_ANGLE = '+'
+
+
 
     def __init__(self, icon):
         self.icon = icon
