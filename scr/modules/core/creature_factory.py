@@ -1,4 +1,4 @@
-from ..core.game_entity import load_data_from_file, get_attribute
+from ..core.game_entity import load_data_from_file, get_attribute_from_data
 from ..creature.creature import Creature
 from ..creature.psychological import Psychological
 from ..creature.hero import Hero
@@ -22,7 +22,7 @@ _SPECIAL_CREATURES = {
 }
 
 
-def _select_type(type_creature, title):
+def _select_creature_by_type(type_creature, title):
     if type_creature == "psychological":
         return Psychological(title)
     elif type_creature == "special":
@@ -31,7 +31,7 @@ def _select_type(type_creature, title):
         return Creature(title)
 
 
-def _init_special_creature(title: str) -> Creature:
+def _init_special_creature(title):
     creature_class = _SPECIAL_CREATURES.get(title)
     return creature_class(title)
 
@@ -40,5 +40,5 @@ class CreatureFactory:
     @staticmethod
     def create_creature(title):
         data_creature = load_data_from_file("./creatures.json", title)
-        type_creature = get_attribute(data_creature, "type")
-        return _select_type(type_creature, title)
+        type_creature = get_attribute_from_data(data_creature, "type")
+        return _select_creature_by_type(type_creature, title)

@@ -7,7 +7,6 @@ ALLIES_COUNT = 4
 
 
 def _load_creatures_from_file():
-    """Load all creatures from a JSON file"""
     try:
         with open("./creatures.json", "r") as file:
             data = json.load(file)
@@ -21,7 +20,6 @@ def _load_creatures_from_file():
 
 
 def _filter_and_display_creatures(data):
-    """Display the list of creatures and return their details"""
     creatures = []
     for idx, creature in enumerate(data, start=1):
         if idx > ALLIES_COUNT:
@@ -31,7 +29,6 @@ def _filter_and_display_creatures(data):
 
 
 def _select_combat_mode(creatures):
-    """Prompt the user to select the combat mode"""
     mode = _get_user_input("Choose combat mode: 1 -- Detailed combat log; 2 -- Statistical summary. Your choice? ", int,
                            1, 2)
     if mode == 1:
@@ -43,7 +40,6 @@ def _select_combat_mode(creatures):
 
 
 def _run_detailed_combat_mode(creatures):
-    """Run combat mode with detailed logs"""
     creature_1 = CreatureFactory.create_creature("Mark")
     use_spiritual_power = _select_attack_type(creature_1)
     _print_separator()
@@ -55,7 +51,6 @@ def _run_detailed_combat_mode(creatures):
 
 
 def _simulate_detailed_combat(creature_1, creature_2, use_spiritual_power):
-    """Simulate detailed combat between two creatures"""
     for _ in range(5):
         print("-----------------------------------New Combat-----------------------------------------------------")
 
@@ -75,7 +70,6 @@ def _simulate_detailed_combat(creature_1, creature_2, use_spiritual_power):
 
 
 def _combat_rounds(creature_1, creature_2, use_spiritual_power):
-    """Simulate rounds of combat"""
     round_count = 0
     while creature_1.is_alive and not creature_1.is_crazy:
         round_count += 1
@@ -86,14 +80,12 @@ def _combat_rounds(creature_1, creature_2, use_spiritual_power):
 
 
 def _display_characteristics(creature):
-    """Display creature characteristics"""
     print(
         f"{creature.title} stats: [Category: {creature.category}, HP: {creature.health_points}, Defense: {creature.defense}, Level: {creature.level}, "
         f"Physical Attack: {creature.attack_power}, Agility: {creature.agility}, Abilities: {creature.abilities}]")
 
 
 def _execute_combat_round(attacker, defender, use_spiritual_power=None):
-    """Execute a single combat round between attacker and defender"""
     health_points_before_attack = defender.health_points
     defense_points_before_attack = defender.defense
     _perform_attack(attacker, defender, use_spiritual_power)
@@ -114,13 +106,11 @@ def _display_combat(attacker, defender, health_points_before_attack, defense_poi
 
 
 def _show_attack_details(creature):
-    """Displays which creature is attacking and their chance of hitting the enemy"""
     print(f"{creature.title} attacks...")
     print(f"The {creature.title} has a {round(creature.HIT_CHANCE * 100, 2)}% chance of hitting the enemy.")
 
 
 def _display_attack_result(attacker, defender, health_points_before_attack, defense_points_before_attack):
-    """Display the result of an attack"""
     if defender.health_points == health_points_before_attack and defender.defense == defense_points_before_attack:
         print(f"{attacker.title} missed :(")
     else:
@@ -133,7 +123,6 @@ def _display_attack_result(attacker, defender, health_points_before_attack, defe
 
 
 def _run_statistical_mode(creatures):
-    """Run combat mode with statistical summary"""
     creature_1 = CreatureFactory.create_creature("Mark")
     use_spiritual_power = _select_attack_type(creature_1)
     _print_separator()
@@ -148,7 +137,6 @@ def _run_statistical_mode(creatures):
 
 
 def _simulate_statistical_combat(creature_1, creature_2, use_spiritual_power, total_combats):
-    """Simulates multiple rounds of combat between two creatures and shows statistics"""
     statistics = {}
     wins_creature_1 = 0
     wins_creature_2 = 0
@@ -171,7 +159,6 @@ def _simulate_statistical_combat(creature_1, creature_2, use_spiritual_power, to
 
 
 def _execute_combat_rounds(creature_1, creature_2, use_spiritual_power):
-    """Executes a rounds of combat between two creatures"""
     rounds_count = 0
     while creature_1.is_alive and not creature_1.is_crazy:
         rounds_count += 1
@@ -183,7 +170,6 @@ def _execute_combat_rounds(creature_1, creature_2, use_spiritual_power):
 
 
 def _show_combat_result(creature_1, creature_2, rounds_count):
-    """Shows the result of each combat (who won and their HPs)"""
     if creature_1.is_alive:
         print(
             f"Rounds {rounds_count}: {creature_1.title} won! {creature_1.title} HP={creature_1.health_points}, {creature_2.title} HP={creature_2.health_points}")
@@ -193,7 +179,6 @@ def _show_combat_result(creature_1, creature_2, rounds_count):
 
 
 def _show_statistics(statistics, creature_1, creature_2, wins_creature_1, wins_creature_2):
-    """Shows the statistics of the combat(frequency of combat ending with the same number of rounds)"""
     _print_separator()
     print("------------------------------------Statistics results---------------------------------------------")
     _show_sorted_statistics(statistics)
@@ -203,18 +188,15 @@ def _show_statistics(statistics, creature_1, creature_2, wins_creature_1, wins_c
 
 
 def _show_result_creature(creature, wins, loses):
-    """ Shows all rounds, including total wins and losses."""
     print(f"\n[ {creature.title} (category: {creature.category}): won: {wins}; lose: {loses} ]\n")
 
 
 def _show_sorted_statistics(statistics):
-    """Sorts and displays round statistics"""
     for i in sorted(statistics.keys()):
         print(f"{i}: {statistics[i]}")
 
 
 def _perform_attack(attacker, defender, use_spiritual_power=None):
-    """Performs an attack by the attacker on the defender using either physical power or spiritual power"""
     if use_spiritual_power:
         attacker.spiritual_attack(defender)
     else:
@@ -222,26 +204,22 @@ def _perform_attack(attacker, defender, use_spiritual_power=None):
 
 
 def _create_creature_from_selection(creatures):
-    """Create a creature instance from the user's selection"""
     selected_index = _get_user_input("Select a creature by its number: ", int, 1, len(creatures)) - 1
     return CreatureFactory.create_creature(creatures[selected_index])
 
 
 def _select_attack_type(creature):
-    """Prompt the user to select attack type for the creature"""
     return _get_user_input(
         f"Choose attack type for HERO: 1 -- Strength({creature.attack_power}); 2 -- Spirit({creature.spiritual_power}). Your choice? ",
         int, 1, 2) == 2
 
 
 def _get_combats():
-    """Prompt the user to select attack type for the creature"""
     return _get_user_input("Enter the number of combats: ",
                            int, 1, 100000000)
 
 
 def _reset_creature(creature):
-    """Reset a creature's stats after combat"""
     return CreatureFactory.create_creature(creature.title)
 
 
@@ -250,7 +228,6 @@ def _print_separator():
 
 
 def _get_user_input(prompt, input_type, min, max):
-    """Generalized input function to handle user input and validation"""
     while True:
         try:
             user_input = input_type(input(prompt))
@@ -265,11 +242,9 @@ def _get_user_input(prompt, input_type, min, max):
 
 
 class Fight:
-    """Class to manage and test fight scenarios between creatures"""
 
     @staticmethod
     def test_healing():
-        """Tests the healing mechanism for a creature by healing a specified number of points"""
         mark = Creature("Mark")
         mark.health_points = 90
         print(f"Health points of {mark.title} = {mark.health_points}")
@@ -284,7 +259,6 @@ class Fight:
 
     @staticmethod
     def test_combat():
-        """Tests a combat scenario between creatures"""
         creatures = _load_creatures_from_file()
         _print_separator()
 

@@ -3,13 +3,11 @@ import json
 from ..map.position import Position
 
 
-def get_attribute(entity_data: dict, attribute_name: str):
-    """Fetches the value of the given attribute from the data dictionary."""
+def get_attribute_from_data(entity_data: dict, attribute_name: str):
     return entity_data.get(attribute_name)
 
 
 def load_data_from_file(file_path: str, title: str) -> dict:
-    """Loads data from a JSON file and retrieves the entry corresponding to the 'title'."""
     try:
         with open(file_path, "r") as file:
             data = json.load(file)
@@ -24,17 +22,15 @@ def load_data_from_file(file_path: str, title: str) -> dict:
         raise
 
 
-def initialize_additional_attributes(self, attributes: list[str], entity_data: dict):
-    """Initializes additional attributes for the entity based on the given list."""
+def initialize_additional_attributes_from_data(entity, attributes: list[str], entity_data: dict):
     for attr in attributes:
-        setattr(self, attr, get_attribute(entity_data, attr))
+        setattr(entity, attr, get_attribute_from_data(entity_data, attr))
 
 
-def initialize_general_attributes(self, entity_data: dict):
-    """Initializes general attributes for the entity from the provided data."""
+def initialize_attributes_from_data(entity, entity_data: dict):
     for key, value in entity_data.items():
-        if hasattr(self, key):
-            setattr(self, key, value)
+        if hasattr(entity, key):
+            setattr(entity, key, value)
 
 
 class GameEntity:

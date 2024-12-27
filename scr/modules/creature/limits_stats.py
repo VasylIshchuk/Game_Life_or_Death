@@ -1,4 +1,4 @@
-STATS = {
+ATTRIBUTES = {
     "Companions": {
         "health_points": (15, 25),
         "defense": (0, 5),
@@ -36,7 +36,7 @@ STATS = {
     },
 }
 
-class LimitsStats:
+class LimitsAttributes:
     @staticmethod
-    def get_stats(category):
-        return STATS.get(category, None)
+    def get_attributes(category):
+        return ATTRIBUTES.get(category, None)

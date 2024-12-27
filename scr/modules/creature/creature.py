@@ -1,5 +1,6 @@
-from ..core.game_entity import GameEntity, load_data_from_file, initialize_general_attributes
-from .limits_stats import LimitsStats
+from ..core.game_entity import GameEntity, load_data_from_file, initialize_attributes_from_data
+from .limits_stats import LimitsAttributes
+
 
 import random
 
@@ -11,10 +12,8 @@ def _generate_random_value(min_value, max_value):
 
 
 class Creature(GameEntity):
-    """Represents a game creature with combat-related attributes and methods."""
 
     def __init__(self, title):
-        """Initializes a creature with attributes loaded from a data file."""
         super().__init__(title)
         self.type: str = ""
         self.category: str = ""
@@ -31,44 +30,40 @@ class Creature(GameEntity):
         self.HIT_CHANCE = 0.0  # Used for testing hit probability
         self.data_creature = load_data_from_file("./creatures.json", title)
 
-        initialize_general_attributes(self, self.data_creature)
+        initialize_attributes_from_data(self, self.data_creature)
         self._initialize_generated_attributes()
         self.max_health_points = self.health_points
 
     def _initialize_generated_attributes(self):
-        """Initializes health, defense, and agility stats from limits or reserved values."""
-        stats = LimitsStats.get_stats(self.category)
-        if stats:
-            self.health_points = _generate_random_value(*stats["health_points"])
-            self.defense = _generate_random_value(*stats["defense"])
-            self.agility = _generate_random_value(*stats["agility"])
+        attributes = LimitsAttributes.get_attributes(self.category)
+        if attributes:
+            self.health_points = _generate_random_value(*attributes["health_points"])
+            self.defense = _generate_random_value(*attributes["defense"])
+            self.agility = _generate_random_value(*attributes["agility"])
 
     def check_is_alive(self):
-        """Update the creature's alive status based on its health."""
         if self.health_points <= 0:
             self.is_alive = False
 
     def healing(self, points):
-        """Heals the creature by the given number of points."""
         if self.health_points + points >= self.max_health_points:
             self.health_points = self.max_health_points
         else:
             self.health_points += points
 
     def is_within_range(self, enemy, range_radius):
-        """Check if an enemy is within a square range of the creature."""
         return (
                 self.position.x - range_radius <= enemy.position.x <= self.position.x + range_radius and
                 self.position.y - range_radius <= enemy.position.y <= self.position.y + range_radius
         )
 
     def attack(self, enemy):
-        """Perform an attack on an enemy and calculate its result."""
+        """Returns information about whether the attack was successful"""
         self.luck = self._roll_dice()
 
         hit_probability = self._calculate_hit_probability(self.attack_power, enemy)
 
-        if self._check_attack_hit(hit_probability):
+        if self._is_hit_successful(hit_probability):
             self._apply_damage_to_enemy(enemy, self.attack_power)
             return True
         return False
@@ -77,7 +72,6 @@ class Creature(GameEntity):
         return random.randint(1, 20)
 
     def _calculate_hit_probability(self, attack_power, enemy):
-        """Calculate the probability of a successful hit on the enemy."""
         attack_points = self._calculate_attack_points(attack_power)
         defense_points = self._calculate_defense_points(enemy)
 
@@ -92,8 +86,7 @@ class Creature(GameEntity):
     def _calculate_defense_points(self, enemy):
         return enemy.level + enemy.agility
 
-    def _check_attack_hit(self, hit_probability):
-        """Calculate the probability of a successful hit on the enemy."""
+    def _is_hit_successful(self, hit_probability):
         if self._is_critical_success() or (
                 not self._is_critical_failure() and self._is_hit(hit_probability)):
             return True
@@ -110,7 +103,6 @@ class Creature(GameEntity):
         return random_factor <= hit_probability
 
     def _apply_damage_to_enemy(self, enemy, attack):
-        """Applies damage to the target considering its defense."""
         if enemy.defense > 0:
             if enemy.defense >= attack:
                 enemy.defense -= attack
@@ -124,7 +116,6 @@ class Creature(GameEntity):
             enemy.check_is_alive()
 
     def _clamp_chance(self, efficiency_chance):
-        """Clamps the hit chance to a minimum of 20% and a maximum of 90%."""
         if efficiency_chance > 0.9:
             return 0.9
         elif efficiency_chance < 0.2:

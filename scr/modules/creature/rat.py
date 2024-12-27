@@ -1,4 +1,5 @@
 from .creature import Creature
+from .hero import Hero
 
 POISON_ROUNDS = 3
 
@@ -7,10 +8,9 @@ class Rat(Creature):
     def __init__(self, title):
         super().__init__(title)
 
-    def attack(self, enemy):
-        """Method for the rat to attack an enemy. If the attack hits, the enemy is poisoned."""
+    def attack(self, enemy: Hero):
         is_hit = super().attack(enemy)
         self._apply_abilities(enemy, is_hit)
 
-    def _apply_abilities(self, enemy, is_hit):
-        if is_hit is True: enemy.apply_poison(POISON_ROUNDS)
+    def _apply_abilities(self, enemy: Hero, is_hit):
+        if is_hit is True: enemy.apply_poison_effect(POISON_ROUNDS)
