@@ -1,0 +1,23 @@
+from ..position import Position
+
+NORTH = Position(0, -1)
+SOUTH = Position(0, 1)
+EAST = Position(1, 0)
+WEST = Position(-1, 0)
+DIRECTIONS = [NORTH, SOUTH, EAST, WEST]
+REGIONS_WALL_INDEX = -1
+
+# Temple
+BUILD_ROOM_ATTEMPTS = 500
+MAX_MAP_WIDTH = 63
+
+# Room
+ROOM_MAX_SIZE = 11
+ROOM_MIN_SIZE = 5
+
+# Corridor
+WINDING_PROBABILITY = 0.4
+
+# Connection
+ACCEPTABLE_DISTANCE = 2
+PROBABILITY_ADD_RANDOM_JUNCTION = 0.03

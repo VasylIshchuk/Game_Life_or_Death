@@ -1,6 +1,6 @@
 import json
 
-from ..creature.creature import Creature
+from ..creatures.creature import Creature
 from ..core.creature_factory import CreatureFactory
 
 ALLIES_COUNT = 4

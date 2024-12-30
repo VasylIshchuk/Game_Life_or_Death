@@ -2,97 +2,64 @@
 # python -m unittest -v test_map.py
 
 import unittest
-from ..map.map import Map
+from ..maps.temple.temple import Temple
 from ..core.item_factory import ItemFactory
 from ..core.creature_factory import CreatureFactory
-from ..map.position import Position
-
-
-def print_map(map):
-    print('\n')
-    for row in map.grid:
-        print(''.join(elem.icon for elem in row))
-    print('\n')
+from ..maps.position import Position
 
 
 class TestMap(unittest.TestCase):
     def setUp(self):
-        self.map = Map()
+        self.map = Temple(21, 17)
+        self.valid_position = Position(self.map.rooms[0].upper_left_angle.x, self.map.rooms[0].upper_left_angle.y)
+        self.invalid_position = Position(self.map.rooms[0].upper_left_angle.x - 1, self.map.rooms[0].upper_left_angle.y)
         self.item = ItemFactory.create_item('Spear')
-        self.creature = CreatureFactory.create_creature('Mark')
+        self.creature = CreatureFactory.create_creature('Shadow')
 
     def test_load_map(self):
-        print_map(self.map)
+        self.map.print_map()
 
     def test_is_item_placement_valid(self):
-        assert (self.map.is_item_placement_valid(Position(4, 30)) == True)
-        assert (self.map.is_item_placement_valid(Position(2, 40)) == False)
+        assert (self.map.is_item_placement_valid(self.valid_position) == True)
+        assert (self.map.is_item_placement_valid(self.invalid_position) == False)
 
     def test_is_creature_placement_valid(self):
-        assert (self.map.is_item_placement_valid(Position(4, 30)) == True)
-        assert (self.map.is_item_placement_valid(Position(2, 40)) == False)
+        assert (self.map.is_item_placement_valid(self.valid_position) == True)
+        assert (self.map.is_item_placement_valid(self.invalid_position) == False)
 
     def test_place_item_success(self):
-        print_map(self.map)
-        assert (self.map.place_item(self.item, Position(6, 15)) == True)
-        print_map(self.map)
+        assert (self.map.place_item(self.item, self.valid_position) == True)
 
     def test_place_item_failure(self):
-        print_map(self.map)
-        assert (self.map.place_item(self.item, Position(9, 60)) == False)
-        print_map(self.map)
+        assert (self.map.place_item(self.item, self.invalid_position) == False)
 
     def test_place_creature_success(self):
-        print_map(self.map)
-        assert (self.map.place_creature(self.creature, Position(7, 8)) == True)
-        print_map(self.map)
+        assert (self.map.place_creature(self.creature, self.valid_position) == True)
 
     def test_place_creature_failure(self):
-        print_map(self.map)
-
-        assert (self.map.place_creature(self.creature, Position(3, 60)) == False)
-        print_map(self.map)
+        assert (self.map.place_creature(self.creature, self.invalid_position) == False)
 
     def test_remove_item_success(self):
-        position = Position(7, 8)
-        self.map.place_item(self.item, position)
-        print_map(self.map)
-
-        assert (self.map.remove_item(position) == True)
-        print_map(self.map)
+        self.map.place_item(self.item, self.valid_position)
+        assert (self.map.remove_item(self.valid_position) == True)
 
     def test_remove_item_failure(self):
-        position = Position(7, 8)
-        self.map.place_item(self.item, position)
-        print_map(self.map)
-
-        position = Position(9, 2)
-        assert (self.map.remove_item(position) == False)
-        print_map(self.map)
+        self.map.place_item(self.item, self.valid_position)
+        assert (self.map.remove_item(self.invalid_position) == False)
 
     def test_remove_creature_success(self):
-        position = Position(3, 25)
-        self.map.place_creature(self.creature, position)
-        print_map(self.map)
-
-        assert (self.map.remove_creature(position) == True)
-        print_map(self.map)
+        self.map.place_creature(self.creature, self.valid_position)
+        assert (self.map.remove_creature(self.valid_position) == True)
 
     def test_remove_creature_failure(self):
-        position = Position(3, 25)
-        self.map.place_creature(self.creature, position)
-        print_map(self.map)
-
-        position = Position(3, 50)
-        assert (self.map.remove_creature(position) == False)
-        print_map(self.map)
+        self.map.place_creature(self.creature, self.valid_position)
+        assert (self.map.remove_creature(self.invalid_position) == False)
 
     def test_generate_report(self):
-        self.map.place_item(self.item, Position(6, 15))
-        self.map.place_creature(self.creature, Position(7, 8))
-        print('\n')
+        self.map.place_item(self.item, self.valid_position)
+        valid_position = Position(self.map.rooms[0].upper_left_angle.x, self.map.rooms[0].upper_left_angle.y)
+        self.map.place_creature(self.creature, valid_position)
         self.map.generate_report()
-        print('\n')
 
 
 if __name__ == "__main__":

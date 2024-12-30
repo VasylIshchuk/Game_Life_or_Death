@@ -93,7 +93,7 @@
   "Pitchfork": {
     "type": "MeleeWeapon",
     "category": "Weapon",
-    "icon": "",
+    "icon": "|",
     "durability": 30,
     "strike_power": 1,
     "attack_range": 1
@@ -117,7 +117,7 @@
   "Spear": {
     "type": "MeleeWeapon",
     "category": "Weapon",
-    "icon": "*",
+    "icon": "|",
     "durability": 50,
     "strike_power": 3,
     "attack_range": 1

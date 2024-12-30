@@ -1,6 +1,6 @@
 import json
 
-from ..map.position import Position
+from ..maps.position import Position
 
 
 def get_attribute_from_data(entity_data: dict, attribute_name: str):

@@ -1,6 +1,6 @@
-from ..core.game_entity import load_data_from_file, get_attribute_from_data
-from ..item.weapon import Weapon
-from ..item.ammo import Ammo
+from .game_entity import load_data_from_file, get_attribute_from_data
+from ..items.weapon import Weapon
+from ..items.ammo import Ammo
 
 _CATEGORY_ITEMS = {
     "Weapon": Weapon,
