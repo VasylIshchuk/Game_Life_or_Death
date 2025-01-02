@@ -1,3 +1,4 @@
+from ...core.icons import Icon
 from ..tile import Tile
 from ..grid import Grid
 from ..map import Map
@@ -5,7 +6,7 @@ from .room import *
 from .corridor import Corridor
 from .connection import Connection
 from .dead_end import DeadEnd
-from .constants import BUILD_ROOM_ATTEMPTS, REGIONS_WALL_INDEX, ROOM_MIN_SIZE,MAX_MAP_WIDTH
+from .constants import BUILD_ROOM_ATTEMPTS, REGIONS_WALL_INDEX, ROOM_MIN_SIZE, MAX_MAP_WIDTH
 
 ENTRANCE_POSITION = Position(0, 1)
 
@@ -19,6 +20,16 @@ class Temple(Map):
         self._validate_dimensions(width, height)
         self._initialize_initial_grid(width, height)
         self._generate_level()
+
+    def carve(self, position, icon):
+        self.set_cell_icon(position, icon)
+        self.regions.set_value(position, self.current_region_index)
+
+    def increase_region_index(self):
+        self.current_region_index += 1
+
+    def get_current_region_index(self):
+        return self.current_region_index
 
     def _validate_dimensions(self, width, height):
         self._validate_min_size_dimensions(width, height)
@@ -39,29 +50,8 @@ class Temple(Map):
 
     def _initialize_initial_grid(self, width, height):
         self.regions = Grid(REGIONS_WALL_INDEX, width, height)
-        self.grid = Grid(Tile(Tile.WALL), width, height)
-
-    def carve(self, position, tile):
-        self.get_grid_cell(position).icon = tile
-        self.regions.set(position, self.current_region_index)
-
-    def is_wall(self, position: Position):
-        tile = self.get_grid_cell(position)
-        return tile.icon == Tile.WALL
-
-    def is_floor(self, position: Position):
-        tile = self.get_grid_cell(position)
-        return tile.icon == Tile.CORRIDOR_FLOOR
-
-    def is_door(self, position: Position):
-        tile = self.get_grid_cell(position)
-        return tile.icon == Tile.DOOR
-
-    def increase_region_index(self):
-        self.current_region_index += 1
-
-    def get_grid_cell(self, position: Position):
-        return self.grid.get(position)
+        tile_wall = Tile(Icon.WALL)
+        self.grid = Grid(tile_wall, width, height)
 
     def _generate_level(self):
         self._add_rooms()
@@ -72,30 +62,33 @@ class Temple(Map):
 
     def _add_rooms(self):
         for i in range(BUILD_ROOM_ATTEMPTS):
-            room = Room(self)
-            if not room.is_intersect_with_other_rooms(self.rooms):
-                self.rooms.append(room)
+            self._handle_room()
 
-                self._place_room_on_map(room)
-                self.increase_region_index()
+    def _handle_room(self):
+        room = Room(self)
+        if not room.is_intersect_with_other_rooms(self.rooms):
+            self.rooms.append(room)
+
+            self._place_room_on_map(room)
+            self.increase_region_index()
 
     def _place_room_on_map(self, room):
-        for x in range(room.upper_left_angle.x, room.bottom_right_angle.x):
-            for y in range(room.upper_left_angle.y, room.bottom_right_angle.y):
+        for x in range(room.get_x_upper_left_angle(), room.get_x_bottom_right_angle()):
+            for y in range(room.get_y_upper_left_angle(), room.get_y_bottom_right_angle()):
                 position = Position(x, y)
-                self.carve(position, Tile.ROOM_FLOOR)
+                self.carve(position, Icon.ROOM_FLOOR)
 
     def _fill_map_with_corridors(self):
-        for x in range(1, self.grid.width, 2):
-            for y in range(1, self.grid.height, 2):
+        for x in range(1, self.grid.get_width(), 2):
+            for y in range(1, self.grid.get_height(), 2):
                 start_position = Position(x, y)
-                self._process_corridor(start_position)
+                self._handle_corridor(start_position)
 
-    def _process_corridor(self, start_position: Position):
+    def _handle_corridor(self, start_position: Position):
         if not self.is_wall(start_position): return
         Corridor(self).generate_corridor(start_position)
 
     def _add_gateways(self):
-        self.grid.get(ENTRANCE_POSITION).icon = Tile.ENTRANCE
+        self.set_cell_icon(ENTRANCE_POSITION, Icon.ENTRANCE)
         exit_position = Position(self.grid.width - 1, self.grid.height - 2)
-        self.grid.get(exit_position).icon = Tile.EXIT
+        self.set_cell_icon(exit_position, Icon.EXIT)

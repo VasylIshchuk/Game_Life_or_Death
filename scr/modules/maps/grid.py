@@ -14,11 +14,21 @@ class Grid:
         self.height = height
         self._grid = self._create_grid(default_value)
 
-    def get(self, position: Position):
-        return self._grid[position.x][position.y]
+    def get_value(self, position: Position):
+        x = position.get_x()
+        y = position.get_y()
+        return self._grid[x][y]
 
-    def set(self, position: Position, value):
-        self._grid[position.x][position.y] = value
+    def set_value(self, position: Position, value):
+        x = position.get_x()
+        y = position.get_y()
+        self._grid[x][y] = value
+
+    def get_width(self):
+        return self.width
+
+    def get_height(self):
+        return self.height
 
     def _create_grid(self, default_value):
         grid = []

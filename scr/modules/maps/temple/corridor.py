@@ -1,15 +1,15 @@
 import random
 
 from ..position import Position
-from ..tile import Tile
+from ...core.icons import Icon
 from .constants import WINDING_PROBABILITY, DIRECTIONS
 
 LAST_ELEMENT = -1
 
 
 def _get_cell(position: Position, direction, step):
-    x = _calculate_new_coordinate(position.x, direction.x, step)
-    y = _calculate_new_coordinate(position.y, direction.y, step)
+    x = _calculate_new_coordinate(position.get_x(), direction.get_x(), step)
+    y = _calculate_new_coordinate(position.get_y(), direction.get_y(), step)
     return Position(x, y)
 
 
@@ -32,7 +32,7 @@ class Corridor:
 
     def _initialize_starting_position(self, start_position):
         self.temple.increase_region_index()
-        self.temple.carve(start_position, Tile.CORRIDOR_FLOOR)
+        self.temple.carve(start_position, Icon.CORRIDOR_FLOOR)
 
     def _handle_cell(self):
         current_cell = self._pending_cells[LAST_ELEMENT]
@@ -42,16 +42,6 @@ class Corridor:
             self._navigate_to_new_cell(current_cell, available_directions)
         else:
             self._backtrack()
-
-    def _navigate_to_new_cell(self, current_cell, available_directions):
-        direction = self._choose_direction(available_directions)
-        next_cell = self._carve_corridor(current_cell, direction)
-        self._pending_cells.append(next_cell)
-        self._last_direction = direction
-
-    def _backtrack(self):
-        self._pending_cells.pop()
-        self._last_direction = None
 
     def _get_available_directions(self, cell):
         available_directions = set()
@@ -67,13 +57,19 @@ class Corridor:
 
     def _is_within_bounds(self, position: Position, direction):
         cell = _get_cell(position, direction, 3)
-        if (0 <= cell.x < self.temple.grid.width) and (0 <= cell.y < self.temple.grid.height):
+        if (0 <= cell.get_x() < self.temple.get_map_width()) and (0 <= cell.get_y() < self.temple.get_map_height()):
             return True
         return False
 
     def _leads_to_wall(self, position: Position, direction):
         cell = _get_cell(position, direction, 2)
         return self.temple.is_wall(cell)
+
+    def _navigate_to_new_cell(self, current_cell, available_directions):
+        direction = self._choose_direction(available_directions)
+        next_cell = self._carve_corridor(current_cell, direction)
+        self._pending_cells.append(next_cell)
+        self._last_direction = direction
 
     def _choose_direction(self, available_directions):
         if self._should_continue_in_last_direction(available_directions):
@@ -94,5 +90,9 @@ class Corridor:
 
     def _carve_corridor_by_direction(self, current_cell, direction, step):
         cell = _get_cell(current_cell, direction, step)
-        self.temple.carve(cell, Tile.CORRIDOR_FLOOR)
+        self.temple.carve(cell, Icon.CORRIDOR_FLOOR)
         return cell
+
+    def _backtrack(self):
+        self._pending_cells.pop()
+        self._last_direction = None

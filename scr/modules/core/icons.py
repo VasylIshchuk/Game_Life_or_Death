@@ -1,0 +1,11 @@
+from ..core.colors import Color
+
+
+class Icon:
+    ENTRANCE = f"{Color.DARK_SPRING_GREEN_BACKGROUND}{Color.DARK_SPRING_GREEN_TEXT}   {Color.RESET}"
+    EXIT = f"{Color.DARK_SPRING_GREEN_BACKGROUND}{Color.DARK_SPRING_GREEN_TEXT} * {Color.RESET}"
+
+    ROOM_FLOOR = f"{Color.BLOOD_RED_BACKGROUND}{Color.WHITE_TEXT} · {Color.RESET}"
+    CORRIDOR_FLOOR = f"{Color.DARK_VANILLA_BACKGROUND}{Color.BLOOD_RED_TEXT} · {Color.RESET}"
+    DOOR = f"{Color.NATURAL_WOOD_BROWN_BACKGROUND}{Color.NATURAL_WOOD_BROWN_TEXT} * {Color.RESET}"
+    WALL = '   '

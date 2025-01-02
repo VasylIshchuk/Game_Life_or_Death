@@ -1,7 +1,7 @@
 from modules.tests.fight_test import Fight
 from modules.maps.temple.temple import Temple
 
-temple = Temple(63, 7)
+temple = Temple(63, 23)
 temple.print_map()
 
 Fight.test_healing()

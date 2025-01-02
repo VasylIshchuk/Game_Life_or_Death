@@ -40,3 +40,9 @@ class GameEntity:
 
     def set_position(self, position: Position):
         self.position = position
+
+    def get_x_position(self):
+        return self.position.get_x()
+
+    def get_y_position(self):
+        return self.position.get_y()

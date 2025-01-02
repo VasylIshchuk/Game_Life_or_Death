@@ -13,6 +13,18 @@ class Room:
         self._generate_room()
         self._initialize_coordinates()
 
+    def get_x_upper_left_angle(self):
+        return self.upper_left_angle.x
+
+    def get_y_upper_left_angle(self):
+        return self.upper_left_angle.y
+
+    def get_x_bottom_right_angle(self):
+        return self.bottom_right_angle.x
+
+    def get_y_bottom_right_angle(self):
+        return self.bottom_right_angle.y
+
     def is_intersect_with_other_rooms(self, rooms):
         intersect = False
         for other_room in rooms:
@@ -24,8 +36,10 @@ class Room:
     def _intersect(self, other_room):
         """Returns True if this room intersects with another room."""
         return (
-                self.upper_left_angle.x <= other_room.bottom_right_angle.x and self.bottom_right_angle.x >= other_room.upper_left_angle.x and
-                self.upper_left_angle.y <= other_room.bottom_right_angle.y and self.bottom_right_angle.y >= other_room.upper_left_angle.y)
+                self.upper_left_angle.get_x() <= other_room.bottom_right_angle.get_x() and
+                self.bottom_right_angle.get_x() >= other_room.upper_left_angle.get_x() and
+                self.upper_left_angle.get_y() <= other_room.bottom_right_angle.get_y() and
+                self.bottom_right_angle.get_y() >= other_room.upper_left_angle.get_y())
 
     def _generate_room(self):
         while True:
@@ -48,7 +62,7 @@ class Room:
         return even_rectangularity
 
     def _validate_size_dimensions(self):
-        if self.width >= self.temple.grid.width or self.height >= self.temple.grid.height:
+        if self.width >= self.temple.get_map_width() or self.height >= self.temple.get_map_height():
             return False
         return True
 
@@ -64,8 +78,8 @@ class Room:
             self.height += rectangularity
 
     def _initialize_coordinates(self):
-        x = self._generate_coordinate_for_room(self.temple.grid.width, self.width)
-        y = self._generate_coordinate_for_room(self.temple.grid.height, self.height)
+        x = self._generate_coordinate_for_room(self.temple.get_map_width(), self.width)
+        y = self._generate_coordinate_for_room(self.temple.get_map_height(), self.height)
         self._set_coordinates(x, y)
 
     def _generate_coordinate_for_room(self, map_size, room_size):

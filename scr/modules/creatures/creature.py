@@ -52,8 +52,8 @@ class Creature(GameEntity):
 
     def is_within_range(self, enemy, range_radius):
         return (
-                self.position.x - range_radius <= enemy.position.x <= self.position.x + range_radius and
-                self.position.y - range_radius <= enemy.position.y <= self.position.y + range_radius
+                self.position.get_x() - range_radius <= enemy.get_x_position() <= self.position.get_x + range_radius and
+                self.position.get_y() - range_radius <= enemy.get_y_position()  <= self.position.get_y() + range_radius
         )
 
     def attack(self, enemy):

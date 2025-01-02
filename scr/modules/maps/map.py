@@ -1,5 +1,8 @@
 from .tile import Tile
 from .position import Position
+from ..core.icons import Icon
+
+TILE_ROOM_FLOOR = Tile(Icon.ROOM_FLOOR)
 
 
 class Map:
@@ -10,14 +13,19 @@ class Map:
         self.entity_report = []
 
     def is_item_placement_valid(self, position: Position) -> bool:
-        return self.grid.get(position).icon == Tile.ROOM_FLOOR
+        return self.get_cell_icon(position) == Icon.ROOM_FLOOR
 
     def is_creature_placement_valid(self, position: Position) -> bool:
-        return self.grid.get(position).icon == Tile.ROOM_FLOOR
+        return self.get_cell_icon(position) == Icon.ROOM_FLOOR
+
+    def get_cell_icon(self, position):
+        cell = self.grid.get_value(position)
+        return cell.icon
 
     def place_item(self, item, position: Position) -> bool:
         if self.is_item_placement_valid(position):
-            self.grid.set(position, Tile(item.icon))
+            tile_item = Tile(item.icon)
+            self.grid.set_value(position, tile_item)
             item.set_position(position)
             self.items.append(item)
             self.entity_report.append(item)
@@ -26,7 +34,8 @@ class Map:
 
     def place_creature(self, creature, position: Position) -> bool:
         if self.is_creature_placement_valid(position):
-            self.grid.set(position, Tile(creature.icon))
+            tile_creature = Tile(creature.icon)
+            self.grid.set_value(position, tile_creature)
             creature.set_position(position)
             self.creatures.append(creature)
             self.entity_report.append(creature)
@@ -36,7 +45,7 @@ class Map:
     def remove_item(self, position: Position) -> bool:
         item = self._find_item(position)
         if item:
-            self.grid.set(position, Tile(Tile.ROOM_FLOOR))
+            self.grid.set_value(position, TILE_ROOM_FLOOR)
             item.set_position(Position(None, None))
             self.entity_report.remove(item)
             return True
@@ -51,7 +60,7 @@ class Map:
     def remove_creature(self, position: Position) -> bool:
         creature = self._find_creature(position)
         if creature:
-            self.grid.set(position, Tile(Tile.ROOM_FLOOR))
+            self.grid.set_value(position, TILE_ROOM_FLOOR)
             creature.set_position(Position(None, None))
             self.entity_report.remove(creature)
             return True
@@ -63,11 +72,36 @@ class Map:
                 return creature
         return None
 
+    def is_wall(self, position: Position):
+        tile = self.get_grid_cell(position)
+        return tile.icon == Icon.WALL
+
+    def is_floor(self, position: Position):
+        tile = self.get_grid_cell(position)
+        return tile.icon == Icon.CORRIDOR_FLOOR
+
+    def is_door(self, position: Position):
+        tile = self.get_grid_cell(position)
+        return tile.icon == Icon.DOOR
+
+    def get_grid_cell(self, position: Position):
+        return self.grid.get_value(position)
+
+    def set_cell_icon(self, position, icon):
+        cell = self.grid.get_value(position)
+        cell.icon = icon
+
+    def get_map_width(self):
+        return self.grid.get_width()
+
+    def get_map_height(self):
+        return self.grid.get_height()
+
     def print_map(self):
         print('\n')
         for y in range(self.grid.height):
             print(
-                ''.join(str(self.grid.get(Position(x, y)).icon) for x in range(self.grid.width)))
+                ''.join(str(self.grid.get_value(Position(x, y)).icon) for x in range(self.grid.width)))
         print('\n')
 
     def generate_report(self):
