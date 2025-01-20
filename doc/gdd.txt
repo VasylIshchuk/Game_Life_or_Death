@@ -444,7 +444,10 @@ Nazwa: "Life or Death"
 
  ## 5. Rozgrywka
 Mechaniki:
-	- Jeśli psychiczny stan spada d0 o postać popada w obłed i gra sie kończy
+	- Generowanie mapy zostało zrealizowane za pomocą algorytmu "Rooms and Mazes":
+		https://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/
+
+	- Jeśli psychiczny stan spada 0 to postać popada w obłed i gra sie kończy
 	
 	- Wybór drzwi:
 		(+ Aby otworzyć drzwi, trzeba znaleźć klucz (jeden klucz wystarcza na otwarcie jednych z dwóch drzwi))

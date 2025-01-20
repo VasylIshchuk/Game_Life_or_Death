@@ -1,15 +1,10 @@
-from ..position import Position
+from ..direction import Direction
 
-NORTH = Position(0, -1)
-SOUTH = Position(0, 1)
-EAST = Position(1, 0)
-WEST = Position(-1, 0)
-DIRECTIONS = [NORTH, SOUTH, EAST, WEST]
+DIRECTIONS = [Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST]
 REGIONS_WALL_INDEX = -1
 
 # Temple
 BUILD_ROOM_ATTEMPTS = 500
-MAX_MAP_WIDTH = 63
 
 # Room
 ROOM_MAX_SIZE = 11

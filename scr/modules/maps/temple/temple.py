@@ -6,7 +6,7 @@ from .room import *
 from .corridor import Corridor
 from .connection import Connection
 from .dead_end import DeadEnd
-from .constants import BUILD_ROOM_ATTEMPTS, REGIONS_WALL_INDEX, ROOM_MIN_SIZE, MAX_MAP_WIDTH
+from .constants import BUILD_ROOM_ATTEMPTS, REGIONS_WALL_INDEX, ROOM_MIN_SIZE
 
 ENTRANCE_POSITION = Position(0, 1)
 
@@ -18,8 +18,22 @@ class Temple(Map):
         self.rooms = []
         self.current_region_index = 0
         self._validate_dimensions(width, height)
+        self.initialize_grid(Icon.WALL, width, height)
+        self.regions = Grid(REGIONS_WALL_INDEX, width, height)
         self._initialize_initial_grid(width, height)
         self._generate_level()
+
+    def is_wall(self, position: Position):
+        tile = self.get_grid_cell(position)
+        return tile.icon == Icon.WALL
+
+    def is_floor(self, position: Position):
+        tile = self.get_grid_cell(position)
+        return tile.icon == Icon.CORRIDOR_FLOOR
+
+    def is_door(self, position: Position):
+        tile = self.get_grid_cell(position)
+        return tile.icon == Icon.DOOR
 
     def carve(self, position, icon):
         self.set_cell_icon(position, icon)
@@ -33,16 +47,11 @@ class Temple(Map):
 
     def _validate_dimensions(self, width, height):
         self._validate_min_size_dimensions(width, height)
-        self._validate_max_width_dimensions(width)
         self._validate_odd_dimensions(width, height)
 
     def _validate_min_size_dimensions(self, width, height):
         if width <= ROOM_MIN_SIZE or height <= ROOM_MIN_SIZE:
             raise ValueError(f"Map dimensions must be larger than [{ROOM_MIN_SIZE}:{ROOM_MIN_SIZE}]")
-
-    def _validate_max_width_dimensions(self, width):
-        if width > MAX_MAP_WIDTH:
-            raise ValueError(f"Map width must not exceed [{MAX_MAP_WIDTH}]")
 
     def _validate_odd_dimensions(self, width, height):
         if width % 2 == 0 or height % 2 == 0:

@@ -1,6 +1,7 @@
 from .tile import Tile
 from .position import Position
 from ..core.icons import Icon
+from .grid import Grid
 
 TILE_ROOM_FLOOR = Tile(Icon.ROOM_FLOOR)
 
@@ -21,6 +22,14 @@ class Map:
     def get_cell_icon(self, position):
         cell = self.grid.get_value(position)
         return cell.icon
+
+    def place_hero_start_position(self, hero):
+        start_position = Position(1, 1)
+        tile_creature = Tile(hero.icon)
+        self.grid.set_value(start_position, tile_creature)
+        hero.set_position(start_position)
+        self.creatures.append(hero)
+        self.entity_report.append(hero)
 
     def place_item(self, item, position: Position) -> bool:
         if self.is_item_placement_valid(position):
@@ -72,17 +81,9 @@ class Map:
                 return creature
         return None
 
-    def is_wall(self, position: Position):
-        tile = self.get_grid_cell(position)
-        return tile.icon == Icon.WALL
-
-    def is_floor(self, position: Position):
-        tile = self.get_grid_cell(position)
-        return tile.icon == Icon.CORRIDOR_FLOOR
-
-    def is_door(self, position: Position):
-        tile = self.get_grid_cell(position)
-        return tile.icon == Icon.DOOR
+    def initialize_grid(self, icon, width, height):
+        tile = Tile(icon)
+        self.grid = Grid(tile, width, height)
 
     def get_grid_cell(self, position: Position):
         return self.grid.get_value(position)

@@ -2,7 +2,7 @@
   "Mark": {
     "type": "special",
     "category": "Hero",
-    "icon": "@",
+    "icon": " @ ",
     "description": "Ordinary farmer",
     "health_points": 100,
     "mental_state": 100,
@@ -55,7 +55,7 @@
   "Shadow": {
     "type": "psychological",
     "category": "PsychologicalEnemies",
-    "icon": "*",
+    "icon": " * ",
     "description": "Blurred, immaterial silhouette resembling a human shadow. In the dark, it can take the form of loved ones or trusted individuals. Moves stealthily, inducing anxiety and strengthening the hero's fears.",
     "health_points": 12,
     "level": 0,
