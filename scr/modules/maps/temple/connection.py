@@ -4,7 +4,8 @@ from math import sqrt
 from ..position import Position
 from ...core.icons import Icon
 from ..grid import Grid
-from .constants import DIRECTIONS, REGIONS_WALL_INDEX, ACCEPTABLE_DISTANCE, PROBABILITY_ADD_RANDOM_JUNCTION
+from ..direction import Direction
+from .constants import  REGIONS_WALL_INDEX, ACCEPTABLE_DISTANCE, PROBABILITY_ADD_RANDOM_JUNCTION
 
 
 class Connection:
@@ -39,14 +40,14 @@ class Connection:
                 self._handle_tile(Position(x, y))
 
     def _handle_tile(self, position):
-        if not self.temple.is_wall(position): return
+        if not self.temple.is_ground(position): return
         connected_regions = self._find_connected_regions(position)
         if not self._can_connected_regions(connected_regions): return
         self._connector_regions.set_value(position, connected_regions)
 
     def _find_connected_regions(self, wall_position):
         regions = set()
-        for direction in DIRECTIONS:
+        for direction in Direction.DIRECTIONS:
             region = self._get_region_in_direction(wall_position, direction)
             if not self._is_wall_index(region):
                 regions.add(region)
@@ -135,9 +136,8 @@ class Connection:
         return False
 
     def _is_within_proximity(self, connector, connector_to_check):
-        if self._calculate_distance(connector, connector_to_check) < ACCEPTABLE_DISTANCE:
-            return True
-        return False
+        distance = self._calculate_distance(connector, connector_to_check)
+        return distance < ACCEPTABLE_DISTANCE
 
     def _calculate_distance(self, current_position, target_position):
         return sqrt(pow(target_position.get_x() - current_position.get_x(), 2) +

@@ -85,9 +85,6 @@ class Map:
         tile = Tile(icon)
         self.grid = Grid(tile, width, height)
 
-    def get_grid_cell(self, position: Position):
-        return self.grid.get_value(position)
-
     def set_cell_icon(self, position, icon):
         cell = self.grid.get_value(position)
         cell.icon = icon

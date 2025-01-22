@@ -2,8 +2,8 @@ from ..core.icons import Icon
 
 
 class Tile:
-    BARRIER = (Icon.WALL, Icon.ENTRANCE)
-    CONDITIONAL = (Icon.DOOR, Icon.EXIT)
+    BARRIER = (Icon.WALL, Icon.LEVEL_ENTRANCE, Icon.LEVEL_EXIT)
+    CONDITIONAL = (Icon.DOOR, Icon.GATEWAY)
 
     STATE_CONDITIONAL = 'CONDITIONAL'
     STATE_IMPASSABLE = 'IMPASSABLE'

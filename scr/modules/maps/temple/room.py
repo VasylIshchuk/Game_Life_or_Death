@@ -10,20 +10,18 @@ class Room:
         self.bottom_right_angle = Position(None, None)
         self.width = None
         self.height = None
-        self._generate_room()
-        self._initialize_coordinates()
 
     def get_x_upper_left_angle(self):
-        return self.upper_left_angle.x
+        return self.upper_left_angle.get_x()
 
     def get_y_upper_left_angle(self):
-        return self.upper_left_angle.y
+        return self.upper_left_angle.get_y()
 
     def get_x_bottom_right_angle(self):
-        return self.bottom_right_angle.x
+        return self.bottom_right_angle.get_x()
 
     def get_y_bottom_right_angle(self):
-        return self.bottom_right_angle.y
+        return self.bottom_right_angle.get_y()
 
     def is_intersect_with_other_rooms(self, rooms):
         intersect = False
@@ -41,7 +39,17 @@ class Room:
                 self.upper_left_angle.get_y() <= other_room.bottom_right_angle.get_y() and
                 self.bottom_right_angle.get_y() >= other_room.upper_left_angle.get_y())
 
-    def _generate_room(self):
+    def set_coordinates(self, coordinate):
+        self.upper_left_angle = coordinate
+        self._set_bottom_right_angle(coordinate)
+
+    def _set_bottom_right_angle(self, coordinate):
+        x = coordinate.get_x() + self.width
+        y = coordinate.get_y() + self.height
+        position = Position(x, y)
+        self.bottom_right_angle = position
+
+    def generate_room(self):
         while True:
             base_size = self._generate_base_size()
             rectangularity = self._generate_rectangularity(base_size)
@@ -76,20 +84,3 @@ class Room:
             self.width += rectangularity
         elif rectangularity < ROOM_MIN_SIZE:
             self.height += rectangularity
-
-    def _initialize_coordinates(self):
-        x = self._generate_coordinate_for_room(self.temple.get_map_width(), self.width)
-        y = self._generate_coordinate_for_room(self.temple.get_map_height(), self.height)
-        self._set_coordinates(x, y)
-
-    def _generate_coordinate_for_room(self, map_size, room_size):
-        max_coordinate = map_size - room_size - 1
-        random_coordinate = random.randint(0, max_coordinate) // 2
-        odd_coordinate = random_coordinate * 2 + 1
-        return odd_coordinate
-
-    def _set_coordinates(self, x, y):
-        self.upper_left_angle.x = x
-        self.upper_left_angle.y = y
-        self.bottom_right_angle.x = x + self.width
-        self.bottom_right_angle.y = y + self.height

@@ -1,23 +1,32 @@
 from .drunkard_walk import DrunkardWalker
 from ..direction import Direction
 from ...core.icons import Icon
+from .bfs import BFS
 
 PROBABILITY_TOWARD_GOAL = 1
 
 
-class RegionConnector(DrunkardWalker):
-    def __init__(self, game_map, start_position_regions):
+class Connector(DrunkardWalker):
+    def __init__(self, game_map):
         super().__init__(game_map)
-        self._start_position_regions = start_position_regions
+        self._start_position_regions = None
         self.goal_position = None
 
-    def connect_regions(self, regions_quantity):
+    def connect_regions(self, regions_quantity, start_position_regions):
+        self._start_position_regions = start_position_regions
         for region_index in range(regions_quantity - 1):
             self._set_drunkard_position(region_index)
             self.goal_position = self._start_position_regions[region_index + 1]
 
             while not self._has_reached_goal():
                 self._navigate_toward_goal()
+
+    def connect_gateway(self, gateway_position):
+        self._drunkard_position = gateway_position
+        self.goal_position = BFS(self._map).find_nearest_point(gateway_position)
+
+        while not self._has_reached_goal():
+            self._navigate_toward_goal()
 
     def _set_drunkard_position(self, region_index):
         self._drunkard_position = self._start_position_regions[region_index]

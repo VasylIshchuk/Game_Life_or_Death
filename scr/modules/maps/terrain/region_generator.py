@@ -70,8 +70,8 @@ class RegionGenerator(DrunkardWalker):
         ]
 
     def _can_carve(self, position: Position):
-        tile = self._map.get_grid_cell(position)
-        return tile.icon in IMPASSABLE_ICONS
+        icon = self._map.get_cell_icon(position)
+        return icon in IMPASSABLE_ICONS
 
     def _move_drunkard(self):
         new_position = self._get_tile_in_direction(self._drunkard_position, self._current_direction)

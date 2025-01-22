@@ -2,7 +2,8 @@ import random
 
 from ..position import Position
 from ...core.icons import Icon
-from .constants import WINDING_PROBABILITY, DIRECTIONS
+from ..direction import Direction
+from .constants import WINDING_PROBABILITY
 
 LAST_ELEMENT = -1
 
@@ -45,7 +46,7 @@ class Corridor:
 
     def _get_available_directions(self, cell):
         available_directions = set()
-        for direction in DIRECTIONS:
+        for direction in Direction.DIRECTIONS:
             if self._can_carve(cell, direction):
                 available_directions.add(direction)
         return available_directions
@@ -63,7 +64,7 @@ class Corridor:
 
     def _leads_to_wall(self, position: Position, direction):
         cell = _get_cell(position, direction, 2)
-        return self.temple.is_wall(cell)
+        return self.temple.is_ground(cell)
 
     def _navigate_to_new_cell(self, current_cell, available_directions):
         direction = self._choose_direction(available_directions)

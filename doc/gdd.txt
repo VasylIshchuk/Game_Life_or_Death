@@ -450,7 +450,6 @@ Mechaniki:
 	- Jeśli psychiczny stan spada 0 to postać popada w obłed i gra sie kończy
 	
 	- Wybór drzwi:
-		(+ Aby otworzyć drzwi, trzeba znaleźć klucz (jeden klucz wystarcza na otwarcie jednych z dwóch drzwi))
 		(+ Drzwi otwierają się po zabiciu wszystkich w pokoju)
 			= 'W pierwszym pokoju jest 10 wrogów', a szansa na przejście wynosi 30 procent. 'W drugim pokoju jest człowiek', a szansa na przejście wynosi 98 procent
 				 (+ Jeżeli wybierzesz drugą opcję, tracisz 25 punktów do stanu psychicznego)

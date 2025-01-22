@@ -6,3 +6,6 @@ class Direction:
     SOUTH = Position(0, 1)
     EAST = Position(1, 0)
     WEST = Position(-1, 0)
+
+    DIRECTIONS = [NORTH, SOUTH, EAST, WEST]
+

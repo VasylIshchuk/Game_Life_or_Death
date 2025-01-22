@@ -1,5 +1,4 @@
 from ...core.icons import Icon
-from ..tile import Tile
 from ..grid import Grid
 from ..map import Map
 from .room import *
@@ -23,17 +22,14 @@ class Temple(Map):
         self._initialize_initial_grid(width, height)
         self._generate_level()
 
-    def is_wall(self, position: Position):
-        tile = self.get_grid_cell(position)
-        return tile.icon == Icon.WALL
+    def is_ground(self, position: Position):
+        return self.get_cell_icon(position) == Icon.GROUND
 
     def is_floor(self, position: Position):
-        tile = self.get_grid_cell(position)
-        return tile.icon == Icon.CORRIDOR_FLOOR
+        return self.get_cell_icon(position) == Icon.CORRIDOR_FLOOR
 
     def is_door(self, position: Position):
-        tile = self.get_grid_cell(position)
-        return tile.icon == Icon.DOOR
+        return self.get_cell_icon(position) == Icon.DOOR
 
     def carve(self, position, icon):
         self.set_cell_icon(position, icon)
@@ -59,8 +55,7 @@ class Temple(Map):
 
     def _initialize_initial_grid(self, width, height):
         self.regions = Grid(REGIONS_WALL_INDEX, width, height)
-        tile_wall = Tile(Icon.WALL)
-        self.grid = Grid(tile_wall, width, height)
+        self.initialize_grid(Icon.GROUND, width, height)
 
     def _generate_level(self):
         self._add_rooms()
@@ -74,12 +69,34 @@ class Temple(Map):
             self._handle_room()
 
     def _handle_room(self):
-        room = Room(self)
-        if not room.is_intersect_with_other_rooms(self.rooms):
-            self.rooms.append(room)
+        room = self._create_room()
 
-            self._place_room_on_map(room)
+        coordinate_room = self._generate_coordinates(room)
+        room.set_coordinates(coordinate_room)
+
+        if not room.is_intersect_with_other_rooms(self.rooms):
+            self._add_room_to_map(room)
             self.increase_region_index()
+
+    def _create_room(self):
+        room = Room(self)
+        room.generate_room()
+        return room
+
+    def _generate_coordinates(self, room):
+        x = self._generate_coordinate_for_room(self.get_map_width(), room.width)
+        y = self._generate_coordinate_for_room(self.get_map_height(), room.height)
+        return Position(x, y)
+
+    def _generate_coordinate_for_room(self, map_size, room_size):
+        max_coordinate = map_size - room_size - 1
+        random_coordinate = random.randint(0, max_coordinate) // 2
+        odd_coordinate = random_coordinate * 2 + 1
+        return odd_coordinate
+
+    def _add_room_to_map(self, room):
+        self.rooms.append(room)
+        self._place_room_on_map(room)
 
     def _place_room_on_map(self, room):
         for x in range(room.get_x_upper_left_angle(), room.get_x_bottom_right_angle()):
@@ -94,10 +111,10 @@ class Temple(Map):
                 self._handle_corridor(start_position)
 
     def _handle_corridor(self, start_position: Position):
-        if not self.is_wall(start_position): return
+        if not self.is_ground(start_position): return
         Corridor(self).generate_corridor(start_position)
 
     def _add_gateways(self):
-        self.set_cell_icon(ENTRANCE_POSITION, Icon.ENTRANCE)
-        exit_position = Position(self.grid.width - 1, self.grid.height - 2)
-        self.set_cell_icon(exit_position, Icon.EXIT)
+        self.set_cell_icon(ENTRANCE_POSITION, Icon.LEVEL_ENTRANCE)
+        exit_position = Position(self.get_map_height() - 1, self.get_map_height() - 2)
+        self.set_cell_icon(exit_position, Icon.GATEWAY)
