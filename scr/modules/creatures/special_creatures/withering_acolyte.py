@@ -25,4 +25,4 @@ class WitheringAcolyte(Creature):
         self._double_attack_power(enemy)
 
     def _double_attack_power(self, enemy: Hero):
-        self._apply_damage_to_enemy(enemy, self.attack_power)
+        self._apply_damage_to_enemy(enemy, self.get_attack_power())

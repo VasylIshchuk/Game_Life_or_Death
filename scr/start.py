@@ -9,7 +9,7 @@ from modules.maps.quest.quest import Quest
 # forest = Forest(63,100)
 # forest.print_map()
 
-# temple = Temple(63, 101)
+# temple = Temple(63, 31)
 # temple.print_map()
 
 # Fight.test_healing()

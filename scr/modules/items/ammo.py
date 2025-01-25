@@ -1,12 +1,14 @@
-from ..core.game_entity import GameEntity, load_data_from_file, initialize_attributes_from_data
+from ..core.game_entity import GameEntity
 
 
 class Ammo(GameEntity):
     def __init__(self, title):
         super().__init__(title)
-        self.category: str = ""
-        self.icon: str = ""
-        self.quantity: int = 0
+        self._quantity: int = 0
+        self._initialize_items_attributes()
 
-        data_ammo = load_data_from_file("./items.json", title)
-        initialize_attributes_from_data(self, data_ammo)
+    def is_usable(self):
+        return self._quantity > 0
+
+    def decrease_quantity(self):
+        self._quantity -= 1

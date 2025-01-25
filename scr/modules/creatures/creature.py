@@ -15,8 +15,6 @@ class Creature(GameEntity):
     def __init__(self, title):
         super().__init__(title)
         self.type: str = ""
-        self.category: str = ""
-        self.icon: str = ""
         self.level: int = 0
         self.health_points: int = 0
         self.attack_power: int = 0
@@ -40,6 +38,21 @@ class Creature(GameEntity):
             self.defense = _generate_random_value(*attributes["defense"])
             self.agility = _generate_random_value(*attributes["agility"])
 
+    def get_attack_power(self):
+        return self.attack_power
+
+    def get_agility(self):
+        return self.agility
+
+    def get_defense(self):
+        return self.defense
+
+    def set_defense(self, value):
+        self.defense = value
+
+    def increase_attack_power(self, value):
+        self.attack_power += value
+
     def check_is_alive(self):
         if self.health_points <= 0:
             self.is_alive = False
@@ -53,17 +66,17 @@ class Creature(GameEntity):
     def is_within_range(self, enemy, range_radius):
         return (
                 self.position.get_x() - range_radius <= enemy.get_x_position() <= self.position.get_x + range_radius and
-                self.position.get_y() - range_radius <= enemy.get_y_position()  <= self.position.get_y() + range_radius
+                self.position.get_y() - range_radius <= enemy.get_y_position() <= self.position.get_y() + range_radius
         )
 
     def attack(self, enemy):
         """Returns information about whether the attack was successful"""
         self.luck = self._roll_dice()
 
-        hit_probability = self._calculate_hit_probability(self.attack_power, enemy)
+        hit_probability = self._calculate_hit_probability(self.get_attack_power(), enemy)
 
         if self._is_hit_successful(hit_probability):
-            self._apply_damage_to_enemy(enemy, self.attack_power)
+            self._apply_damage_to_enemy(enemy, self.get_attack_power())
             return True
         return False
 
@@ -83,7 +96,7 @@ class Creature(GameEntity):
         return self.luck + self.level + attack_power
 
     def _calculate_defense_points(self, enemy):
-        return enemy.level + enemy.agility
+        return enemy.level + enemy.get_agility()
 
     def _is_hit_successful(self, hit_probability):
         if self._is_critical_success() or (
@@ -102,12 +115,13 @@ class Creature(GameEntity):
         return random_factor <= hit_probability
 
     def _apply_damage_to_enemy(self, enemy, attack):
-        if enemy.defense > 0:
-            if enemy.defense >= attack:
-                enemy.defense -= attack
+        if enemy.get_defense() > 0:
+            if enemy.get_defense() >= attack:
+                new_defence = enemy.get_defense() - attack
+                enemy.set_defense(new_defence)
             else:
-                enemy.health_points -= attack - enemy.defense
-                enemy.defense = 0
+                enemy.health_points -= attack - enemy.get_defense()
+                enemy.set_defense(0)
         elif enemy.health_points > attack:
             enemy.health_points -= attack
         else:

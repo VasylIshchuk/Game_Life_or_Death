@@ -116,5 +116,5 @@ class Temple(Map):
 
     def _add_gateways(self):
         self.set_cell_icon(ENTRANCE_POSITION, Icon.LEVEL_ENTRANCE)
-        exit_position = Position(self.get_map_height() - 1, self.get_map_height() - 2)
+        exit_position = Position(self.get_map_width() - 1, self.get_map_height() - 2)
         self.set_cell_icon(exit_position, Icon.GATEWAY)

@@ -36,6 +36,8 @@ def initialize_attributes_from_data(entity, entity_data: dict):
 class GameEntity:
     def __init__(self, title):
         self.title = title
+        self.category: str = ""
+        self.icon: str = ""
         self.position = None
 
     def set_position(self, position: Position):
@@ -46,3 +48,8 @@ class GameEntity:
 
     def get_y_position(self):
         return self.position.get_y()
+
+    def _initialize_items_attributes(self):
+        data_item = load_data_from_file("./items.json", self.title)
+        initialize_attributes_from_data(self, data_item)
+        return data_item

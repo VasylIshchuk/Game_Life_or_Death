@@ -1,7 +1,7 @@
 import json
 
 from ..creatures.creature import Creature
-from ..core.creature_factory import CreatureFactory
+from ..creatures.creature_factory import CreatureFactory
 
 ALLIES_COUNT = 4
 
@@ -87,7 +87,7 @@ def _display_characteristics(creature):
 
 def _execute_combat_round(attacker, defender, use_spiritual_power=None):
     health_points_before_attack = defender.health_points
-    defense_points_before_attack = defender.defense
+    defense_points_before_attack = defender.get_defense()
     _perform_attack(attacker, defender, use_spiritual_power)
     _display_combat(attacker, defender, health_points_before_attack, defense_points_before_attack)
     if not defender.is_alive:
@@ -111,13 +111,13 @@ def _show_attack_details(creature):
 
 
 def _display_attack_result(attacker, defender, health_points_before_attack, defense_points_before_attack):
-    if defender.health_points == health_points_before_attack and defender.defense == defense_points_before_attack:
+    if defender.health_points == health_points_before_attack and defender.get_defense() == defense_points_before_attack:
         print(f"{attacker.title} missed :(")
     else:
         print(f"{attacker.title} hit successfully :)")
         print(f"The {defender.title} lost {health_points_before_attack - defender.health_points} HP.")
         print(f"The {defender.title} has {defender.health_points} HP left.")
-        print(f"The {defender.title} has {defender.defense} DP left.")
+        print(f"The {defender.title} has {defender.get_defense()} DP left.")
         if defender.category == "Hero":
             print(f"The {defender.title} has {defender.mental_state} MS left.")
 

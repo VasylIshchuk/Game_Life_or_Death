@@ -14,8 +14,6 @@ class AngryGuardian(Creature):
 
     def apply_abilities(self):
         if self.count_bonus_attack != MAX_ATTACK_POWER_INCREASE:
-            self._increase_attack_power()
+            self.increase_attack_power(1)
             self.count_bonus_attack += 1
 
-    def _increase_attack_power(self):
-        self.attack_power += 1

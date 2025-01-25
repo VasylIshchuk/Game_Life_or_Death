@@ -55,40 +55,73 @@
   },
   "Amulet of Power": {
     "category": "Artifact",
+    "type": "SpiritualRelic",
     "icon": "",
     "effect": 5,
-    "description": "An ancient amulet that enhances magical strikes",
-    "attack_range": 2
-  },
-  "Spirit Armor": {
-    "category": "Artifact",
-    "icon": "",
-    "effect": 3,
-    "description": "Armor made from spirit essence, providing additional defense against psychic attacks",
-    "attack_range": 2
-  },
-  "Amulet of Survival": {
-    "category": "Artifact",
-    "icon": "",
-    "effect": 3,
-    "description": "Created by ancient priests, it strengthens the will to survive in the face of danger",
-    "attack_range": 2
+    "description": "An ancient amulet that enhances spiritual strikes",
+    "durability": 5
   },
   "Runic Moon": {
     "category": "Artifact",
+    "type": "SpiritualRelic",
     "icon": "",
-    "effect": 4,
-    "description": "An artifact linked to the moon's power, boosting spiritual abilities",
-    "attack_range": 2
+    "effect": 3,
+    "description": "An artifact linked to the moon's power, boosting spiritual power",
+    "durability": 5
+  },
+  "Tear of Light": {
+    "category": "Artifact",
+    "type": "CursedSpiritualRelic",
+    "icon": "",
+    "effects": {
+      "effect": 8,
+      "health_cost": 10
+    },
+    "description": "A drop of pure light that strengthens the user’s soul but takes away part of their physical energy",
+    "durability": 3
+  },
+  "Spirit Armor": {
+    "category": "Artifact",
+    "type": "DefensiveRelic",
+    "icon": "",
+    "effect": 20,
+    "description": "Armor made from spirit essence, providing additional defense against attacks",
+    "durability": 5
+  },
+  "Amulet of Survival": {
+    "category": "Artifact",
+    "type": "SurvivalRelic",
+    "icon": "",
+    "effect": 5,
+    "description": "Created by ancient priests, it strengthens the will to survive in the face of danger,increasing the agility",
+    "durability": 3
+  },
+  "Armor of the Stone Guardian": {
+    "category": "Artifact",
+    "type": "PowerRelic",
+    "icon": "",
+    "effect": 6,
+    "description": "A heavy suit of armor crafted by the ancient guardians of temples,increasing the power of attack",
+    "durability": 5
+  },
+  "Gloves of Wrath ": {
+    "category": "Artifact",
+    "type": "WarriorsRelic",
+    "icon": "",
+    "effect": 5,
+    "description": "Bloodied gloves of ancient warriors, filled with their unrelenting thirst for battle, increasing the power of a weapon's strike",
+    "durability": 5
   },
   "Elixir of Final Choice": {
     "category": "Artifact",
+    "type": "CursedPowerRelic",
     "icon": "",
-    "effect": {
-      "spiritual_power": 8,
-      "health_cost": 15
+    "effects": {
+      "effect": 15,
+      "health_cost": 35
     },
-    "description": "A powerful elixir that adds strength but demands sacrifice, forcing difficult choices"
+    "description": "A powerful elixir that adds attack power but demands sacrifice, forcing difficult choices",
+    "durability": 1
   },
   "Pitchfork": {
     "type": "MeleeWeapon",
@@ -96,7 +129,7 @@
     "icon": "|",
     "durability": 30,
     "strike_power": 1,
-    "attack_range": 1
+    "strike_distance": 1
   },
   "Sword": {
     "type": "MeleeWeapon",
@@ -104,7 +137,7 @@
     "icon": "",
     "durability": 80,
     "strike_power": 5,
-    "attack_range": 1
+    "strike_distance": 1
   },
   "Axe": {
     "type": "MeleeWeapon",
@@ -112,7 +145,7 @@
     "icon": "",
     "durability": 60,
     "strike_power": 4,
-    "attack_range": 1
+    "strike_distance": 1
   },
   "Spear": {
     "type": "MeleeWeapon",
@@ -120,7 +153,7 @@
     "icon": " | ",
     "durability": 50,
     "strike_power": 3,
-    "attack_range": 1
+    "strike_distance": 1
   },
   "Bow": {
     "type": "RangedWeapon",
@@ -129,7 +162,7 @@
     "ammo": "Arrows",
     "durability": 25,
     "strike_power": 3,
-    "attack_range": 3
+    "strike_distance": 3
   },
   "Hammer": {
     "type": "RangedWeapon",
@@ -138,7 +171,7 @@
     "ammo": "Nails",
     "durability": 30,
     "strike_power": 4,
-    "attack_range": 3
+    "strike_distance": 3
   },
   "Nails": {
     "category": "Ammo",
@@ -206,6 +239,16 @@
     "description": "A key for opening locked areas"
   },
   "Corpse": {
+    "category": "Misc",
+    "icon": "",
+    "description": "Marks human corpses"
+  },
+  "Ordinary Chest": {
+    "category": "Chest",
+    "icon": ""
+  },
+  "Closed Chest": {
+    "category": "Chest",
     "icon": ""
   }
 }

@@ -3,8 +3,8 @@
 
 import unittest
 from ..maps.temple.temple import Temple
-from ..core.item_factory import ItemFactory
-from ..core.creature_factory import CreatureFactory
+from ..items.item_factory import ItemFactory
+from ..creatures.creature_factory import CreatureFactory
 from ..maps.position import Position
 
 

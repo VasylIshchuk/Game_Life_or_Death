@@ -1,14 +1,14 @@
-from .game_entity import load_data_from_file, get_attribute_from_data
-from ..creatures.creature import Creature
-from ..creatures.special_creatures.psychological import Psychological
-from ..creatures.hero import Hero
-from ..creatures.special_creatures.angry_guardian import AngryGuardian
-from ..creatures.special_creatures.rat import Rat
-from ..creatures.special_creatures.broken_marionette import BrokenMarionette
-from ..creatures.special_creatures.poisoned_monk import PoisonedMonk
-from ..creatures.special_creatures.withering_acolyte import WitheringAcolyte
-from ..creatures.special_creatures.fire_choker import FireChoker
-from ..creatures.special_creatures.rotting_flesh import RottingFlesh
+from ..core.game_entity import load_data_from_file, get_attribute_from_data
+from .creature import Creature
+from .special_creatures.psychological import Psychological
+from hero import Hero
+from .special_creatures.angry_guardian import AngryGuardian
+from .special_creatures.rat import Rat
+from .special_creatures.broken_marionette import BrokenMarionette
+from .special_creatures.poisoned_monk import PoisonedMonk
+from .special_creatures.withering_acolyte import WitheringAcolyte
+from .special_creatures.fire_choker import FireChoker
+from .special_creatures.rotting_flesh import RottingFlesh
 
 _SPECIAL_CREATURES = {
     "Mark": Hero,

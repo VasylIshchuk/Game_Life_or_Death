@@ -17,7 +17,7 @@
     "inventory": {
       "weapon": "Pitchfork",
       "food": {
-        "apples": 2,
+        "apple": 3,
         "bread": 1
       }
     }

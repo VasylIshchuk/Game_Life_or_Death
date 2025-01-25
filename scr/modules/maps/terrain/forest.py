@@ -43,7 +43,7 @@ class Forest(Map):
         region_connector.connect_regions(REGIONS_QUANTITY, self._start_position_regions)
 
     def _handle_gateways(self):
-        exit_position = Position(self.get_map_height() - 1, self.get_map_height() - 2)
+        exit_position = Position(self.get_map_width() - 1, self.get_map_height() - 2)
         entrance_position = Position(0, 1)
 
         self._add_gateways(entrance_position, exit_position)

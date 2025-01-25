@@ -1,23 +1,33 @@
-from .ammo import Ammo
-from ..core.game_entity import GameEntity, load_data_from_file, get_attribute_from_data, initialize_attributes_from_data
+from ..core.game_entity import GameEntity
 
 
 class Weapon(GameEntity):
     def __init__(self, title):
         super().__init__(title)
-        self.type: str = ""
-        self.category: str = ""
-        self.icon: str = ""
-        self.durability: int = 0
-        self.strike_power: int = 0
-        self.strike_distance: int = 0
+        self._type: str = ""
+        self._durability: int = 0
+        self._strike_power: int = 0
+        self._strike_distance: int = 0
+        self._initialize_items_attributes()
 
-        data_weapon = load_data_from_file("./items.json", title)
-        initialize_attributes_from_data(self, data_weapon)
+    @property
+    def type(self) -> str:
+        return self._type
 
-        if self.type == "RangedWeapon":
-            ammo = get_attribute_from_data(data_weapon, "ammo")
-            self.ammo = Ammo(ammo)
+    @property
+    def durability(self) -> int:
+        return self._durability
 
-        self.is_break = False
-        self.shards = "*"
+    @property
+    def strike_power(self) -> int:
+        return self._strike_power
+
+    @property
+    def strike_distance(self) -> int:
+        return self._strike_distance
+
+    def decrease_durability(self, value):
+        self._durability -= value
+
+    def is_broken(self):
+        return self._durability <= 0
