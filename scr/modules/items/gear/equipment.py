@@ -1,4 +1,4 @@
-from .inventory import Inventory
+from ..inventory import Inventory
 
 _SLOTS = {
     "Food": 0,
@@ -14,7 +14,7 @@ def _get_slot_index(category):
     return _SLOTS[category]
 
 
-class Slots(Inventory):
+class Equipment(Inventory):
     food_slot_index = _get_slot_index("Food")
     book_slot_index = _get_slot_index("Book")
     artifact_slot_index = _get_slot_index("Artifact")
@@ -43,7 +43,7 @@ class Slots(Inventory):
 
     def weapon_is_broken(self):
         weapon = self.get_item(self.weapon_slot_index)
-        return weapon.is_broken()
+        return weapon.is_broken
 
     def decrease_weapon_durability(self, value):
         weapon = self.get_item(self.weapon_slot_index)
@@ -51,7 +51,7 @@ class Slots(Inventory):
 
     def get_weapon_strike_distance(self):
         weapon = self.get_item(self.weapon_slot_index)
-        return weapon.strike_distance()
+        return weapon.strike_distance
 
     def get_weapon_effect(self):
         if not self._is_weapon_usable():
@@ -79,7 +79,7 @@ class Slots(Inventory):
 
     def _get_weapon_type(self):
         weapon = self.get_item(self.weapon_slot_index)
-        return weapon.type()
+        return weapon.type
 
     def _validate_ranged_weapon_ammo(self):
         if not self._has_ammo():
@@ -111,7 +111,7 @@ class Slots(Inventory):
 
     def _get_weapon_strike_power(self):
         weapon = self.get_item(self.weapon_slot_index)
-        return weapon.strike_power()
+        return weapon.strike_power
 
     def get_artifact_effect(self, artifact_type):
         if self._has_artifact(artifact_type):
@@ -121,7 +121,7 @@ class Slots(Inventory):
 
     def _has_artifact(self, artifact_type):
         artifact = self.get_item(self.artifact_slot_index)
-        return self._slot_has_item(self.artifact_slot_index) and artifact.type() == artifact_type
+        return self._slot_has_item(self.artifact_slot_index) and artifact.type == artifact_type
 
     def _process_artifact_effect(self):
         if not self._artifact_is_usable():
@@ -143,22 +143,22 @@ class Slots(Inventory):
 
     def _get_artifact_effect(self):
         artifact = self.get_item(self.artifact_slot_index)
-        return artifact.effect()
+        return artifact.effect
 
     def get_cursed_relic_health_cost(self):
         artifact = self.get_item(self.artifact_slot_index)
-        return artifact.health_cost()
+        return artifact.health_cost
 
     def get_book_effect(self):
         book = self.get_item(self.book_slot_index)
-        return book.effect()
+        return book.effect
 
     def delete_book(self):
         self.delete_item(self.book_slot_index)
 
     def get_food_effect(self):
         food = self.get_item(self.food_slot_index)
-        return food.effect()
+        return food.effect
 
     def delete_food(self):
         self.delete_item(self.food_slot_index)
@@ -168,7 +168,7 @@ class Slots(Inventory):
 
     def get_armor_effect(self):
         armor = self.get_item(self.armor_slot_index)
-        return armor.effect()
+        return armor.effect
 
     def delete_armor(self):
         self.delete_item(self.armor_slot_index)

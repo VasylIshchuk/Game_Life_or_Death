@@ -501,14 +501,16 @@ Mechaniki:
 				+ Jeśli atakuje bronią, wytrzymałość broni zmniejsza się o 1 punkt.
 					++ Po zużyciu broni, czyli gdy wytrzymałość osiąga 0, broń łamie się i znika z ekwipunku bohatera, a na zieme pojawają sie odłamki.
 				 
-		= Po zabiciu wroga uzyskujesz punkty doświadczenia: numer pozioma przeciwnika * 2 + 1
+
 	
 	- Poziomy doświadczenia:
-		= Aby osiągnąć nowy poziom należy zdobyć punkty według wzory: numer poziomu * 10 ;
+		= Aby osiągnąć nowy poziom należy zdobyć punkty według wzory: (numer pozioma + 2)^2 * 20 ;
 		= Po osiżgnięciu nowego poziomu za każdym razem zwiększają się statystyki:
 			+ siła uderzenia : + numer poziomu + 2
 			+ moc duchowa : + numer poziomu
 			+ zwinność : + numer poziomu + 3
+		= Po zabiciu wroga uzyskujesz punkty doświadczenia: (numer pozioma przeciwnika + 1)^2
+		= Za pojęcia na nowy poziom uzyskujesz punkty doświadczenia:  (numer pozioma + 1) * 10
 
 	- Towarzysz: 
 		(+ Bohater może mieć tylko jednego towarzysza, a innego trzeba będzie porzucić)

@@ -17,8 +17,8 @@
     "inventory": {
       "weapon": "Pitchfork",
       "food": {
-        "apple": 3,
-        "bread": 1
+        "Apple": 3,
+        "Bread": 1
       }
     }
   },
@@ -259,7 +259,7 @@
     "attack_power": 35,
     "attack_range": 2,
     "agility": 10,
-    "abilities": ""
+    "abilities": "Once every 5 turns summons anyone at random"
   }
 }
 

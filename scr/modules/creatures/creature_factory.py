@@ -1,7 +1,7 @@
 from ..core.game_entity import load_data_from_file, get_attribute_from_data
 from .creature import Creature
 from .special_creatures.psychological import Psychological
-from hero import Hero
+from .hero import Hero
 from .special_creatures.angry_guardian import AngryGuardian
 from .special_creatures.rat import Rat
 from .special_creatures.broken_marionette import BrokenMarionette

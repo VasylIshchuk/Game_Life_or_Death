@@ -5,8 +5,10 @@ from .armor import Armor
 from .food import Food
 from .book import Book
 from .misc import OtherItem
-from .artifacts.artifact import Artifact
+from .artifact import Artifact
 from .artifacts.cursed_relic import CursedRelic
+from .chests.closed_chest import ClosedChest
+from .chests.ordinary_chest import OrdinaryChest
 
 _CATEGORY_ITEMS = {
     "Weapon": Weapon,
@@ -14,7 +16,9 @@ _CATEGORY_ITEMS = {
     "Armor": Armor,
     "Food": Food,
     "Book": Book,
-    "Misc": OtherItem
+    "Misc": OtherItem,
+    "OrdinaryChest": OrdinaryChest,
+    "ClosedChest": ClosedChest
 }
 
 _TYPE_INVENTORY = {

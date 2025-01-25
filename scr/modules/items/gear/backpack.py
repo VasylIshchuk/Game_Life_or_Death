@@ -1,4 +1,4 @@
-from .inventory import Inventory
+from ..inventory import Inventory
 
 
 class Backpack(Inventory):

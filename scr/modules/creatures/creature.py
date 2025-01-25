@@ -53,9 +53,15 @@ class Creature(GameEntity):
     def increase_attack_power(self, value):
         self.attack_power += value
 
-    def check_is_alive(self):
-        if self.health_points <= 0:
-            self.is_alive = False
+    def set_is_dead(self):
+        self.is_alive = False
+
+    def decrease_health_points(self, points):
+        if self.health_points - points <= 0:
+            self.set_is_dead()
+            self.health_points = 0
+        else:
+            self.health_points -= points
 
     def healing(self, points):
         if self.health_points + points >= self.max_health_points:
@@ -126,7 +132,7 @@ class Creature(GameEntity):
             enemy.health_points -= attack
         else:
             enemy.health_points = 0
-            enemy.check_is_alive()
+            enemy.set_is_dead()
 
     def _clamp_chance(self, efficiency_chance):
         if efficiency_chance > 0.9:

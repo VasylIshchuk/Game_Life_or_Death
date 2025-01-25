@@ -244,11 +244,11 @@
     "description": "Marks human corpses"
   },
   "Ordinary Chest": {
-    "category": "Chest",
+    "category": "OrdinaryChest",
     "icon": ""
   },
   "Closed Chest": {
-    "category": "Chest",
+    "category": "ClosedChest",
     "icon": ""
   }
 }

@@ -4,11 +4,11 @@ from ..core.game_entity import GameEntity
 class Ammo(GameEntity):
     def __init__(self, title):
         super().__init__(title)
-        self._quantity: int = 0
+        self.quantity: int = 0
         self._initialize_items_attributes()
 
     def is_usable(self):
-        return self._quantity > 0
+        return self.quantity > 0
 
     def decrease_quantity(self):
-        self._quantity -= 1
+        self.quantity -= 1

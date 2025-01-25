@@ -14,5 +14,3 @@ class Chest(GameEntity):
     def __init__(self, title):
         super().__init__(title)
         self.slots = [] * generate_size()
-
-
