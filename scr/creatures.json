@@ -2,7 +2,7 @@
   "Mark": {
     "type": "special",
     "category": "Hero",
-    "icon": " ♛ ",
+    "icon": " ♀ ",
     "description": "Ordinary farmer",
     "health_points": 100,
     "mental_state": 100,
@@ -25,7 +25,7 @@
   "Human": {
     "type": "basic",
     "category": "Human",
-    "icon": " ♕ ",
+    "icon": " ☿ ",
     "description": "A living mass, resembling a lump of black slime, with fragments of bones that sometimes flicker, slowly crawls towards the enemy",
     "health_points": 25,
     "level": 0,

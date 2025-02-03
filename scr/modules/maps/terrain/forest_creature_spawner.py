@@ -11,7 +11,6 @@ class ForestCreatureSpawner(CreatureSpawner):
     def __init__(self, game_level, map):
         super().__init__(game_level, map)
         self.level_distribution = self._get_creature_distribution_by_level()
-        self._spawn_creatures()
 
     def _get_creature_distribution_by_level(self):
         quantity_lower_level_creatures = self._calculate_quantity_lower_level_creatures()
@@ -20,7 +19,7 @@ class ForestCreatureSpawner(CreatureSpawner):
     def _calculate_quantity_lower_level_creatures(self):
         return self._game_level * COEFFICIENT_NUMBER_OF_LOWER_LEVEL_CREATURE
 
-    def _spawn_creatures(self):
+    def spawn_creatures(self):
         for level, count in self.level_distribution.items():
             for _ in range(count):
                 creature = CreatureFactory.create_random_creature_by_level(level)

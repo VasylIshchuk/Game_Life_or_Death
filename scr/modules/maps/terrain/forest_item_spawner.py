@@ -1,7 +1,6 @@
 import random
 from ..position import Position
 from ...items.item_spawner import ItemSpawner
-from ..direction import Direction
 
 MIN_NUMBER_CHEST = 3
 MAX_NUMBER_CHEST = 5
@@ -10,11 +9,11 @@ MAX_NUMBER_CHEST = 5
 class ForestItemSwamper(ItemSpawner):
     def __init__(self, map):
         super().__init__(map)
-        self._spawn_creatures()
 
-    def _spawn_creatures(self):
+    def spawn_creatures(self):
         for _ in range(self._generate_random_chest_quantity()):
             chest = self.generate_chest()
+            self.initialize_chest(chest)
             self._place_chest(chest)
 
     def _generate_random_chest_quantity(self):

@@ -12,7 +12,6 @@ class FloorCreatureSpawner(CreatureSpawner):
     def __init__(self, game_level, map):
         super().__init__(game_level, map)
         self.level_distribution = self._get_creature_distribution_by_level()
-        self._spawn_creatures()
 
     def _get_creature_distribution_by_level(self):
         quantity_main_level_creatures = self._calculate_quantity_main_level_creatures()
@@ -30,7 +29,7 @@ class FloorCreatureSpawner(CreatureSpawner):
         adjusted_creature_count = MIN_QUANTITY_LOWER_LEVEL_CREATURE + quantity_rooms // 3
         return max(limited_creature_count, adjusted_creature_count)
 
-    def _spawn_creatures(self):
+    def spawn_creatures(self):
         available_rooms = self._get_available_rooms()
         for level, count in self.level_distribution.items():
             self._spawn_creatures_with_level(level, count, available_rooms)

@@ -2,7 +2,7 @@ import random
 
 from ..core.game_entity import GameEntity
 
-MIN_SIZE = 0
+MIN_SIZE = 1
 MAX_SIZE = 3
 
 
