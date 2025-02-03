@@ -3,7 +3,6 @@ import json
 from ..creatures.creature import Creature
 from ..creatures.creature_factory import CreatureFactory
 
-ALLIES_COUNT = 4
 
 
 def _load_creatures_from_file():
@@ -22,9 +21,8 @@ def _load_creatures_from_file():
 def _filter_and_display_creatures(data):
     creatures = []
     for idx, creature in enumerate(data, start=1):
-        if idx > ALLIES_COUNT:
-            print(f"{idx - ALLIES_COUNT}) {creature} ")
-            creatures.append(creature)
+        print(f"{idx}) {creature} ")
+        creatures.append(creature)
     return creatures
 
 

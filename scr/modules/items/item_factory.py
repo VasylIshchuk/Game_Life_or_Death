@@ -1,4 +1,4 @@
-from ..core.game_entity import load_data_from_file, get_attribute_from_data
+from ..core.game_entity import load_entity_data_from_file, get_attribute_from_data
 from .weapon import Weapon
 from .ammo import Ammo
 from .armor import Armor
@@ -9,6 +9,7 @@ from .artifact import Artifact
 from .artifacts.cursed_relic import CursedRelic
 from .chests.closed_chest import ClosedChest
 from .chests.ordinary_chest import OrdinaryChest
+from .key import Key
 
 _CATEGORY_ITEMS = {
     "Weapon": Weapon,
@@ -18,7 +19,8 @@ _CATEGORY_ITEMS = {
     "Book": Book,
     "Misc": OtherItem,
     "OrdinaryChest": OrdinaryChest,
-    "ClosedChest": ClosedChest
+    "ClosedChest": ClosedChest,
+    "Key": Key
 }
 
 _TYPE_INVENTORY = {
@@ -33,7 +35,7 @@ _TYPE_INVENTORY = {
 
 
 def get_class(data_item, category):
-    if category is "Artifact":
+    if category == "Artifact":
         type = get_attribute_from_data(data_item, "type")
         return _TYPE_INVENTORY.get(type)
     else:
@@ -43,7 +45,7 @@ def get_class(data_item, category):
 class ItemFactory:
     @staticmethod
     def create_item(title):
-        data_item = load_data_from_file("./items.json", title)
+        data_item = load_entity_data_from_file("./items.json", title)
         category = get_attribute_from_data(data_item, "category")
         item_class = get_class(data_item, category)
         return item_class(title)

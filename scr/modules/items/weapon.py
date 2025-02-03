@@ -8,7 +8,7 @@ class Weapon(GameEntity):
         self.durability: int = 0
         self.strike_power: int = 0
         self.strike_distance: int = 0
-        self._initialize_items_attributes()
+        self.initialize_items_attributes()
 
     def decrease_durability(self, value):
         self.durability -= value

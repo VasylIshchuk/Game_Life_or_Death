@@ -7,6 +7,7 @@ _SLOTS = {
     "Weapon": 3,
     "Ammo": 4,
     "Armor": 5,
+    "Key": 6
 }
 
 
@@ -21,8 +22,9 @@ class Equipment(Inventory):
     weapon_slot_index = _get_slot_index("Weapon")
     ammo_slot_index = _get_slot_index("Ammo")
     armor_slot_index = _get_slot_index("Armor")
+    key_slot_index = _get_slot_index("Key")
 
-    def __init__(self, size=6):
+    def __init__(self, size=len(_SLOTS)):
         super().__init__(size)
 
     def add_item(self, item):

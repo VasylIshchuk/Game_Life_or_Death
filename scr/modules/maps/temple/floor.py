@@ -10,20 +10,20 @@ from .constants import BUILD_ROOM_ATTEMPTS, REGIONS_WALL_INDEX, ROOM_MIN_SIZE
 ENTRANCE_POSITION = Position(0, 1)
 
 
-class Temple(Map):
-    def __init__(self, width, height):
+class Floor(Map):
+    def __init__(self, width, height, is_ground_floor=False):
         super().__init__()
+        self.is_ground_floor = is_ground_floor
         self.regions = None
         self.rooms = []
         self.current_region_index = 0
         self._validate_dimensions(width, height)
-        self.initialize_grid(Icon.WALL, width, height)
         self.regions = Grid(REGIONS_WALL_INDEX, width, height)
         self._initialize_initial_grid(width, height)
-        self._generate_level()
+        self._generate_floor()
 
-    def is_ground(self, position: Position):
-        return self.get_cell_icon(position) == Icon.GROUND
+    def is_wall(self, position: Position):
+        return self.get_cell_icon(position) == Icon.WALL
 
     def is_floor(self, position: Position):
         return self.get_cell_icon(position) == Icon.CORRIDOR_FLOOR
@@ -55,9 +55,9 @@ class Temple(Map):
 
     def _initialize_initial_grid(self, width, height):
         self.regions = Grid(REGIONS_WALL_INDEX, width, height)
-        self.initialize_grid(Icon.GROUND, width, height)
+        self.initialize_grid(Icon.WALL, width, height)
 
-    def _generate_level(self):
+    def _generate_floor(self):
         self._add_rooms()
         self._fill_map_with_corridors()
         self._add_gateways()
@@ -111,10 +111,28 @@ class Temple(Map):
                 self._handle_corridor(start_position)
 
     def _handle_corridor(self, start_position: Position):
-        if not self.is_ground(start_position): return
+        if not self.is_wall(start_position): return
         Corridor(self).generate_corridor(start_position)
 
     def _add_gateways(self):
+        if self.is_ground_floor:
+            self._add_entrance()
+            self._add_exit()
+
+        self._add_stairs()
+
+    def _add_entrance(self):
         self.set_cell_icon(ENTRANCE_POSITION, Icon.LEVEL_ENTRANCE)
+
+    def _add_exit(self):
         exit_position = Position(self.get_map_width() - 1, self.get_map_height() - 2)
         self.set_cell_icon(exit_position, Icon.GATEWAY)
+
+    def _add_stairs(self):
+        mid_height = self._make_odd(self.get_map_height() // 2)
+        position_down = Position(0, mid_height)
+        self.set_cell_icon(position_down, Icon.STAIRS)
+
+    def _make_odd(self, value):
+        return value if value % 2 == 1 else value + 1
+

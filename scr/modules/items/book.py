@@ -6,4 +6,4 @@ class Book(GameEntity):
         super().__init__(title)
         self.effect: int = 0
         self.description: str = ""
-        self._initialize_items_attributes()
+        self.initialize_items_attributes()

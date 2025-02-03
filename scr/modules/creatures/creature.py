@@ -1,4 +1,4 @@
-from ..core.game_entity import GameEntity, load_data_from_file, initialize_attributes_from_data
+from ..core.game_entity import GameEntity, load_entity_data_from_file, initialize_attributes_from_data
 from .limits_stats import LimitsAttributes
 
 import random
@@ -25,7 +25,7 @@ class Creature(GameEntity):
         self.is_alive: bool = True
 
         self.HIT_CHANCE = 0.0  # Used for testing hit probability
-        self.data_creature = load_data_from_file("./creatures.json", title)
+        self.data_creature = load_entity_data_from_file("./creatures.json", title)
 
         initialize_attributes_from_data(self, self.data_creature)
         self._initialize_generated_attributes()
@@ -71,7 +71,7 @@ class Creature(GameEntity):
 
     def is_within_range(self, enemy, range_radius):
         return (
-                self.position.get_x() - range_radius <= enemy.get_x_position() <= self.position.get_x + range_radius and
+                self.position.get_x() - range_radius <= enemy.get_x_position() <= self.position.get_x() + range_radius and
                 self.position.get_y() - range_radius <= enemy.get_y_position() <= self.position.get_y() + range_radius
         )
 

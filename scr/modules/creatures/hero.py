@@ -214,7 +214,7 @@ class Hero(Creature):
             self.experience_points = total_xp
 
     def get_xp_required_for_level_up(self):
-        return (self.level + 2) ** 2 * 20
+        return (self.level + 1) ** 2 * 25
 
     def _level_up(self):
         self._increase_level()

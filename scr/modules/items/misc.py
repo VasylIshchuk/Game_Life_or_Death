@@ -5,4 +5,4 @@ class OtherItem(GameEntity):
     def __init__(self, title):
         super().__init__(title)
         self.description: str = ""
-        self._initialize_items_attributes()
+        self.initialize_items_attributes()

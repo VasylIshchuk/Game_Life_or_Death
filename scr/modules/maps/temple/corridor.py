@@ -64,7 +64,7 @@ class Corridor:
 
     def _leads_to_wall(self, position: Position, direction):
         cell = _get_cell(position, direction, 2)
-        return self.temple.is_ground(cell)
+        return self.temple.is_wall(cell)
 
     def _navigate_to_new_cell(self, current_cell, available_directions):
         direction = self._choose_direction(available_directions)

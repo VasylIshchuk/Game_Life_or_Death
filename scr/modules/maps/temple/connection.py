@@ -40,7 +40,7 @@ class Connection:
                 self._handle_tile(Position(x, y))
 
     def _handle_tile(self, position):
-        if not self.temple.is_ground(position): return
+        if not self.temple.is_wall(position): return
         connected_regions = self._find_connected_regions(position)
         if not self._can_connected_regions(connected_regions): return
         self._connector_regions.set_value(position, connected_regions)

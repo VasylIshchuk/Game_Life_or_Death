@@ -33,7 +33,7 @@ class DeadEnd:
         for direction in Direction.DIRECTIONS:
             connected_tile_position = Position(position.get_x() + direction.get_x(),
                                                position.get_y() + direction.get_y())
-            if not self.temple.is_ground(connected_tile_position):
+            if not self.temple.is_wall(connected_tile_position):
                 connected_passable_tiles += 1
         return connected_passable_tiles
 
@@ -41,5 +41,5 @@ class DeadEnd:
         return connected_passable_tiles < 2
 
     def _remove_dead_end(self, position):
-        self.temple.set_cell_icon(position, Icon.GROUND)
+        self.temple.set_cell_icon(position, Icon.WALL)
         self.has_dead_end = True

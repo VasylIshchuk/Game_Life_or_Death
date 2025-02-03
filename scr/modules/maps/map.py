@@ -4,6 +4,7 @@ from ..core.icons import Icon
 from .grid import Grid
 
 TILE_ROOM_FLOOR = Tile(Icon.ROOM_FLOOR)
+AVAILABLE_TILES = {Icon.ROOM_FLOOR, Icon.GROUND}
 
 
 class Map:
@@ -14,10 +15,10 @@ class Map:
         self.entity_report = []
 
     def is_item_placement_valid(self, position: Position) -> bool:
-        return self.get_cell_icon(position) == Icon.ROOM_FLOOR
+        return self.get_cell_icon(position) in AVAILABLE_TILES
 
     def is_creature_placement_valid(self, position: Position) -> bool:
-        return self.get_cell_icon(position) == Icon.ROOM_FLOOR
+        return self.get_cell_icon(position) in AVAILABLE_TILES
 
     def get_cell_icon(self, position):
         cell = self.grid.get_value(position)
@@ -52,6 +53,7 @@ class Map:
         return False
 
     def remove_item(self, position: Position) -> bool:
+        """TODO: delete because items will not disappear from the map"""
         item = self._find_item(position)
         if item:
             self.grid.set_value(position, TILE_ROOM_FLOOR)
@@ -69,7 +71,7 @@ class Map:
     def remove_creature(self, position: Position) -> bool:
         creature = self._find_creature(position)
         if creature:
-            self.grid.set_value(position, TILE_ROOM_FLOOR)
+            self.grid.set_value(position, Tile(Icon.CORPSE))
             creature.set_position(Position(None, None))
             self.entity_report.remove(creature)
             return True

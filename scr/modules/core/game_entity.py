@@ -7,13 +7,26 @@ def get_attribute_from_data(entity_data: dict, attribute_name: str):
     return entity_data.get(attribute_name)
 
 
-def load_data_from_file(file_path: str, title: str) -> dict:
+def load_entity_data_from_file(file_path: str, title: str) -> dict:
     try:
         with open(file_path, "r") as file:
             data = json.load(file)
             if title not in data:
                 raise ValueError(f"{title} not found in the JSON file.")
             return data[title]
+    except FileNotFoundError:
+        print("File not found")
+        raise
+    except json.JSONDecodeError:
+        print("Invalid JSON format")
+        raise
+
+
+def load_data_from_file(file_path: str):
+    try:
+        with open(file_path, "r") as file:
+            data = json.load(file)
+            return data
     except FileNotFoundError:
         print("File not found")
         raise
@@ -49,7 +62,6 @@ class GameEntity:
     def get_y_position(self):
         return self.position.get_y()
 
-    def _initialize_items_attributes(self):
-        data_item = load_data_from_file("./items.json", self.title)
+    def initialize_items_attributes(self):
+        data_item = load_entity_data_from_file("./items.json", self.title)
         initialize_attributes_from_data(self, data_item)
-        return data_item

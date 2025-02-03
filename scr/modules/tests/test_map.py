@@ -2,7 +2,7 @@
 # python -m unittest -v test_map.py
 
 import unittest
-from ..maps.temple.temple import Temple
+from ..maps.temple.floor import Floor
 from ..items.item_factory import ItemFactory
 from ..creatures.creature_factory import CreatureFactory
 from ..maps.position import Position
@@ -10,7 +10,7 @@ from ..maps.position import Position
 
 class TestMap(unittest.TestCase):
     def setUp(self):
-        self.map = Temple(21, 17)
+        self.map = Floor(21, 17)
         self.valid_position = Position(self.map.rooms[0].upper_left_angle.x, self.map.rooms[0].upper_left_angle.y)
         self.invalid_position = Position(self.map.rooms[0].upper_left_angle.x - 1, self.map.rooms[0].upper_left_angle.y)
         self.item = ItemFactory.create_item('Spear')

@@ -2,8 +2,8 @@ import random
 
 from ..core.game_entity import GameEntity
 
-MIN_SIZE = 1
-MAX_SIZE = 5
+MIN_SIZE = 0
+MAX_SIZE = 3
 
 
 def generate_size():
@@ -13,4 +13,5 @@ def generate_size():
 class Chest(GameEntity):
     def __init__(self, title):
         super().__init__(title)
-        self.slots = [] * generate_size()
+        self.slots = [None] * generate_size()
+

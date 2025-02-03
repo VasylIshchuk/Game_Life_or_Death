@@ -5,7 +5,7 @@ class Ammo(GameEntity):
     def __init__(self, title):
         super().__init__(title)
         self.quantity: int = 0
-        self._initialize_items_attributes()
+        self.initialize_items_attributes()
 
     def is_usable(self):
         return self.quantity > 0

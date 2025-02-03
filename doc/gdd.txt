@@ -448,20 +448,28 @@ Mechaniki:
 		https://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/
 
 	- Jeśli psychiczny stan spada 0 to postać popada w obłed i gra sie kończy
-	
-	- Wybór drzwi:
-		(+ Drzwi otwierają się po zabiciu wszystkich w pokoju)
-			= 'W pierwszym pokoju jest 10 wrogów', a szansa na przejście wynosi 30 procent. 'W drugim pokoju jest człowiek', a szansa na przejście wynosi 98 procent
-				 (+ Jeżeli wybierzesz drugą opcję, tracisz 25 punktów do stanu psychicznego)
-				
-			= 'W pierwszym pokoju jest 10 wrogów', a szansa na przejście wynosi 30 procent. 'W drugim pokoju jest kilka cieni', a szansa na przejście wynosi 90 procent
-				 (+ Jeżeli wybierzesz drugą opcję, tracisz dużo do stanu psychicznego)
-		
-			= Po środku pokoju znajduje się statua, która rzuca różnymi częściami ludzi, jeśli podejdziesz bliżej niż na 2 pola wokół niej
-				(+ Jeśli trafi, tracisz dużo do stanu psychicznego)
-				
-			= 'W pierwszym pokoju jest 10 wrogów', a szansa na przejście wynosi 30 procent. 'W drugim pokoju będzie góra wokół', a szansa na przejście wynosi 100 procent
-				(+ Jeżeli wybierzesz drugą opcję, tracisz 20 punktów do stanu psychicznego)
+
+	- Quests:
+        - Wybór drzwi:
+            (+ Drzwi otwierają się po zabiciu wszystkich w pokoju)
+                = 'W pierwszym pokoju jest 10 wrogów', a szansa na przejście wynosi 30 procent. 'W drugim pokoju ludzie', a szansa na przejście wynosi 98 procent
+                     (+ Jeżeli wybierzesz drugą opcję, tracisz 25 punktów do stanu psychicznego)
+
+                = "W pierwszym pokoju jest 10 wrogów', a szansa na przejście wynosi 30 procent. 'W drugim pokoju jest kilka cieni", a szansa na przejście wynosi 90 procent
+                     (+ Jeżeli wybierzesz drugą opcję, tracisz dużo do stanu psychicznego)
+
+                = 'W pierwszym pokoju jest 10 wrogów', a szansa na przejście wynosi 30 procent. 'W drugim pokoju będzie góra wokół', a szansa na przejście wynosi 100 procent
+                    (+ Jeżeli wybierzesz drugą opcję, tracisz 20 punktów do stanu psychicznego)
+
+        - W jednym pokoju:
+                =  "W pierwszym pokoju  znajduje się posąg, która rzuca różnymi częściami ludzi, jeśli podejdziesz bliżej niż na 3 pola wokół niej", szansa na przejście zależy od pozioma bohatera
+                            (+ Jeśli trafi, tracisz dużo do stanu psychicznego)
+
+                =  "W drugim pokoju znajduje się posąg z czarą domaga się krwi. W pokoju do posągu przywiązana jest nieprzytomna osoba. Aby przejść dalej, trzeba złożyć krew w ofierze." szansa na przejście wynosi 98 procent
+                    (+ Jeśli oddasz własną krew, tracisz część zdrowia.)
+                    (+ Jeśli użyjesz cudzej krwi, tracisz część stanu psychicznego.)
+
+
 		
 	- Pomieszczenia do ratowania 
 		= Na drzwiach będzie zagadka. Po ich otwarciu musisz pokonać wrogów i uratować 
@@ -504,7 +512,7 @@ Mechaniki:
 
 	
 	- Poziomy doświadczenia:
-		= Aby osiągnąć nowy poziom należy zdobyć punkty według wzory: (numer pozioma + 2)^2 * 20 ;
+		= Aby osiągnąć nowy poziom należy zdobyć punkty według wzory: (numer pozioma + 1)^2 * 25 ;
 		= Po osiżgnięciu nowego poziomu za każdym razem zwiększają się statystyki:
 			+ siła uderzenia : + numer poziomu + 2
 			+ moc duchowa : + numer poziomu

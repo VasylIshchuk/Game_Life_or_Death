@@ -9,7 +9,7 @@ class Artifact(GameEntity):
         self.effect: int = 0
         self.durability: int = 0
         self.description: str = ""
-        self._initialize_items_attributes()
+        self.initialize_items_attributes()
 
     def is_usable(self):
         return self.durability > 0

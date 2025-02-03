@@ -2,7 +2,7 @@
   "Mark": {
     "type": "special",
     "category": "Hero",
-    "icon": " @ ",
+    "icon": " ♛ ",
     "description": "Ordinary farmer",
     "health_points": 100,
     "mental_state": 100,
@@ -22,43 +22,26 @@
       }
     }
   },
-  "Cat": {
-    "type": "special",
-    "category": "Companions",
-    "icon": "",
-    "description": "Small black cat, moves silently and gracefully, its presence comforts the hero",
-    "level": 4,
-    "attack_power": 0,
+  "Human": {
+    "type": "basic",
+    "category": "Human",
+    "icon": " ♕ ",
+    "description": "A living mass, resembling a lump of black slime, with fragments of bones that sometimes flicker, slowly crawls towards the enemy",
+    "health_points": 25,
+    "level": 0,
+    "defense": 0,
+    "attack_power": 2,
+    "agility": 1,
     "attack_range": 1,
-    "abilities": "Hero's mental state increases by 2 points after killing 10 enemies"
-  },
-  "Owl": {
-    "type": "special",
-    "category": "Companions",
-    "icon": "",
-    "description": "Large white owl. Heals the hero by flying nearby and emitting soft, soothing hoots",
-    "level": 4,
-    "attack_power": 0,
-    "attack_range": 3,
-    "abilities": "Heals the hero for 1 point"
-  },
-  "Spirit": {
-    "type": "special",
-    "category": "Companions",
-    "icon": "",
-    "description": "Immaterial figure resembling a long-forgotten person",
-    "level": 4,
-    "attack_power": 3,
-    "attack_range": 2,
-    "abilities": "Protective aura – Temporarily increases the hero's spiritual resistance, protecting from attacks by creatures with high spiritual power"
+    "abilities": "none"
   },
   "Shadow": {
     "type": "psychological",
     "category": "PsychologicalEnemies",
-    "icon": " * ",
+    "icon": " ♟ ",
     "description": "Blurred, immaterial silhouette resembling a human shadow. In the dark, it can take the form of loved ones or trusted individuals. Moves stealthily, inducing anxiety and strengthening the hero's fears.",
     "health_points": 12,
-    "level": 0,
+    "level": 2,
     "defense": 0,
     "attack_power": 1,
     "agility": 2,
@@ -68,7 +51,7 @@
   "Statue": {
     "type": "psychological",
     "category": "PsychologicalEnemies",
-    "icon": "",
+    "icon": " ☤ ",
     "description": "Stone figure resembling an ancient deity or warrior, holding fragments of broken bodies as weapons",
     "health_points": 85,
     "level": 4,
@@ -81,7 +64,7 @@
   "The Rotting of Life": {
     "type": "basic",
     "category": "WeakEnemies",
-    "icon": "",
+    "icon": " ♟ ",
     "description": "A living mass, resembling a lump of black slime, with fragments of bones that sometimes flicker, slowly crawls towards the enemy",
     "level": 0,
     "attack_power": 1,
@@ -91,7 +74,7 @@
   "Bloody Leech": {
     "type": "basic",
     "category": "WeakEnemies",
-    "icon": "",
+    "icon": " ♟ ",
     "description": "Long, writhing creature resembling a giant worm",
     "level": 0,
     "attack_power": 2,
@@ -101,7 +84,7 @@
   "Angry Guardian": {
     "type": "special",
     "category": "WeakEnemies",
-    "icon": "",
+    "icon": " ♟ ",
     "description": "A huge metal armor with no visible owner inside, whose blows are slow but devastating",
     "level": 0,
     "attack_power": 2,
@@ -111,7 +94,7 @@
   "Inquisitor of Agony": {
     "type": "basic",
     "category": "BasicEnemies",
-    "icon": "",
+    "icon": " ♙ ",
     "description": "A former priest turned torturer, fanatically believing that through suffering he \"purifies\" souls.",
     "level": 1,
     "attack_power": 6,
@@ -121,7 +104,7 @@
   "Devastated Mage": {
     "type": "basic",
     "category": "BasicEnemies",
-    "icon": "",
+    "icon": " ♙ ",
     "description": "A cloaked figure floating above the ground, with long, thin arms",
     "level": 1,
     "attack_power": 5,
@@ -131,7 +114,7 @@
   "Hungry Wraith": {
     "type": "phantom",
     "category": "BasicEnemies",
-    "icon": "",
+    "icon": " ♙ ",
     "description": "A ghostly figure with bony hands and a face with gaping mouth, seemingly screaming forever",
     "level": 1,
     "attack_power": 5,
@@ -141,7 +124,7 @@
   "Rat": {
     "type": "special",
     "category": "BasicEnemies",
-    "icon": "",
+    "icon": " ♙ ",
     "description": "Small rodent with red eyes and a long tail. Its teeth gleam with venomous saliva",
     "level": 1,
     "attack_power": 4,
@@ -151,7 +134,7 @@
   "Defiled Cultist": {
     "type": "basic",
     "category": "NormalEnemies",
-    "icon": "",
+    "icon": " ♞ ",
     "description": "A man with deformed facial features, dressed in cultist robes, holding an old, bloodstained staff",
     "level": 2,
     "attack_power": 7,
@@ -161,7 +144,7 @@
   "Dead Tree": {
     "type": "psychological",
     "category": "NormalEnemies",
-    "icon": "",
+    "icon": " ♞ ",
     "description": "An ancient tree resembling a terrifying, humanoid figure with hollow eyes. Its roots move like snakes, and the bark is marked with traces of blood.",
     "level": 2,
     "attack_power": 8,
@@ -171,7 +154,7 @@
   "Ashborne Specter": {
     "type": "phantom",
     "category": "NormalEnemies",
-    "icon": "",
+    "icon": " ♞ ",
     "description": "The spirit of a victim burned at the stake, whose body still smokes from the eternal heat. His eyes burn and his breath is like a fiery blast",
     "level": 2,
     "attack_power": 6,
@@ -181,7 +164,7 @@
   "Broken Marionette": {
     "type": "special",
     "category": "NormalEnemies",
-    "icon": "",
+    "icon": " ♞ ",
     "description": "An abandoned puppet with wooden limbs, cracked face, and torn strings. It moves in jerks as if someone invisible is still pulling the strings. Its face is frozen in a creepy smile",
     "level": 2,
     "attack_power": 8,
@@ -191,7 +174,7 @@
   "Poisoned Monk": {
     "type": "special",
     "category": "MediumEnemies",
-    "icon": "",
+    "icon": " ♝ ",
     "description": "Emaciated, almost skeletal figure in a dirty, tattered habit. Hands covered in sores, eyes vacant, mouth twisted into a sinister grin.",
     "level": 3,
     "attack_power": 12,
@@ -201,7 +184,7 @@
   "Root Guardian": {
     "type": "psychological",
     "category": "MediumEnemies",
-    "icon": "",
+    "icon": " ♝ ",
     "description": "Gigantic living root with spiky vines, covered in juices resembling blood",
     "level": 3,
     "attack_power": 13,
@@ -211,7 +194,7 @@
   "Withering Acolyte": {
     "type": "special",
     "category": "MediumEnemies",
-    "icon": "",
+    "icon": " ♝ ",
     "description": "A fanatical follower of a dark cult whose body was drained of life as a sacrifice to his master. His sinewy skin is covered in ritual markings.",
     "level": 3,
     "attack_power": 11,
@@ -221,7 +204,7 @@
   "Fire Choker": {
     "type": "special",
     "category": "StrongEnemies",
-    "icon": "",
+    "icon": " ♜ ",
     "description": "Demon with burning skin, long arms, and red eyes, releases fire around itself when attacking",
     "level": 4,
     "attack_power": 16,
@@ -231,7 +214,7 @@
   "Winged Nightmare": {
     "type": "basic",
     "category": "StrongEnemies",
-    "icon": "",
+    "icon": " ♜ ",
     "description": "Large, winged monster with wings resembling torn skin",
     "level": 4,
     "attack_power": 18,
@@ -241,7 +224,7 @@
   "Rotting Flesh": {
     "type": "special",
     "category": "VeryStrongEnemies",
-    "icon": "",
+    "icon": " ♜ ",
     "description": "Large creature made of decaying body parts",
     "level": 5,
     "attack_power": 25,
@@ -251,7 +234,7 @@
   "Temple Guardian": {
     "type": "lord",
     "category": "MountainLord",
-    "icon": "",
+    "icon": " ♚ ",
     "description": "",
     "health_points": 100,
     "level": 6,
