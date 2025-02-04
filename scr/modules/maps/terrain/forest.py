@@ -1,4 +1,4 @@
-from .terrain_element_placer import TerrainElementPlacer
+from .forest_element_placer import TerrainElementPlacer
 from .grid_partitioner import GridPartitioner
 from .region_generator import RegionGenerator
 from .region_connector import Connector
@@ -16,6 +16,9 @@ class Forest(Map):
         self._regions_position = []
         self._start_position_regions = []
         self._generate_level()
+
+    def is_ground(self,position):
+        return self.get_cell_icon(position) == Icon.GROUND
 
     def _generate_level(self):
         TerrainElementPlacer(self).populate_map_with_elements()

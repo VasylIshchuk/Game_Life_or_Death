@@ -3,7 +3,7 @@ from ..core.icons import Icon
 
 class Tile:
     BARRIER = (Icon.WALL, Icon.LEVEL_ENTRANCE, Icon.LEVEL_EXIT)
-    CONDITIONAL = (Icon.DOOR, Icon.GATEWAY, Icon.QUEST_DOOR, Icon.STAIRS)
+    CONDITIONAL = (Icon.GATEWAY, Icon.STAIRS)
 
     STATE_CONDITIONAL = 'CONDITIONAL'
     STATE_IMPASSABLE = 'IMPASSABLE'

@@ -46,7 +46,7 @@ class Corridor:
 
     def _get_available_directions(self, cell):
         available_directions = set()
-        for direction in Direction.DIRECTIONS:
+        for direction in Direction.CARDINAL_DIRECTIONS:
             if self._can_carve(cell, direction):
                 available_directions.add(direction)
         return available_directions

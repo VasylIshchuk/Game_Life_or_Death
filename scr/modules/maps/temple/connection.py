@@ -47,7 +47,7 @@ class Connection:
 
     def _find_connected_regions(self, wall_position):
         regions = set()
-        for direction in Direction.DIRECTIONS:
+        for direction in Direction.CARDINAL_DIRECTIONS:
             region = self._get_region_in_direction(wall_position, direction)
             if not self._is_wall_index(region):
                 regions.add(region)

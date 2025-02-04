@@ -7,7 +7,6 @@ INITIAL_DIRECTION_WEIGHT = 1.0
 
 
 class DrunkardWalker:
-
     def __init__(self, game_map):
         self._map = game_map
         self._width = self._map.get_map_width()

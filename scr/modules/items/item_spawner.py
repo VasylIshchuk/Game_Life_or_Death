@@ -1,10 +1,10 @@
 import random
 from .item_factory import ItemFactory
-from ..core.game_entity import load_data_from_file
+from ..core.data_loader import load_data_from_file
 
 ITEMS_FILE_PATH = "./items.json"
 PROBABILITY_ADD_CLOSED_CHEST = 0.15
-EXCLUDED_ITEMS = {"Key", "Corpse", "Statue with a Cup", "Ordinary Chest", "Closed Chest"}
+EXCLUDED_ITEMS = {"Ordinary Chest", "Closed Chest", "Key", "Corpse", "Statue with a Cup", "Flower"}
 
 
 class ItemSpawner:

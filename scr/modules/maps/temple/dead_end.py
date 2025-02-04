@@ -30,7 +30,7 @@ class DeadEnd:
 
     def _get_connected_passable_tiles(self, position):
         connected_passable_tiles = 0
-        for direction in Direction.DIRECTIONS:
+        for direction in Direction.CARDINAL_DIRECTIONS:
             connected_tile_position = Position(position.get_x() + direction.get_x(),
                                                position.get_y() + direction.get_y())
             if not self.temple.is_wall(connected_tile_position):

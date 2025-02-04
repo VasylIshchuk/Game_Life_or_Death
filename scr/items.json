@@ -255,5 +255,10 @@
     "category": "Misc",
     "icon": " ☤ ",
     "description": "Demands blood"
+  },
+  "Flower": {
+    "category": "Misc",
+    "icon": " ❃ ",
+    "description": "Demands blood"
   }
 }

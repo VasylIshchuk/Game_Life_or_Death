@@ -1,6 +1,7 @@
 import random
 
-from ..core.game_entity import load_entity_data_from_file, load_data_from_file, get_attribute_from_data
+from ..core.game_entity import get_attribute_from_data
+from ..core.data_loader import load_entity_data_from_file, load_data_from_file
 from .creature import Creature
 from .special_creatures.psychological import Psychological
 from .hero import Hero

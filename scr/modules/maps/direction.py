@@ -7,5 +7,10 @@ class Direction:
     EAST = Position(1, 0)
     WEST = Position(-1, 0)
 
-    DIRECTIONS = [NORTH, SOUTH, EAST, WEST]
+    NORTH_EAST = Position(1, -1)
+    NORTH_WEST = Position(-1, -1)
+    SOUTH_EAST = Position(1, 1)
+    SOUTH_WEST = Position(-1, 1)
 
+    CARDINAL_DIRECTIONS = [NORTH, SOUTH, EAST, WEST]
+    COMPASS_DIRECTIONS = [NORTH, SOUTH, EAST, WEST, NORTH_EAST, NORTH_WEST, SOUTH_EAST, SOUTH_WEST]

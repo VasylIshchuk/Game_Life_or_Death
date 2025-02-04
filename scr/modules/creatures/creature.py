@@ -1,4 +1,5 @@
-from ..core.game_entity import GameEntity, load_entity_data_from_file, initialize_attributes_from_data
+from ..core.game_entity import GameEntity, initialize_attributes_from_data
+from ..core.data_loader import load_entity_data_from_file
 from .limits_stats import LimitsAttributes
 
 import random

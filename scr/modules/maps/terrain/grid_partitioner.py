@@ -22,8 +22,8 @@ class GridPartitioner:
             self._handle_region()
 
     def _generate_region_dimensions(self, regions_quantity):
-        self._region_width = max(2, (self._grid_width - 2) // regions_quantity)
-        self._region_height = max(2, (self._grid_height - 2) // regions_quantity)
+        self._region_width =  (self._grid_width - 3) // regions_quantity
+        self._region_height = (self._grid_height - 3) // regions_quantity
 
     def _initialize_initial_region(self):
         self._current_region_start_position = Position(1, 1)

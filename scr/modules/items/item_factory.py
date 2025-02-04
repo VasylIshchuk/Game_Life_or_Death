@@ -1,4 +1,5 @@
-from ..core.game_entity import load_entity_data_from_file, get_attribute_from_data
+from ..core.game_entity import get_attribute_from_data
+from ..core.data_loader import load_entity_data_from_file
 from .weapon import Weapon
 from .ammo import Ammo
 from .armor import Armor

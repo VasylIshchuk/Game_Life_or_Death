@@ -122,7 +122,7 @@ class Floor(Map):
         self._add_stairs()
 
     def _add_entrance(self):
-        self.set_cell_icon(ENTRANCE_POSITION, Icon.LEVEL_ENTRANCE)
+        self.set_cell_icon(ENTRANCE_POSITION, Icon.GATEWAY)
 
     def _add_exit(self):
         exit_position = Position(self.get_map_width() - 1, self.get_map_height() - 2)

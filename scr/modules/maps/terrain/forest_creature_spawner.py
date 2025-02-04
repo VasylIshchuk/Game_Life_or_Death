@@ -23,9 +23,9 @@ class ForestCreatureSpawner(CreatureSpawner):
         for level, count in self.level_distribution.items():
             for _ in range(count):
                 creature = CreatureFactory.create_random_creature_by_level(level)
-                self._place_creature(creature)
+                self._place_creature_in_forest(creature)
 
-    def _place_creature(self, creature):
+    def _place_creature_in_forest(self, creature):
         position = self._generate_random_position()
         while not self._map.place_creature(creature, position):
             position = self._generate_random_position()

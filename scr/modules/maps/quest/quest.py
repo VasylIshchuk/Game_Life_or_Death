@@ -29,6 +29,9 @@ class Quest(Map):
         y = self.rooms[index].get_y_bottom_right_angle()
         return Position(x, y)
 
+    def get_entrance_position(self):
+        return Position(0, self._y_vertical_wall)
+
     def _place_creature_in_room(self, creature, index_room):
         position = self._generate_random_position(index_room)
         while not self.place_creature(creature, position):
@@ -65,20 +68,20 @@ class Quest(Map):
                 position = Position(x, y)
                 self.set_cell_icon(position, Icon.ROOM_FLOOR)
 
-    def _add_door(self, x, y):
-        self._add_entity(x, y, Icon.QUEST_DOOR)
+    def _add_door(self, position):
+        self._add_entity(position, Icon.DOOR)
 
-    def _add_entrance(self, x, y):
-        self._add_entity(x, y, Icon.GATEWAY)
+    def _add_entrance(self, position):
+        self._add_entity(position, Icon.GATEWAY)
 
-    def _add_exit(self, x, y):
-        self._add_entity(x, y, Icon.LEVEL_EXIT)
+    def _add_exit(self, position):
+        self._add_entity(position, Icon.LEVEL_EXIT)
 
     def _add_information_board(self):
         x = self._x_horizontal_wall // 2
         y = self._y_vertical_wall + self._choose_room_half_height
-        self._add_entity(x, y, Icon.INFORMATION_BOARD)
-
-    def _add_entity(self, x, y, icon):
         position = Position(x, y)
+        self._add_entity(position, Icon.INFORMATION_BOARD)
+
+    def _add_entity(self, position, icon):
         self.set_cell_icon(position, icon)

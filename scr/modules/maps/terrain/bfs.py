@@ -21,7 +21,7 @@ class BFS:
         while queue:
             position = queue.popleft()
 
-            for direction in Direction.DIRECTIONS:
+            for direction in Direction.CARDINAL_DIRECTIONS:
                 neighbor_position = self._get_neighbor_position(position, direction)
 
                 if self._can_visit(neighbor_position):

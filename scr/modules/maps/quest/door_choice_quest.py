@@ -10,10 +10,22 @@ class DoorChoiceQuest(Quest):
         super().__init__(width, height, room_half_height)
         self._generate_level()
 
-    def place_creatures(self,map_level):
+    def place_creatures(self, map_level):
         for _ in range(CREATURE_COUNT):
             creature = CreatureFactory.create_random_creature_by_level(map_level)
             self._place_creature_in_room(creature, 1)
+
+    def get_first_quest_room_door_position(self):
+        return Position(self._x_horizontal_wall, self._y_vertical_wall + 3)
+
+    def get_second_quest_room_door_position(self):
+        return Position(self._x_horizontal_wall, self._y_vertical_wall - 3)
+
+    def get_first_quest_room_exit_position(self):
+        return Position(self._width - 1, self._y_vertical_wall // 2)
+
+    def get_second_quest_room_exit_position(self):
+        return Position(self._width - 1, self._height - self._y_vertical_wall // 2)
 
     def _generate_level(self):
         self._generate_choose_room()
@@ -38,10 +50,10 @@ class DoorChoiceQuest(Quest):
         self._add_quest_doors()
 
     def _add_gateways(self):
-        self._add_entrance(0, self._y_vertical_wall)
-        self._add_exit(self._width - 1, self._y_vertical_wall // 2)
-        self._add_exit(self._width - 1, self._height - self._y_vertical_wall // 2)
+        self._add_entrance(self.get_entrance_position())
+        self._add_exit(self.get_first_quest_room_exit_position())
+        self._add_exit(self.get_second_quest_room_exit_position())
 
     def _add_quest_doors(self):
-        self._add_door(self._x_horizontal_wall, self._y_vertical_wall + 3)
-        self._add_door(self._x_horizontal_wall, self._y_vertical_wall - 3)
+        self._add_door(self.get_first_quest_room_door_position())
+        self._add_door(self.get_second_quest_room_door_position())

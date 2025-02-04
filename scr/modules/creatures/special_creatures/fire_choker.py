@@ -15,6 +15,5 @@ class FireChoker(Creature):
 
     def apply_abilities(self, enemy: Hero):
         """TODO: Apply fire damage if target is within range."""
-        # if self.is_within_range(enemy, FIRE_RANGE_RADIUS):
-        #     enemy.health_points -= FIRE_DAMAGE
-        #     enemy.check_is_alive()
+        if self.is_within_range(enemy, FIRE_RANGE_RADIUS):
+            self._apply_damage_to_enemy(enemy, FIRE_DAMAGE)
