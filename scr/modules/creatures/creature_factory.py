@@ -12,6 +12,7 @@ from .special_creatures.poisoned_monk import PoisonedMonk
 from .special_creatures.withering_acolyte import WitheringAcolyte
 from .special_creatures.fire_choker import FireChoker
 from .special_creatures.rotting_flesh import RottingFlesh
+from .special_creatures.temple_guardian import TempleGuardian
 
 CREATURES_FILE_PATH = "./creatures.json"
 EXCLUDED_CREATURES = {"Mark", "Statue", "Shadow", "Human"}
@@ -25,6 +26,7 @@ _SPECIAL_CREATURES = {
     "Withering Acolyte": WitheringAcolyte,
     "Fire Choker": FireChoker,
     "Rotting Flesh": RottingFlesh,
+    "Temple Guardian": TempleGuardian
 }
 
 

@@ -18,5 +18,5 @@ class MoralDilemmaQuest(DoorChoiceQuest):
     def _place_people(self):
         for _ in range(PEOPLE_COUNT):
             human = CreatureFactory.create_creature("Human")
-            self._place_creature_in_room(human, 0)
+            self.place_creature_in_room(human, 0)
 

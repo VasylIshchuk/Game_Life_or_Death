@@ -1,8 +1,7 @@
 from collections import deque
 
 from ..grid import Grid
-from ..position import Position
-from ..direction import Direction
+from ..direction import Direction, get_position_toward_direction
 from ...core.icons import Icon
 
 
@@ -22,7 +21,7 @@ class BFS:
             position = queue.popleft()
 
             for direction in Direction.CARDINAL_DIRECTIONS:
-                neighbor_position = self._get_neighbor_position(position, direction)
+                neighbor_position = get_position_toward_direction(position, direction)
 
                 if self._can_visit(neighbor_position):
                     if self._is_ground(neighbor_position):
@@ -30,11 +29,6 @@ class BFS:
 
                     queue.append(neighbor_position)
                     self._visited.set_value(neighbor_position, True)
-
-    def _get_neighbor_position(self, position, direction):
-        neighbor_x = position.get_x() + direction.get_x()
-        neighbor_y = position.get_y() + direction.get_y()
-        return Position(neighbor_x, neighbor_y)
 
     def _can_visit(self, position):
         return self._is_within_bounds(position) and not self._is_visited(position)

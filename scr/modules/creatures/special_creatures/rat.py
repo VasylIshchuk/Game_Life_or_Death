@@ -8,7 +8,7 @@ class Rat(Creature):
     def __init__(self, title):
         super().__init__(title)
 
-    def attack(self, enemy: Hero):
+    def attack(self, enemy: Hero, game_map=None):
         is_hit = super().attack(enemy)
         self._apply_abilities(enemy, is_hit)
 

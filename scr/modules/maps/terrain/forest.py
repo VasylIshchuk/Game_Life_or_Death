@@ -17,7 +17,7 @@ class Forest(Map):
         self._start_position_regions = []
         self._generate_level()
 
-    def is_ground(self,position):
+    def is_ground(self, position):
         return self.get_cell_icon(position) == Icon.GROUND
 
     def _generate_level(self):
@@ -46,21 +46,11 @@ class Forest(Map):
         region_connector.connect_regions(REGIONS_QUANTITY, self._start_position_regions)
 
     def _handle_gateways(self):
-        exit_position = Position(self.get_map_width() - 1, self.get_map_height() - 2)
-        entrance_position = Position(0, 1)
+        exit_position = self.get_exit_position()
+        entrance_position = self.get_entrance_position()
 
-        self._add_gateways(entrance_position, exit_position)
+        self.add_gateways()
         self._connect_gateways(entrance_position, exit_position)
-
-    def _add_gateways(self, entrance_position, exit_position):
-        self._add_entrance(entrance_position)
-        self._add_exit(exit_position)
-
-    def _add_entrance(self, position):
-        self.set_cell_icon(position, Icon.GATEWAY)
-
-    def _add_exit(self, position):
-        self.set_cell_icon(position, Icon.LEVEL_EXIT)
 
     def _connect_gateways(self, entrance_position, exit_position):
         connector = Connector(self)

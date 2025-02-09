@@ -49,6 +49,7 @@ class FloorCreatureSpawner(CreatureSpawner):
             position = self._generate_random_position(room)
 
     def _generate_random_position(self, room):
-        x = random.randint(room.get_x_upper_left_angle(), room.get_x_bottom_right_angle())
-        y = random.randint(room.get_y_upper_left_angle(), room.get_y_bottom_right_angle())
+        x = random.randint(room.get_x_upper_left_angle() + 2, room.get_x_bottom_right_angle() - 2)
+        y = random.randint(room.get_y_upper_left_angle() + 2, room.get_y_bottom_right_angle() - 2)
         return Position(x, y)
+

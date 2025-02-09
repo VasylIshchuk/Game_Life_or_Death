@@ -19,8 +19,8 @@ def _calculate_new_coordinate(base, offset, step):
 
 
 class Corridor:
-    def __init__(self, temple):
-        self.temple = temple
+    def __init__(self, map):
+        self._map = map
         self._pending_cells = []
         self._last_direction = None
 
@@ -32,8 +32,8 @@ class Corridor:
             self._handle_cell()
 
     def _initialize_starting_position(self, start_position):
-        self.temple.increase_region_index()
-        self.temple.carve(start_position, Icon.CORRIDOR_FLOOR)
+        self._map.increase_region_index()
+        self._map.carve(start_position, Icon.CORRIDOR_FLOOR)
 
     def _handle_cell(self):
         current_cell = self._pending_cells[LAST_ELEMENT]
@@ -58,13 +58,13 @@ class Corridor:
 
     def _is_within_bounds(self, position: Position, direction):
         cell = _get_cell(position, direction, 3)
-        if (0 <= cell.get_x() < self.temple.get_map_width()) and (0 <= cell.get_y() < self.temple.get_map_height()):
+        if (0 <= cell.get_x() < self._map.get_map_width()) and (0 <= cell.get_y() < self._map.get_map_height()):
             return True
         return False
 
     def _leads_to_wall(self, position: Position, direction):
         cell = _get_cell(position, direction, 2)
-        return self.temple.is_wall(cell)
+        return self._map.is_wall(cell)
 
     def _navigate_to_new_cell(self, current_cell, available_directions):
         direction = self._choose_direction(available_directions)
@@ -91,7 +91,7 @@ class Corridor:
 
     def _carve_corridor_by_direction(self, current_cell, direction, step):
         cell = _get_cell(current_cell, direction, step)
-        self.temple.carve(cell, Icon.CORRIDOR_FLOOR)
+        self._map.carve(cell, Icon.CORRIDOR_FLOOR)
         return cell
 
     def _backtrack(self):

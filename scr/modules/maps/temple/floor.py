@@ -7,8 +7,6 @@ from .connection import Connection
 from .dead_end import DeadEnd
 from .constants import BUILD_ROOM_ATTEMPTS, REGIONS_WALL_INDEX, ROOM_MIN_SIZE
 
-ENTRANCE_POSITION = Position(0, 1)
-
 
 class Floor(Map):
     def __init__(self, width, height, is_ground_floor=False):
@@ -17,10 +15,18 @@ class Floor(Map):
         self.regions = None
         self.rooms = []
         self.current_region_index = 0
+        self._stairs_position = None
         self._validate_dimensions(width, height)
         self.regions = Grid(REGIONS_WALL_INDEX, width, height)
         self._initialize_initial_grid(width, height)
         self._generate_floor()
+
+    def put_hero_near_stairs(self, hero):
+        new_position = Position(1, self._stairs_position.get_y())
+        self.place_creature(hero, new_position)
+
+    def get_region_index(self, position):
+        return self.regions.get_value(position)
 
     def is_wall(self, position: Position):
         return self.get_cell_icon(position) == Icon.WALL
@@ -60,7 +66,7 @@ class Floor(Map):
     def _generate_floor(self):
         self._add_rooms()
         self._fill_map_with_corridors()
-        self._add_gateways()
+        self.add_passage()
         Connection(self).connect_regions()
         DeadEnd(self).remove_dead_ends()
 
@@ -114,25 +120,16 @@ class Floor(Map):
         if not self.is_wall(start_position): return
         Corridor(self).generate_corridor(start_position)
 
-    def _add_gateways(self):
+    def add_passage(self):
         if self.is_ground_floor:
-            self._add_entrance()
-            self._add_exit()
+            self.add_gateways()
 
         self._add_stairs()
 
-    def _add_entrance(self):
-        self.set_cell_icon(ENTRANCE_POSITION, Icon.GATEWAY)
-
-    def _add_exit(self):
-        exit_position = Position(self.get_map_width() - 1, self.get_map_height() - 2)
-        self.set_cell_icon(exit_position, Icon.GATEWAY)
-
     def _add_stairs(self):
         mid_height = self._make_odd(self.get_map_height() // 2)
-        position_down = Position(0, mid_height)
-        self.set_cell_icon(position_down, Icon.STAIRS)
+        self._stairs_position = Position(0, mid_height)
+        self.set_cell_icon(self._stairs_position, Icon.STAIRS)
 
     def _make_odd(self, value):
         return value if value % 2 == 1 else value + 1
-

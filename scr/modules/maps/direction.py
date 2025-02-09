@@ -1,6 +1,12 @@
 from .position import Position
 
 
+def get_position_toward_direction(position, direction):
+    x = position.get_x() + direction.get_x()
+    y = position.get_y() + direction.get_y()
+    return Position(x, y)
+
+
 class Direction:
     NORTH = Position(0, -1)
     SOUTH = Position(0, 1)

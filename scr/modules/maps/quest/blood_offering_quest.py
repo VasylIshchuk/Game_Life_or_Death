@@ -19,4 +19,4 @@ class BloodOfferingQuest(ChamberQuest):
 
     def _place_human(self):
         human = CreatureFactory.create_creature("Human")
-        self._place_creature_in_room(human, 0)
+        self.place_creature_in_room(human, 0)

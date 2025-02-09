@@ -232,7 +232,7 @@
     "abilities": "Once every 3 turns summons 2 \"The Rotting of Life\" + Has an effect on the mental state after hitting the enemy"
   },
   "Temple Guardian": {
-    "type": "lord",
+    "type": "special",
     "category": "MountainLord",
     "icon": " ♚ ",
     "description": "",

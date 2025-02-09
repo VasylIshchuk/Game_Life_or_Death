@@ -4,8 +4,8 @@ from .constants import ROOM_MAX_SIZE, ROOM_MIN_SIZE
 
 
 class Room:
-    def __init__(self, temple):
-        self.temple = temple
+    def __init__(self, map):
+        self._map = map
         self.upper_left_angle = Position(None, None)
         self.bottom_right_angle = Position(None, None)
         self.width = None
@@ -70,7 +70,7 @@ class Room:
         return even_rectangularity
 
     def _validate_size_dimensions(self):
-        if self.width >= self.temple.get_map_width() or self.height >= self.temple.get_map_height():
+        if self.width >= self._map.get_map_width() or self.height >= self._map.get_map_height():
             return False
         return True
 

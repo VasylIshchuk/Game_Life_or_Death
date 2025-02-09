@@ -18,4 +18,4 @@ class ShadowRoomQuest(DoorChoiceQuest):
     def _place_shadows(self):
         for _ in range(SHADOW_COUNT):
             shadow = CreatureFactory.create_creature("Shadow")
-            self._place_creature_in_room(shadow, 0)
+            self.place_creature_in_room(shadow, 0)

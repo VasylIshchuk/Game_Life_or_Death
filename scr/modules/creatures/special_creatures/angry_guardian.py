@@ -9,7 +9,7 @@ class AngryGuardian(Creature):
         super().__init__(title)
         self.count_bonus_attack = 0
 
-    def attack(self, enemy: Hero):
+    def attack(self, enemy: Hero, game_map=None):
         super().attack(enemy)
 
     def apply_abilities(self):

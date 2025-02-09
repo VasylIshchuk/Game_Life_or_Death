@@ -10,7 +10,7 @@ def load_entity_data_from_file(file_path: str, title: str) -> dict:
 
 def load_data_from_file(file_path: str):
     try:
-        with open(file_path, "r") as file:
+        with open(file_path, "r", encoding="utf-8") as file:
             data = json.load(file)
             return data
     except FileNotFoundError:

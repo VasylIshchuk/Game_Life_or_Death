@@ -1,7 +1,7 @@
 import random
 from ..position import Position
 from ...items.item_spawner import ItemSpawner
-from ..direction import Direction
+from ..direction import Direction, get_position_toward_direction
 
 MIN_NUMBER_CHEST = 3
 MAX_NUMBER_CHEST = 5
@@ -36,11 +36,6 @@ class ForestItemSwamper(ItemSpawner):
         if not self._map.is_ground(position): return False;
 
         for direction in Direction.COMPASS_DIRECTIONS:
-            tile_in_direction = self._get_tile_in_direction(position, direction)
+            tile_in_direction = get_position_toward_direction(position, direction)
             if not self._map.is_ground(tile_in_direction): return False;
         return True
-
-    def _get_tile_in_direction(self, position, direction):
-        x = position.get_x() + direction.get_x()
-        y = position.get_y() + direction.get_y()
-        return Position(x, y)

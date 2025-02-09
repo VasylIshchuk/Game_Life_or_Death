@@ -1,10 +1,15 @@
+import copy
+import random
+
 from .tile import Tile
-from .position import Position
 from ..core.icons import Icon
 from .grid import Grid
+from ..maps.direction import Direction, get_position_toward_direction
+from ..maps.position import Position
 
 TILE_ROOM_FLOOR = Tile(Icon.ROOM_FLOOR)
-AVAILABLE_TILES = {Icon.ROOM_FLOOR, Icon.GROUND}
+AVAILABLE_TILES = {Icon.ROOM_FLOOR, Icon.GROUND, Icon.CORRIDOR_FLOOR}
+ENTRANCE_POSITION = Position(0, 1)
 
 
 class Map:
@@ -12,80 +17,83 @@ class Map:
         self.grid = None
         self.creatures = []
         self.items = []
-        self.entity_report = []
 
-    def is_item_placement_valid(self, position: Position) -> bool:
+    def is_placement_valid(self, position: Position) -> bool:
         return self.get_cell_icon(position) in AVAILABLE_TILES
-
-    def is_creature_placement_valid(self, position: Position) -> bool:
-        return self.get_cell_icon(position) in AVAILABLE_TILES
-
-    def get_cell_icon(self, position):
-        cell = self.grid.get_value(position)
-        return cell.icon
-
-    def place_hero_start_position(self, hero):
-        start_position = Position(1, 1)
-        tile_creature = Tile(hero.icon)
-        self.grid.set_value(start_position, tile_creature)
-        hero.set_position(start_position)
-        self.creatures.append(hero)
-        self.entity_report.append(hero)
 
     def place_item(self, item, position: Position) -> bool:
-        if self.is_item_placement_valid(position):
-            tile_item = Tile(item.icon)
-            self.grid.set_value(position, tile_item)
+        if self.is_placement_valid(position):
             item.set_position(position)
             self.items.append(item)
-            self.entity_report.append(item)
             return True
         return False
 
     def place_creature(self, creature, position: Position) -> bool:
-        if self.is_creature_placement_valid(position):
-            tile_creature = Tile(creature.icon)
-            self.grid.set_value(position, tile_creature)
+        if self.is_placement_valid(position):
             creature.set_position(position)
+            self._append_creature(creature)
+            return True
+        return False
+
+    def move_creature(self, creature, position: Position):
+        self.place_creature(creature, position)
+
+    def _append_creature(self, creature):
+        if self._is_new_creature(creature):
             self.creatures.append(creature)
-            self.entity_report.append(creature)
-            return True
-        return False
 
-    def remove_item(self, position: Position) -> bool:
-        """TODO: delete because items will not disappear from the map"""
-        item = self._find_item(position)
-        if item:
-            self.grid.set_value(position, TILE_ROOM_FLOOR)
-            item.set_position(Position(None, None))
-            self.entity_report.remove(item)
-            return True
-        return False
-
-    def _find_item(self, position: Position):
-        for entity in self.items:
-            if entity.position == position:
-                return entity
-        return None
-
-    def remove_creature(self, position: Position) -> bool:
-        creature = self._find_creature(position)
-        if creature:
-            self.grid.set_value(position, Tile(Icon.CORPSE))
-            creature.set_position(Position(None, None))
-            self.entity_report.remove(creature)
-            return True
-        return False
-
-    def _find_creature(self, position: Position):
+    def _is_new_creature(self, new_creature):
         for creature in self.creatures:
-            if creature.position == position:
-                return creature
+            if creature == new_creature:
+                return False
+        return True
+
+    def _is_hero(self, creature):
+        return creature.title == "Mark"
+
+    def place_hero_near_entrance(self, hero):
+        entrance_position = self.get_entrance_position()
+        position = self.get_position_near_entrance(entrance_position)
+        self.place_creature(hero, position)
+
+    def place_hero_near_exit(self, hero):
+        exit_position = self.get_exit_position()
+        position = self.get_position_near_exit(exit_position)
+        self.place_creature(hero, position)
+
+    def get_position_near_entrance(self, entrance_position):
+        x = entrance_position.get_x() + 1
+        y = self._get_y(entrance_position)
+        return Position(x, y)
+
+    def get_position_near_exit(self, entrance_position):
+        x = entrance_position.get_x() - 1
+        y = self._get_y(entrance_position)
+        return Position(x, y)
+
+    def _get_y(self, entrance_position):
+        return entrance_position.get_y()
+
+    def remove_creature(self, creature) -> bool:
+        self.grid.set_value(creature.get_position(), Tile(Icon.CORPSE))
+        self.creatures.remove(creature)
+        return True
+
+    def get_random_valid_position(self, creature):
+        for _ in range(5):
+            direction = random.choice(Direction.CARDINAL_DIRECTIONS)
+            new_position = get_position_toward_direction(creature, direction)
+            if self.is_placement_valid(new_position):
+                return new_position
         return None
 
     def initialize_grid(self, icon, width, height):
         tile = Tile(icon)
         self.grid = Grid(tile, width, height)
+
+    def get_cell_icon(self, position):
+        cell = self.grid.get_value(position)
+        return cell.icon
 
     def set_cell_icon(self, position, icon):
         cell = self.grid.get_value(position)
@@ -97,15 +105,42 @@ class Map:
     def get_map_height(self):
         return self.grid.get_height()
 
+    def get_exit_position(self):
+        return Position(self.get_map_width() - 1, self.get_map_height() - 2)
+
+    def get_entrance_position(self):
+        return Position(0, 1)
+
+    def add_gateways(self):
+        self.add_entrance(Icon.GATEWAY_ENTRANCE)
+        self.add_exit(Icon.GATEWAY_EXIT)
+
+    def add_entrance(self, icon):
+        entrance_position = self.get_entrance_position()
+        self.set_cell_icon(entrance_position, icon)
+
+    def add_exit(self, icon):
+        exit_position = self.get_exit_position()
+        self.set_cell_icon(exit_position, icon)
+
     def print_map(self):
+        entity_grid = self.generate_map()
         print('\n')
-        for y in range(self.grid.height):
+        for y in range(entity_grid.height):
             print(
-                ''.join(str(self.grid.get_value(Position(x, y)).icon) for x in range(self.grid.width)))
+                ''.join(str(entity_grid.get_value(Position(x, y)).icon) for x in range(entity_grid.width)))
         print('\n')
 
-    def generate_report(self):
-        for entity in self.entity_report:
-            print(
-                f"{type(entity).__name__} -> title: {entity.title}; icon: {entity.icon};"
-                f"position: x = {entity.position.x} y = {entity.position.y}")
+    def generate_map(self):
+        entity_grid = copy.deepcopy(self.grid)
+
+        for creature in self.creatures:
+            self.set_cell(creature, entity_grid)
+        for item in self.items:
+            self.set_cell(item, entity_grid)
+
+        return entity_grid
+
+    def set_cell(self, entity, entity_grid):
+        cell = entity_grid.get_value(entity.get_position())
+        cell.icon = entity.icon

@@ -4,22 +4,22 @@ from math import sqrt
 from ..position import Position
 from ...core.icons import Icon
 from ..grid import Grid
-from ..direction import Direction
-from .constants import  REGIONS_WALL_INDEX, ACCEPTABLE_DISTANCE, PROBABILITY_ADD_RANDOM_JUNCTION
+from ..direction import Direction, get_position_toward_direction
+from .constants import REGIONS_WALL_INDEX, ACCEPTABLE_DISTANCE, PROBABILITY_ADD_RANDOM_JUNCTION
 
 
 class Connection:
-    def __init__(self, temple):
-        self.temple = temple
-        self._connector_regions = Grid(None, self.temple.grid.width, self.temple.grid.height)
+    def __init__(self, map):
+        self._map = map
+        self._connector_regions = Grid(None, self._map.grid.width, self._map.grid.height)
         self._connectors = set()
         self._merged_regions = {}
         self._open_regions = set()
         self._initialize_regions()
 
     def _initialize_regions(self):
-        self._initialize_merged_regions(self.temple.get_current_region_index())
-        self._initialize_open_regions(self.temple.get_current_region_index())
+        self._initialize_merged_regions(self._map.get_current_region_index())
+        self._initialize_open_regions(self._map.get_current_region_index())
 
     def _initialize_merged_regions(self, current_region_index):
         for i in range(current_region_index + 1):
@@ -35,12 +35,12 @@ class Connection:
         self._merge_regions()
 
     def _identify_connector_regions(self):
-        for x in range(1, self.temple.get_map_width() - 1):
-            for y in range(1, self.temple.get_map_height() - 1):
+        for x in range(1, self._map.get_map_width() - 1):
+            for y in range(1, self._map.get_map_height() - 1):
                 self._handle_tile(Position(x, y))
 
     def _handle_tile(self, position):
-        if not self.temple.is_wall(position): return
+        if not self._map.is_wall(position): return
         connected_regions = self._find_connected_regions(position)
         if not self._can_connected_regions(connected_regions): return
         self._connector_regions.set_value(position, connected_regions)
@@ -54,10 +54,8 @@ class Connection:
         return regions
 
     def _get_region_in_direction(self, position, direction):
-        new_x = position.get_x() + direction.get_x()
-        new_y = position.get_y() + direction.get_y()
-        new_position = Position(new_x, new_y)
-        return self.temple.regions.get_value(new_position)
+        new_position = get_position_toward_direction(position, direction)
+        return self._map.get_region_index(new_position)
 
     def _can_connected_regions(self, regions):
         return len(regions) > 1
@@ -94,7 +92,7 @@ class Connection:
         self._remove_unnecessary_connectors(connector)
 
     def _add_junction(self, connector):
-        self.temple.set_cell_icon(connector, Icon.DOOR)
+        self._map.set_cell_icon(connector, Icon.DOOR)
 
     def _get_all_regions_connected_by_connector(self, connector):
         regions = []
@@ -110,7 +108,7 @@ class Connection:
         self._close_merged_regions(regions_to_merge)
 
     def _update_merged_regions(self, primary_region, regions_to_merge):
-        for i in range(self.temple.get_current_region_index() + 1):
+        for i in range(self._map.get_current_region_index() + 1):
             if self._merged_regions[i] in regions_to_merge:
                 self._merged_regions[i] = primary_region
 

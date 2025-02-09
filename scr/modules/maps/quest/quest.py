@@ -19,6 +19,11 @@ class Quest(Map):
         self._x_horizontal_wall = width // 4
         self._y_vertical_wall = height // 2
 
+    def place_hero_near_entrance(self, hero):
+        entrance_position = self.get_entrance_position()
+        position = self.get_position_near_entrance(entrance_position)
+        self.place_creature(hero, position)
+
     def get_room_upper_left_angle(self, index):
         x = self.rooms[index].get_x_upper_left_angle()
         y = self.rooms[index].get_y_upper_left_angle()
@@ -32,7 +37,7 @@ class Quest(Map):
     def get_entrance_position(self):
         return Position(0, self._y_vertical_wall)
 
-    def _place_creature_in_room(self, creature, index_room):
+    def place_creature_in_room(self, creature, index_room):
         position = self._generate_random_position(index_room)
         while not self.place_creature(creature, position):
             position = self._generate_random_position(index_room)
@@ -44,7 +49,7 @@ class Quest(Map):
         y = random.randint(upper_left_angle.get_y() + 1, bottom_right_angle.get_y())
         return Position(x, y)
 
-    def _generate_choose_room(self):
+    def generate_choose_room(self):
         start_x = 1
         start_y = self._y_vertical_wall - self._choose_room_half_height
         start_position = Position(start_x, start_y)
@@ -53,31 +58,31 @@ class Quest(Map):
         end_y = self._y_vertical_wall + self._choose_room_half_height + 1
         end_position = Position(end_x, end_y)
 
-        self._fill_area(start_position, end_position)
+        self.fill_area(start_position, end_position)
 
-    def _generate_room(self, start_position, end_position):
+    def generate_room(self, start_position, end_position):
         room = Room(self)
         room.width = end_position.get_x() - start_position.get_x()
         room.height = end_position.get_y() - start_position.get_y()
         room.set_coordinates(start_position)
         self.rooms.append(room)
 
-    def _fill_area(self, start_position, end_position):
+    def fill_area(self, start_position, end_position):
         for x in range(start_position.get_x(), end_position.get_x()):
             for y in range(start_position.get_y(), end_position.get_y()):
                 position = Position(x, y)
                 self.set_cell_icon(position, Icon.ROOM_FLOOR)
 
-    def _add_door(self, position):
+    def add_door(self, position):
         self._add_entity(position, Icon.DOOR)
 
-    def _add_entrance(self, position):
-        self._add_entity(position, Icon.GATEWAY)
+    def add_entrance(self, position):
+        self._add_entity(position, Icon.GATEWAY_ENTRANCE)
 
-    def _add_exit(self, position):
+    def add_exit(self, position):
         self._add_entity(position, Icon.LEVEL_EXIT)
 
-    def _add_information_board(self):
+    def add_information_board(self):
         x = self._x_horizontal_wall // 2
         y = self._y_vertical_wall + self._choose_room_half_height
         position = Position(x, y)

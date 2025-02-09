@@ -9,7 +9,7 @@ class WitheringAcolyte(Creature):
         super().__init__(title)
         self.count_hits = 1
 
-    def attack(self, enemy: Hero):
+    def attack(self, enemy: Hero, game_map=None):
         is_hit = super().attack(enemy)
         if self._check_ability_usage() and is_hit:
             self._apply_abilities(enemy)

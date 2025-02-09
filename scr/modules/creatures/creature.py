@@ -1,8 +1,8 @@
+import random
+
 from ..core.game_entity import GameEntity, initialize_attributes_from_data
 from ..core.data_loader import load_entity_data_from_file
 from .limits_stats import LimitsAttributes
-
-import random
 
 MAX_ATTACK_POINTS = 60
 
@@ -72,12 +72,11 @@ class Creature(GameEntity):
 
     def is_within_range(self, enemy, range_radius):
         return (
-                self.position.get_x() - range_radius <= enemy.get_x_position() <= self.position.get_x() + range_radius and
-                self.position.get_y() - range_radius <= enemy.get_y_position() <= self.position.get_y() + range_radius
+                self.get_x_position() - range_radius <= enemy.get_x_position() <= self.get_x_position() + range_radius and
+                self.get_y_position() - range_radius <= enemy.get_y_position() <= self.get_y_position() + range_radius
         )
 
-    def attack(self, enemy):
-        """Returns information about whether the attack was successful"""
+    def attack(self, enemy, game_map=None):
         self.luck = self._roll_dice()
 
         hit_probability = self._calculate_hit_probability(self.get_attack_power(), enemy)

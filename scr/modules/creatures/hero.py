@@ -147,7 +147,7 @@ class Hero(Creature):
     def _update_poison_effects(self):
         self.poison_effect_rounds = [r - 1 for r in self.poison_effect_rounds if r > 1]
 
-    def attack(self, enemy):
+    def attack(self, enemy, game_map=None):
         if self._is_attack_ineffective(enemy): return
 
         self._execute_attack(enemy, self.get_attack_power())

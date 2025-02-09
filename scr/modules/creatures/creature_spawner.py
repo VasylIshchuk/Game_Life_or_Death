@@ -10,3 +10,5 @@ class CreatureSpawner:
         level_distributor = LevelCreatureDistributor(self._game_level, quantity_main_level_creatures,
                                                      quantity_lower_level_creatures)
         return level_distributor.distribute()
+
+

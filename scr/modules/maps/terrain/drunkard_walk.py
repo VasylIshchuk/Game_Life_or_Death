@@ -1,7 +1,6 @@
 import random
 
-from ..position import Position
-from ..direction import Direction
+from ..direction import Direction, get_position_toward_direction
 
 INITIAL_DIRECTION_WEIGHT = 1.0
 
@@ -27,9 +26,7 @@ class DrunkardWalker:
             self._direction_probabilities[direction] = INITIAL_DIRECTION_WEIGHT
 
     def _get_tile_in_direction(self, position, direction):
-        x = position.get_x() + direction.get_x()
-        y = position.get_y() + direction.get_y()
-        new_position = Position(x, y)
+        new_position = get_position_toward_direction(position, direction)
         if not self._is_within_bounds(new_position): return position
         return new_position
 
