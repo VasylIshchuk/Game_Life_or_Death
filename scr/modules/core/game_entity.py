@@ -19,9 +19,9 @@ def initialize_attributes_from_data(entity, entity_data: dict):
 
 class GameEntity:
     def __init__(self, title):
+        self.icon: str = ""
         self.title = title
         self.category: str = ""
-        self.icon: str = ""
         self.position = None
 
     def set_position(self, position: Position):
@@ -39,3 +39,8 @@ class GameEntity:
     def initialize_items_attributes(self):
         data_item = load_entity_data_from_file("./items.json", self.title)
         initialize_attributes_from_data(self, data_item)
+
+    def show_attributes(self):
+        for attr_name, value in self.__dict__.items():
+            if attr_name in ("icon", "title", "position"): continue
+            print(f"\t{attr_name}: {value}")

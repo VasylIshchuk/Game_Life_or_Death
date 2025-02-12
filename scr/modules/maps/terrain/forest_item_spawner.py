@@ -3,8 +3,8 @@ from ..position import Position
 from ...items.item_spawner import ItemSpawner
 from ..direction import Direction, get_position_toward_direction
 
-MIN_NUMBER_CHEST = 3
-MAX_NUMBER_CHEST = 5
+MIN_NUMBER_CHEST = 5
+MAX_NUMBER_CHEST = 8
 
 
 class ForestItemSwamper(ItemSpawner):

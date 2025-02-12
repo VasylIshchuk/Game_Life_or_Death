@@ -70,11 +70,18 @@ class Creature(GameEntity):
         else:
             self.health_points += points
 
-    def is_within_range(self, enemy, range_radius):
+    def is_within_range(self, enemy, range_radius, game_map=None):
+        if not self._is_on_same_area(game_map, enemy): return False
         return (
                 self.get_x_position() - range_radius <= enemy.get_x_position() <= self.get_x_position() + range_radius and
                 self.get_y_position() - range_radius <= enemy.get_y_position() <= self.get_y_position() + range_radius
         )
+
+    def _is_on_same_area(self, game_map, enemy):
+        creature_position = self.get_position()
+        enemy_position = enemy.get_position()
+        return (game_map is not None and
+                game_map.get_cell_icon(creature_position) == game_map.get_cell_icon(enemy_position))
 
     def attack(self, enemy, game_map=None):
         self.luck = self._roll_dice()

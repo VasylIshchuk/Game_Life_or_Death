@@ -49,8 +49,12 @@ class Forest(Map):
         exit_position = self.get_exit_position()
         entrance_position = self.get_entrance_position()
 
-        self.add_gateways()
+        self._add_gateways()
         self._connect_gateways(entrance_position, exit_position)
+
+    def _add_gateways(self):
+        self.add_entrance(Icon.GATEWAY_ENTRANCE)
+        self.add_exit()
 
     def _connect_gateways(self, entrance_position, exit_position):
         connector = Connector(self)

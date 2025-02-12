@@ -27,18 +27,34 @@ class Equipment(Inventory):
     def __init__(self, size=len(_SLOTS)):
         super().__init__(size)
 
-    def add_item(self, item):
-        slot_category = item.category
-        slot_index = _get_slot_index(slot_category)
-        if not self._is_slot_available(slot_index): return False
+    def equip_new_item(self, item):
+        slot_index = self._get_slot_index_from(item)
+        if self.slot_has_item(slot_index): return False
         self.slots[slot_index] = item
         return True
 
-    def _is_slot_available(self, index):
-        return index < self.size and self.slots[index] is None
+    def retrieve_equipped_item(self, item):
+        slot_index = self._get_slot_index_from(item)
+        if not self.slot_has_item(slot_index): return None
+        return self.get_item(slot_index)
+
+    def remove_equipped_item(self, item):
+        slot_index = self._get_slot_index_from(item)
+        if not self.slot_has_item: return False
+        self.slots[slot_index] = None
+        return True
+
+    def _get_slot_index_from(self, item):
+        slot_category = item.category
+        return _get_slot_index(slot_category)
+
+    def is_slot_available(self, item):
+        slot_index = self._get_slot_index_from(item)
+        if self.slot_has_item(slot_index): return False
+        return True
 
     def has_weapon(self):
-        return self._slot_has_item(self.weapon_slot_index)
+        return self.slot_has_item(self.weapon_slot_index)
 
     def delete_weapon(self):
         self.delete_item(self.weapon_slot_index)
@@ -56,7 +72,7 @@ class Equipment(Inventory):
         return weapon.strike_distance
 
     def get_weapon_effect(self):
-        if not self._is_weapon_usable():
+        if not self.is_weapon_usable():
             return 0
 
         self._handle_ranged_weapon()
@@ -67,7 +83,7 @@ class Equipment(Inventory):
 
         return weapon_power
 
-    def _is_weapon_usable(self):
+    def is_weapon_usable(self):
         if not self.has_weapon():
             return False
 
@@ -94,7 +110,7 @@ class Equipment(Inventory):
         return True
 
     def _has_ammo(self):
-        return self._slot_has_item(self.ammo_slot_index)
+        return self.slot_has_item(self.ammo_slot_index)
 
     def _ammo_is_usable(self):
         ammo = self.get_item(self.ammo_slot_index)
@@ -123,7 +139,7 @@ class Equipment(Inventory):
 
     def _has_artifact(self, artifact_type):
         artifact = self.get_item(self.artifact_slot_index)
-        return self._slot_has_item(self.artifact_slot_index) and artifact.type == artifact_type
+        return self.slot_has_item(self.artifact_slot_index) and artifact.type == artifact_type
 
     def _process_artifact_effect(self):
         if not self._artifact_is_usable():
@@ -166,7 +182,7 @@ class Equipment(Inventory):
         self.delete_item(self.food_slot_index)
 
     def has_armor(self):
-        return self._slot_has_item(self.armor_slot_index)
+        return self.slot_has_item(self.armor_slot_index)
 
     def get_armor_effect(self):
         armor = self.get_item(self.armor_slot_index)

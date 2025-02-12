@@ -4,7 +4,7 @@ from ..core.data_loader import load_data_from_file
 
 ITEMS_FILE_PATH = "./items.json"
 PROBABILITY_ADD_CLOSED_CHEST = 0.15
-EXCLUDED_ITEMS = {"Ordinary Chest", "Closed Chest", "Key", "Corpse", "Statue with a Cup", "Flower"}
+EXCLUDED_ITEMS = {"Ordinary Chest", "Closed Chest", "Key", "Human Corpse", "Statue with a Cup", "Flower"}
 
 
 class ItemSpawner:
@@ -22,9 +22,9 @@ class ItemSpawner:
         return "Ordinary Chest"
 
     def initialize_chest(self, chest):
-        for i in range(len(chest.slots)):
+        for index in range(len(chest.get_slots())):
             data_items = load_data_from_file(ITEMS_FILE_PATH)
             filtered_items = [name for name, data in data_items.items() if name not in EXCLUDED_ITEMS]
             item_title = random.choice(filtered_items)
             item = ItemFactory().create_item(item_title)
-            chest.slots[i] = item
+            chest.set_item(index,item)

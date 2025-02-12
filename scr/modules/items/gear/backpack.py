@@ -15,6 +15,13 @@ class Backpack(Inventory):
     def _is_slots_full(self):
         return self.current_size == self.size
 
-    def delete_item(self, index):
-        super().delete_item(index)
+    def remove_item_from_backpack(self, index):
+        if not self.slot_has_item: return False
+
+        for i in range(index, self.current_size - 1):
+            self.slots[i] = self.slots[i + 1]
+
+        self.slots[self.current_size - 1] = None
         self.current_size -= 1
+        return True
+

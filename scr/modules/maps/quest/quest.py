@@ -22,7 +22,7 @@ class Quest(Map):
     def place_hero_near_entrance(self, hero):
         entrance_position = self.get_entrance_position()
         position = self.get_position_near_entrance(entrance_position)
-        self.place_creature(hero, position)
+        self.place_hero(hero, position)
 
     def get_room_upper_left_angle(self, index):
         x = self.rooms[index].get_x_upper_left_angle()
@@ -74,13 +74,13 @@ class Quest(Map):
                 self.set_cell_icon(position, Icon.ROOM_FLOOR)
 
     def add_door(self, position):
-        self._add_entity(position, Icon.DOOR)
+        self._add_entity(position, Icon.QUEST_DOOR)
 
-    def add_entrance(self, position):
+    def place_entrance(self, position):
         self._add_entity(position, Icon.GATEWAY_ENTRANCE)
 
-    def add_exit(self, position):
-        self._add_entity(position, Icon.LEVEL_EXIT)
+    def place_exit(self, position):
+        self._add_entity(position, Icon.CLOSED_LEVEL_EXIT)
 
     def add_information_board(self):
         x = self._x_horizontal_wall // 2

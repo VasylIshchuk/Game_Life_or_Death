@@ -4,7 +4,7 @@ from ...creatures.creature_spawner import CreatureSpawner
 from ...creatures.creature_factory import CreatureFactory
 
 MAX_QUANTITY_MAIN_LEVEL_CREATURES = 5
-COEFFICIENT_NUMBER_OF_LOWER_LEVEL_CREATURE = 15
+COEFFICIENT_NUMBER_OF_LOWER_LEVEL_CREATURE = 10
 
 
 class ForestCreatureSpawner(CreatureSpawner):

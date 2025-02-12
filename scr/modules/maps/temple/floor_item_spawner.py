@@ -3,8 +3,8 @@ from ..position import Position
 from ...items.item_spawner import ItemSpawner
 from ...items.item_factory import ItemFactory
 
-ONE_CHEST_SPAWN_PROBABILITY = 0.4
-TWO_CHEST_SPAWN_PROBABILITY = 0.2
+ONE_CHEST_SPAWN_PROBABILITY = 0.6
+TWO_CHEST_SPAWN_PROBABILITY = 0.3
 
 
 class FloorItemSpawner(ItemSpawner):
@@ -19,7 +19,7 @@ class FloorItemSpawner(ItemSpawner):
 
     def _put_key_in_chest(self, chest):
         key = ItemFactory().create_item("Key")
-        chest.slots[0] = key
+        chest.set_item(0, key)
 
     def spawn_items(self):
         for room in self._map.rooms:

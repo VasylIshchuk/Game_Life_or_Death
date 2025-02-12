@@ -23,7 +23,7 @@ class Floor(Map):
 
     def put_hero_near_stairs(self, hero):
         new_position = Position(1, self._stairs_position.get_y())
-        self.place_creature(hero, new_position)
+        self.place_hero(hero, new_position)
 
     def get_region_index(self, position):
         return self.regions.get_value(position)
@@ -122,9 +122,13 @@ class Floor(Map):
 
     def add_passage(self):
         if self.is_ground_floor:
-            self.add_gateways()
+            self._add_gateways()
 
         self._add_stairs()
+
+    def _add_gateways(self):
+        self.add_entrance(Icon.LEVEL_ENTRANCE)
+        self.add_exit()
 
     def _add_stairs(self):
         mid_height = self._make_odd(self.get_map_height() // 2)

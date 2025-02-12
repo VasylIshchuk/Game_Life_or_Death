@@ -1,10 +1,6 @@
-from  modules.core.start import StartGame
+from  modules.core.game_manager import GameManager
 
-StartGame()
-import sys
-from modules.maps.terrain.terrain_generator import TerrainGenerator
-from modules.maps.temple.temple_generator import TempleGenerator
-
+GameManager()
 
 # quest_generator = QuestGenerator()
 # for i in range(5):
@@ -12,17 +8,16 @@ from modules.maps.temple.temple_generator import TempleGenerator
 #     quest.print_map()
 #
 #
-# game_level = 3
+
+# from  modules.maps.temple.temple_generator import TempleGenerator
+# game_level = 4
 # floor_count = game_level + 2
-# temple = TempleGenerator(game_level)
+# temple =  TempleGenerator.generate_temple(game_level)
 # for i in range(floor_count):
 #     floor = temple.get_floor(i)
 #     floor.print_map()
 
-#
-# forest = TerrainGenerator().generate_terrain(game_level)
-# forest.print_map()
-#
+
 # quest = MountainPeak()
 # quest.print_map()
 # mountain_peak = BossRoomQuest()
@@ -36,5 +31,5 @@ from modules.maps.temple.temple_generator import TempleGenerator
 # temple.place_item(item,position)
 # temple.print_map()
 
-# Fight.test_healing()
+# from  modules.tests.fight_test import Fight
 # Fight.test_combat()

@@ -6,13 +6,15 @@ MAIN_FLOOR_WIDTH = 43
 MIN_FLOOR_HEIGHT = 41
 
 
-class TerrainGenerator:
-    def generate_terrain(self, game_level):
-        height = self._get_floor_height(game_level)
+def _calculate_forest_height(level_number):
+    return MIN_FLOOR_HEIGHT + (level_number * 20)
+
+
+class ForestGenerator:
+    @staticmethod
+    def generate_forest(level_number):
+        height = _calculate_forest_height(level_number)
         forest = Forest(MAIN_FLOOR_WIDTH, height)
-        ForestCreatureSpawner(game_level, forest).spawn_creatures()
+        ForestCreatureSpawner(level_number, forest).spawn_creatures()
         ForestItemSwamper(forest).spawn_items()
         return forest
-
-    def _get_floor_height(self, game_level):
-        return MIN_FLOOR_HEIGHT + (game_level * 20)

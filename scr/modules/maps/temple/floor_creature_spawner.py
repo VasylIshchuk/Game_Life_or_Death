@@ -3,7 +3,7 @@ from ..position import Position
 from ...creatures.creature_spawner import CreatureSpawner
 from ...creatures.creature_factory import CreatureFactory
 
-MAX_QUANTITY_MAIN_LEVEL_CREATURES = 20
+MAX_QUANTITY_MAIN_LEVEL_CREATURES = 10
 MIN_QUANTITY_LOWER_LEVEL_CREATURE = 15
 MAX_CREATURES = 50
 

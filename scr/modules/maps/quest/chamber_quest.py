@@ -10,7 +10,7 @@ class ChamberQuest(Quest):
     def place_hero_near_exit(self, hero):
         exit_position = self.get_exit_position()
         position = self.get_position_near_exit(exit_position)
-        self.place_creature(hero, position)
+        self.place_hero(hero, position)
 
     def get_center_room_position(self):
         upper_left_angle = self.get_room_upper_left_angle(0)
@@ -49,8 +49,8 @@ class ChamberQuest(Quest):
         self._add_quest_door()
 
     def _add_gateways(self):
-        self.add_entrance(self.get_entrance_position())
-        self.add_exit(self.get_exit_position())
+        self.place_entrance(self.get_entrance_position())
+        self.place_exit(self.get_exit_position())
 
     def _add_quest_door(self):
         self.add_door(self.get_quest_door_position())

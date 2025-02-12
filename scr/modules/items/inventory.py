@@ -8,9 +8,12 @@ class Inventory:
         return self.slots[index]
 
     def delete_item(self, index):
-        if not self._slot_has_item: return False
+        if not self.slot_has_item: return False
         self.slots[index] = None
         return True
 
-    def _slot_has_item(self, index):
+    def slot_has_item(self, index):
         return self.slots[index] is not None
+
+    def get_slots(self):
+        return self.slots

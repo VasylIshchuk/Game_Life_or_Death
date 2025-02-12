@@ -56,7 +56,7 @@
   "Amulet of Power": {
     "category": "Artifact",
     "type": "SpiritualRelic",
-    "icon": " \uD83D\uDC41 ",
+    "icon": "\uD83D\uDC41",
     "effect": 5,
     "description": "An ancient amulet that enhances spiritual strikes",
     "durability": 5
@@ -64,7 +64,7 @@
   "Runic Moon": {
     "category": "Artifact",
     "type": "SpiritualRelic",
-    "icon": " \uD83D\uDC41 ",
+    "icon": "\uD83D\uDC41",
     "effect": 3,
     "description": "An artifact linked to the moon's power, boosting spiritual power",
     "durability": 5
@@ -72,7 +72,7 @@
   "Tear of Light": {
     "category": "Artifact",
     "type": "CursedSpiritualRelic",
-    "icon": " \uD83D\uDC41 ",
+    "icon": "\uD83D\uDC41",
     "effects": {
       "effect": 8,
       "health_cost": 10
@@ -83,7 +83,7 @@
   "Spirit Armor": {
     "category": "Artifact",
     "type": "DefensiveRelic",
-    "icon": " \uD83D\uDC41 ",
+    "icon": "\uD83D\uDC41",
     "effect": 20,
     "description": "Armor made from spirit essence, providing additional defense against attacks",
     "durability": 5
@@ -91,7 +91,7 @@
   "Amulet of Survival": {
     "category": "Artifact",
     "type": "SurvivalRelic",
-    "icon": " \uD83D\uDC41 ",
+    "icon": "\uD83D\uDC41",
     "effect": 5,
     "description": "Created by ancient priests, it strengthens the will to survive in the face of danger,increasing the agility",
     "durability": 3
@@ -99,7 +99,7 @@
   "Armor of the Stone Guardian": {
     "category": "Artifact",
     "type": "PowerRelic",
-    "icon": " \uD83D\uDC41 ",
+    "icon": "\uD83D\uDC41",
     "effect": 6,
     "description": "A heavy suit of armor crafted by the ancient guardians of temples,increasing the power of attack",
     "durability": 5
@@ -107,15 +107,15 @@
   "Gloves of Wrath ": {
     "category": "Artifact",
     "type": "WarriorsRelic",
-    "icon": " \uD83D\uDC41 ",
+    "icon": "\uD83D\uDC41",
     "effect": 5,
     "description": "Bloodied gloves of ancient warriors, filled with their unrelenting thirst for battle, increasing the power of a weapon's strike",
     "durability": 5
   },
   "Elixir of Final Choice": {
-      "category": "Artifact",
+    "category": "Artifact",
     "type": "CursedPowerRelic",
-    "icon": " \uD83D\uDC41 ",
+    "icon": "\uD83D\uDC41",
     "effects": {
       "effect": 15,
       "health_cost": 35
@@ -126,7 +126,7 @@
   "Pitchfork": {
     "type": "MeleeWeapon",
     "category": "Weapon",
-    "icon": " ♆ ",
+    "icon": "♆",
     "durability": 30,
     "strike_power": 1,
     "strike_distance": 1
@@ -134,7 +134,7 @@
   "Sword": {
     "type": "MeleeWeapon",
     "category": "Weapon",
-    "icon": " \uD80C\uDF1C ",
+    "icon": "\uD80C\uDF1C",
     "durability": 80,
     "strike_power": 5,
     "strike_distance": 1
@@ -142,7 +142,7 @@
   "Axe": {
     "type": "MeleeWeapon",
     "category": "Weapon",
-    "icon": " \uD80C\uDF0F ",
+    "icon": "\uD80C\uDF0F",
     "durability": 60,
     "strike_power": 4,
     "strike_distance": 1
@@ -150,7 +150,7 @@
   "Spear": {
     "type": "MeleeWeapon",
     "category": "Weapon",
-    "icon": " ↑ ",
+    "icon": "↑",
     "durability": 50,
     "strike_power": 3,
     "strike_distance": 1
@@ -158,7 +158,7 @@
   "Bow": {
     "type": "RangedWeapon",
     "category": "Weapon",
-    "icon": " ⨭ ",
+    "icon": "⨭",
     "ammo": "Arrows",
     "durability": 25,
     "strike_power": 3,
@@ -167,7 +167,7 @@
   "Hammer": {
     "type": "RangedWeapon",
     "category": "Weapon",
-    "icon": " ⚒ ",
+    "icon": "⚒",
     "ammo": "Nails",
     "durability": 30,
     "strike_power": 4,
@@ -175,62 +175,62 @@
   },
   "Nails": {
     "category": "Ammo",
-    "icon": " ➵ ",
+    "icon": "➵",
     "quantity": 5
   },
   "Arrows": {
     "category": "Ammo",
-    "icon": " ➳ ",
+    "icon": "➳",
     "quantity": 5
   },
   "White Habit": {
     "category": "Armor",
-    "icon": " ⛉ ",
+    "icon": "⛉",
     "defense": 20
   },
   "Blue Habit": {
     "category": "Armor",
-    "icon": " ⛉ ",
+    "icon": "⛉",
     "defense": 40
   },
   "Black Habit": {
     "category": "Armor",
-    "icon": " ⛉ ",
+    "icon": "⛉",
     "defense": 60
   },
   "Apple": {
     "category": "Food",
-    "icon": " \uD83C\uDF7D ",
+    "icon": "\uD83C\uDF7D",
     "effect": 4
   },
   "Mushroom Soup": {
     "category": "Food",
-    "icon": " \uD83C\uDF7D ",
+    "icon": "\uD83C\uDF7D",
     "effect": 10
   },
   "Dried Meat": {
     "category": "Food",
-    "icon": " \uD83C\uDF7D ",
+    "icon": "\uD83C\uDF7D",
     "effect": 8
   },
   "Honey": {
     "category": "Food",
-    "icon": " \uD83C\uDF7D ",
+    "icon": "\uD83C\uDF7D",
     "effect": 3
   },
   "Fruits of the Ancient Tree": {
     "category": "Food",
-    "icon": " \uD83C\uDF7D ",
+    "icon": "\uD83C\uDF7D",
     "effect": 15
   },
   "Chocolate Muffin": {
     "category": "Food",
-    "icon": " \uD83C\uDF7D ",
+    "icon": "\uD83C\uDF7D",
     "effect": 5
   },
   "Bread": {
     "category": "Food",
-    "icon": " \uD83C\uDF7D ",
+    "icon": "\uD83C\uDF7D",
     "effect": 5
   },
   "Key": {

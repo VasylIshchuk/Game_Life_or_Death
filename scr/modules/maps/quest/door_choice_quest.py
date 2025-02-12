@@ -12,9 +12,9 @@ class DoorChoiceQuest(Quest):
 
     def place_hero_near_exit(self, hero):
         """TODO: you must change self.get_exit_position() in one of get_first_quest_room_door_position..."""
-        exit_position = self.get_exit_position()
+        exit_position = self.get_first_quest_room_exit_position()
         position = self.get_position_near_exit(exit_position)
-        self.place_creature(hero, position)
+        self.place_hero(hero,position)
 
     def place_creatures(self, map_level):
         for _ in range(CREATURE_COUNT):
@@ -56,9 +56,9 @@ class DoorChoiceQuest(Quest):
         self._add_quest_doors()
 
     def _add_gateways(self):
-        self.add_entrance(self.get_entrance_position())
-        self.add_exit(self.get_first_quest_room_exit_position())
-        self.add_exit(self.get_second_quest_room_exit_position())
+        self.place_entrance(self.get_entrance_position())
+        self.place_exit(self.get_first_quest_room_exit_position())
+        self.place_exit(self.get_second_quest_room_exit_position())
 
     def _add_quest_doors(self):
         self.add_door(self.get_first_quest_room_door_position())

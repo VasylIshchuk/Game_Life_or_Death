@@ -512,7 +512,7 @@ Mechaniki:
 
 	
 	- Poziomy doświadczenia:
-		= Aby osiągnąć nowy poziom należy zdobyć punkty według wzory: (numer pozioma + 1)^2 * 25 ;
+		= Aby osiągnąć nowy poziom należy zdobyć punkty według wzory: (numer pozioma + 1)^2 * 10 ;
 		= Po osiżgnięciu nowego poziomu za każdym razem zwiększają się statystyki:
 			+ siła uderzenia : + numer poziomu + 2
 			+ moc duchowa : + numer poziomu

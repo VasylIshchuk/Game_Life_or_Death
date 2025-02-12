@@ -33,7 +33,7 @@ class Hero(Creature):
     def _add_weapon_to_slots(self, inventory):
         weapon_title = inventory.get("weapon")
         weapon = ItemFactory.create_item(weapon_title)
-        self.equipment.add_item(weapon)
+        self.equipment.equip_new_item(weapon)
 
     def _add_food_items_to_backpack(self, inventory):
         food_items = inventory.get("food", {})
@@ -52,13 +52,16 @@ class Hero(Creature):
         return self.agility + self.equipment.get_artifact_effect("SurvivalRelic")
 
     def get_attack_power(self):
-        return (self.attack_power + self.equipment.get_weapon_effect() + self.equipment.get_artifact_effect(
-            "PowerRelic") +
+        return (self.attack_power + self.equipment.get_weapon_effect() +
+                self.equipment.get_artifact_effect("PowerRelic") +
                 self._get_cursed_artifact_effect("CursedPowerRelic"))
 
     def get_spiritual_power(self):
         return (self.spiritual_power + self.equipment.get_artifact_effect("SpiritualRelic") +
                 self._get_cursed_artifact_effect("CursedSpiritualRelic"))
+
+    def get_attack_range(self):
+        return self.equipment.get_weapon_strike_distance() if self.equipment.is_weapon_usable() else self.attack_range
 
     def _get_cursed_artifact_effect(self, cursed_relic_type):
         effect = self.equipment.get_artifact_effect(cursed_relic_type)
@@ -102,16 +105,19 @@ class Hero(Creature):
         return self.backpack.get_item(slot_index)
 
     def delete_item_from_backpack(self, slot_index):
-        return self.backpack.delete_item(slot_index)
+        return self.backpack.remove_item_from_backpack(slot_index)
 
     def add_item_to_slots(self, item):
-        return self.equipment.add_item(item)
+        return self.equipment.equip_new_item(item)
 
-    def get_item_from_slots(self, slot_index):
-        return self.equipment.get_item(slot_index)
+    def get_item_from_slots(self, item):
+        return self.equipment.retrieve_equipped_item(item)
 
-    def delete_item_from_slots(self, slot_index):
-        return self.equipment.delete_item(slot_index)
+    def delete_item_from_slots(self, item):
+        return self.equipment.remove_equipped_item(item)
+
+    def validate_is_slot_available(self, item):
+        return self.equipment.is_slot_available(item)
 
     def check_mental_state(self):
         if self.mental_state <= 0:
@@ -214,7 +220,7 @@ class Hero(Creature):
             self.experience_points = total_xp
 
     def get_xp_required_for_level_up(self):
-        return (self.level + 1) ** 2 * 25
+        return (self.level + 1) ** 2 * 10
 
     def _level_up(self):
         self._increase_level()
