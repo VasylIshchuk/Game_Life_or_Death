@@ -4,13 +4,14 @@ from ..core.icons import Icon
 from ..core.input_handler import InputHandler
 from .temple.temple import Temple
 from ..creatures.AI_controller import AIController
+from ..items.gear.equipment import EQUIPMENT_SLOTS
 
 TRANSITION_TILES = (Icon.GATEWAY_EXIT, Icon.GATEWAY_ENTRANCE, Icon.STAIRS,
                     Icon.LEVEL_EXIT, Icon.LEVEL_ENTRANCE, Icon.CLOSED_LEVEL_EXIT,
                     Icon.DOOR, Icon.QUEST_DOOR)
 
 GROUND_FLOOR = 0
-MAP_INDEX = {
+MAP_INDEXES = {
     "Temple": 0,
     "Forest": 1,
     "Quest": 2
@@ -18,7 +19,7 @@ MAP_INDEX = {
 
 
 def _get_map_index(map_title):
-    return MAP_INDEX[map_title]
+    return MAP_INDEXES[map_title]
 
 
 class LevelManager:
@@ -27,6 +28,9 @@ class LevelManager:
         self.current_map_index = 0
         self.current_map = None
         self.level = level
+        self.is_level_active = True
+        self.move_to_next_level = False
+        self.move_to_previous_level = False
         self.hero = CreatureFactory.create_creature("Mark")
         self.input_handler = InputHandler(self)
 
@@ -34,11 +38,8 @@ class LevelManager:
         self.current_map = self._get_current_map()
 
     def _get_current_map(self):
-        current_section = self._get_section(self.current_map_index)
+        current_section = self.level.get_section(self.current_map_index)
         return self.get_temple_floor(GROUND_FLOOR) if isinstance(current_section, Temple) else current_section
-
-    def _get_section(self, index):
-        return self.level[index]
 
     def get_temple_floor(self, floor_number):
         temple = self._get_temple()
@@ -50,13 +51,36 @@ class LevelManager:
 
     def _get_temple(self):
         temple_index = _get_map_index("Temple")
-        return self._get_section(temple_index)
+        return self.level.get_section(temple_index)
 
-    def initial_place_hero(self):
+    def put_hero_near_entrance(self):
         self.current_map.place_hero_near_entrance(self.hero)
 
-    def is_current_level_active(self):
-        return self.level is not None
+    def put_hero_near_exit(self):
+        self.current_map.place_hero_near_exit(self.hero)
+
+    def reset_level_state(self):
+        self.is_level_active = True
+        self.move_to_next_level = False
+        self.move_to_previous_level = False
+
+    def is_level_in_progress(self):
+        return self.is_level_active
+
+    def deactivate_level(self):
+        self.is_level_active = False
+
+    def enable_move_to_next_level(self):
+        self.move_to_next_level = True
+
+    def enable_move_to_previous_level(self):
+        self.move_to_previous_level = True
+
+    def should_move_to_next_level(self):
+        return self.move_to_next_level
+
+    def should_move_to_previous_level(self):
+        return self.move_to_previous_level
 
     def display_map(self):
         self.current_map.print_map()
@@ -85,24 +109,27 @@ class LevelManager:
         elif cell_icon == Icon.STAIRS:
             self._move_to_adjacent_floor()
         elif cell_icon == Icon.LEVEL_ENTRANCE:
-            pass
+            self.enable_move_to_previous_level()
+            self.deactivate_level()
         elif cell_icon == Icon.LEVEL_EXIT:
-            pass
+            self.enable_move_to_next_level()
+            self.deactivate_level()
         elif cell_icon == Icon.CLOSED_LEVEL_EXIT:
-            pass
+            if not self.current_map.is_completed_quest(): return
+            self.current_map.open_quest_room()
 
     def _set_next_map(self):
         self._set_index_in_next_map()
         self.set_current_map()
-        self.current_map.place_hero_near_entrance(self.hero)
+        self.put_hero_near_entrance()
 
     def _set_index_in_next_map(self):
-        self.current_map_index = min(self.current_map_index + 1, len(self.level) - 1)
+        self.current_map_index = min(self.current_map_index + 1, len(MAP_INDEXES) - 1)
 
     def _set_previous_map(self):
         self._set_index_in_previous_map()
         self.set_current_map()
-        self.current_map.place_hero_near_exit(self.hero)
+        self.put_hero_near_exit()
 
     def _set_index_in_previous_map(self):
         self.current_map_index = max(self.current_map_index - 1, 0)
@@ -138,18 +165,32 @@ class LevelManager:
         if cell_icon == Icon.DOOR:
             self._move_through_door()
         elif cell_icon == Icon.QUEST_DOOR:
-            door_position = self._move_through_door()
+            door_position = self._move_through_quest_door()
             if door_position is not None:
-                pass
+                self.current_map.closed_quest_room(door_position)
 
     def _move_through_door(self):
         hero_pos = self.hero.get_position()
         for direction in Direction.CARDINAL_DIRECTIONS:
-            new_position = get_position_toward_direction(hero_pos, direction)
-            cell_icon = self._get_tile_icon(new_position)
-            if cell_icon in (Icon.DOOR, Icon.QUEST_DOOR):
-                next_position = get_position_toward_direction(new_position, direction)
-                return new_position if self.current_map.place_creature(self.hero, next_position) else None
+            door_position = get_position_toward_direction(hero_pos, direction)
+            door_icon = self._get_tile_icon(door_position)
+            if door_icon in (Icon.DOOR, Icon.QUEST_DOOR):
+                position_near_door = get_position_toward_direction(door_position, direction)
+                self.current_map.place_creature(self.hero, position_near_door)
+
+    def _move_through_quest_door(self):
+        hero_pos = self.hero.get_position()
+        for direction in Direction.CARDINAL_DIRECTIONS:
+            door_position = get_position_toward_direction(hero_pos, direction)
+            door_icon = self._get_tile_icon(door_position)
+            if door_icon in (Icon.DOOR, Icon.QUEST_DOOR):
+                position_near_door = get_position_toward_direction(door_position, direction)
+                if not self.current_map.is_placement_valid(position_near_door): return None
+                key = self.hero.get_key_from_slots()
+                if key is None or key.get_level_number() != self.level.get_level_number(): return None
+                self.hero.delete_key_from_slots()
+                self.current_map.place_creature(self.hero, position_near_door)
+                return door_position
         return None
 
     def handle_creatures_action(self):
@@ -251,6 +292,12 @@ class LevelManager:
                 print(f"\n{item.icon} - {item.title}")
                 item.show_attributes()
 
+    def handle_book_effect(self):
+        self.hero.apply_book_effect()
+
+    def handle_food_effect(self):
+        self.hero.apply_food_effect()
+
     def _prompt_action_for_item_in_backpack(self):
         print(f"\n· U – Equip or use an item")
         print(f"· D – Drop an item in chest")
@@ -280,10 +327,10 @@ class LevelManager:
             else:
                 print(f"\t· {index}) {item.icon} - {item.title} ({item.category})")
 
-        # print("\nEquipment:")
-        # for index in range(self.hero.equipment.size):
-        #     item = self.hero.equipment.get_item(index)
-        #     if item is None:
-        #         print(f"\t· {Icon.EMPTY_SLOT}")
-        #     else:
-        #         print(f"\t· {item.icon} - {item.title} ({item.category})")
+        print("\nEquipment:")
+        for slot_title, index in EQUIPMENT_SLOTS.items():
+            item = self.hero.equipment.get_item(index)
+            if item is None:
+                print(f"\t· {index + 1}) {slot_title} - {Icon.EMPTY_SLOT}")
+            else:
+                print(f"\t· {index + 1}) {slot_title} - {item.icon}  \"{item.title}\" ")

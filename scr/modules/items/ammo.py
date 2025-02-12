@@ -12,3 +12,4 @@ class Ammo(GameEntity):
 
     def decrease_quantity(self):
         self.quantity -= 1
+

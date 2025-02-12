@@ -18,5 +18,5 @@ class CorpsePathQuest(DoorChoiceQuest):
     def _place_corpses(self):
         for _ in range(CORPSES_COUNT):
             corpse = ItemFactory.create_item("Human Corpse")
-            self.place_creature_in_room(corpse, 0)
+            self.place_item_in_room(corpse, 0)
 

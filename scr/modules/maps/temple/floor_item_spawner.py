@@ -11,14 +11,15 @@ class FloorItemSpawner(ItemSpawner):
     def __init__(self, map):
         super().__init__(map)
 
-    def place_chest_with_key(self):
+    def place_chest_with_key(self, level_number):
         chest = self.generate_chest()
-        self._put_key_in_chest(chest)
+        self._put_key_in_chest(chest, level_number)
         room = random.choice(self._map.rooms)
         self.place_item_in_room(chest, room)
 
-    def _put_key_in_chest(self, chest):
+    def _put_key_in_chest(self, chest, level_number):
         key = ItemFactory().create_item("Key")
+        key.set_level_number(level_number)
         chest.set_item(0, key)
 
     def spawn_items(self):

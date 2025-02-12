@@ -41,7 +41,6 @@ DIRECTION_ACTION_MAP = {
 }
 
 TRANSITION_ACTION = ('i', 'o')
-ATTACK_ACTION = ('i', 'o')
 ESC_KEY = '\x1b'
 
 
@@ -50,7 +49,7 @@ class InputHandler:
         self.level_manager = level_manager
 
     def handle_player_action(self):
-        self._prompt_hero_stats()
+        # self._prompt_hero_stats()
         while True:
             action = get_player_action()
 
@@ -61,7 +60,7 @@ class InputHandler:
             elif action in TRANSITION_ACTION:
                 self._handle_transition(action)
                 break
-            elif action == 'r':
+            elif action == 't':
                 self._open_chest()
                 break
             elif action == 'e':
@@ -72,6 +71,12 @@ class InputHandler:
                 break
             elif action == 'b':
                 self.level_manager.handle_backpack()
+                break
+            elif action == 'l':
+                self.level_manager.handle_book_effect()
+                break
+            elif action == 'c':
+                self.level_manager.handle_food_effect()
                 break
             elif action == ESC_KEY:
                 print("Exiting...")
@@ -128,15 +133,15 @@ class InputHandler:
     def _prompt_hero_stats(self):
         stats = {
             "Health Points": self.level_manager.hero.health_points,
-            # "Mental State": self.level_manager.hero.mental_state,
-            # "Level": self.level_manager.hero.level,
-            # "Defense": self.level_manager.hero.defense,
-            # "Spiritual Power": self.level_manager.hero.spiritual_power,
-            # "Attack Power": self.level_manager.hero.attack_power,
-            # "Agility": self.level_manager.hero.agility,
-            # "Attack Range": self.level_manager.hero.attack_range,
-            # "Attack Range (Spirit Power)": self.level_manager.hero.attack_range_spirit_power,
-            # "Experience points": self.level_manager.hero.experience_points
+            "Mental State": self.level_manager.hero.mental_state,
+            "Level": self.level_manager.hero.level,
+            "Defense": self.level_manager.hero.get_defense(),
+            "Spiritual Power": self.level_manager.hero.spiritual_power,
+            "Attack Power": self.level_manager.hero.attack_power,
+            "Agility": self.level_manager.hero.agility,
+            "Attack Range": self.level_manager.hero.attack_range,
+            "Attack Range (Spirit Power)": self.level_manager.hero.attack_range_spirit_power,
+            "Experience points": self.level_manager.hero.experience_points
         }
 
         print("\nHero Stats:")

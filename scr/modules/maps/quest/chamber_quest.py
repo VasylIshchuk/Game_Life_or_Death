@@ -1,5 +1,6 @@
 from .quest import Quest
 from ..position import Position
+from ...core.icons import Icon
 
 
 class ChamberQuest(Quest):
@@ -12,9 +13,20 @@ class ChamberQuest(Quest):
         position = self.get_position_near_exit(exit_position)
         self.place_hero(hero, position)
 
+    def closed_quest_room(self, door_position):
+        self._place_entity(door_position, Icon.CLOSED_LEVEL_EXIT)
+
+    def open_quest_room(self):
+        self._place_entity(self.get_quest_door_position(), Icon.DOOR)
+        self._place_entity(self.get_exit_position(), Icon.LEVEL_EXIT)
+
+    def is_completed_quest(self):
+        index = 0
+        return self.is_room_cleared(index)
+
     def get_center_room_position(self):
-        upper_left_angle = self.get_room_upper_left_angle(0)
-        bottom_right_angle = self.get_room_bottom_right_angle(0)
+        upper_left_angle = self.get_room_upper_left_angle_position(0)
+        bottom_right_angle = self.get_room_bottom_right_angle_position(0)
         center_x = (upper_left_angle.get_x() + bottom_right_angle.get_x()) // 2
         center_y = (upper_left_angle.get_y() + bottom_right_angle.get_y()) // 2
         return Position(center_x, center_y)
@@ -30,7 +42,7 @@ class ChamberQuest(Quest):
         self._generate_quest_room()
 
         self._add_doors()
-        self.add_information_board()
+        self.place_information_board()
 
     def _generate_quest_room(self):
         start_x = self._x_horizontal_wall + 1
@@ -53,4 +65,4 @@ class ChamberQuest(Quest):
         self.place_exit(self.get_exit_position())
 
     def _add_quest_door(self):
-        self.add_door(self.get_quest_door_position())
+        self.place_door(self.get_quest_door_position())

@@ -1,4 +1,5 @@
 import copy
+import os
 import random
 
 from .tile import Tile
@@ -167,8 +168,10 @@ class Map:
         print('\n')
 
     def _refresh_display(self):
-        """TODO: Maybe dont work in Windows"""
-        print("\033c", end="")
+        if os.name == 'nt':
+            os.system("cls")
+        else:
+            print("\033c", end="")
 
     def _generate_map(self):
         entity_grid = copy.deepcopy(self.grid)

@@ -44,8 +44,8 @@ class TerrainElementPlacer:
         return int(self._height * self._width * density)
 
     def _generate_random_position(self):
-        x = random.randint(0, self._width - 1)
-        y = random.randint(0, self._height - 1)
+        x = random.randint(1, self._width - 2)
+        y = random.randint(1, self._height - 2)
         return Position(x, y)
 
     def _spread_clusters(self, icon):
@@ -75,7 +75,7 @@ class TerrainElementPlacer:
         return self._is_within_bounds(position) and self._can_spread_to(position, icon)
 
     def _is_within_bounds(self, position):
-        return 0 <= position.get_x() < self._width and 0 <= position.get_y() < self._height
+        return 0 < position.get_x() < self._width - 1 and 0 < position.get_y() < self._height - 1
 
     def _can_spread_to(self, position, icon):
         return self._map.get_cell_icon(position) == Icon.TREE and random.random() < SPREAD_CHANCES[icon]

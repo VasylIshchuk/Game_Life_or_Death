@@ -1,6 +1,6 @@
 from ..inventory import Inventory
 
-_SLOTS = {
+EQUIPMENT_SLOTS = {
     "Food": 0,
     "Book": 1,
     "Artifact": 2,
@@ -12,7 +12,7 @@ _SLOTS = {
 
 
 def _get_slot_index(category):
-    return _SLOTS[category]
+    return EQUIPMENT_SLOTS[category]
 
 
 class Equipment(Inventory):
@@ -24,7 +24,7 @@ class Equipment(Inventory):
     armor_slot_index = _get_slot_index("Armor")
     key_slot_index = _get_slot_index("Key")
 
-    def __init__(self, size=len(_SLOTS)):
+    def __init__(self, size=len(EQUIPMENT_SLOTS)):
         super().__init__(size)
 
     def equip_new_item(self, item):
@@ -61,7 +61,7 @@ class Equipment(Inventory):
 
     def weapon_is_broken(self):
         weapon = self.get_item(self.weapon_slot_index)
-        return weapon.is_broken
+        return weapon.is_broken()
 
     def decrease_weapon_durability(self, value):
         weapon = self.get_item(self.weapon_slot_index)
@@ -138,8 +138,10 @@ class Equipment(Inventory):
         return 0
 
     def _has_artifact(self, artifact_type):
-        artifact = self.get_item(self.artifact_slot_index)
-        return self.slot_has_item(self.artifact_slot_index) and artifact.type == artifact_type
+        if self.slot_has_item(self.artifact_slot_index):
+            artifact = self.get_item(self.artifact_slot_index)
+            return artifact.type == artifact_type
+        return False
 
     def _process_artifact_effect(self):
         if not self._artifact_is_usable():
@@ -167,12 +169,18 @@ class Equipment(Inventory):
         artifact = self.get_item(self.artifact_slot_index)
         return artifact.health_cost
 
+    def has_book(self):
+        return self.slot_has_item(self.book_slot_index)
+
     def get_book_effect(self):
         book = self.get_item(self.book_slot_index)
         return book.effect
 
     def delete_book(self):
         self.delete_item(self.book_slot_index)
+
+    def has_food(self):
+        return self.slot_has_item(self.food_slot_index)
 
     def get_food_effect(self):
         food = self.get_item(self.food_slot_index)
@@ -186,7 +194,25 @@ class Equipment(Inventory):
 
     def get_armor_effect(self):
         armor = self.get_item(self.armor_slot_index)
-        return armor.effect
+        return armor.get_defence_effect()
 
-    def delete_armor(self):
+    def update_armor_defence(self, value):
+        armor = self.get_item(self.armor_slot_index)
+        armor.update_defence(value)
+
+    def remove_armor_if_needed(self):
+        if self.has_armor() and not self._armor_is_usable():
+            self._delete_armor()
+
+    def _armor_is_usable(self):
+        armor = self.get_item(self.armor_slot_index)
+        return armor.is_usable()
+
+    def _delete_armor(self):
         self.delete_item(self.armor_slot_index)
+
+    def get_key(self):
+        return self.get_item(self.key_slot_index)
+
+    def delete_key(self):
+        self.delete_item(self.key_slot_index)

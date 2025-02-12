@@ -2,6 +2,8 @@ from  modules.core.game_manager import GameManager
 
 GameManager()
 
+# from modules.maps.quest.quest_generator import QuestGenerator
+#
 # quest_generator = QuestGenerator()
 # for i in range(5):
 #     quest = quest_generator.generate_quest(i)
@@ -9,7 +11,13 @@ GameManager()
 #
 #
 
+# from modules.maps.terrain.forest_generator import ForestGenerator
+#
+# forest = ForestGenerator.generate_forest(5)
+# forest.print_map()
+
 # from  modules.maps.temple.temple_generator import TempleGenerator
+#
 # game_level = 4
 # floor_count = game_level + 2
 # temple =  TempleGenerator.generate_temple(game_level)
@@ -32,4 +40,5 @@ GameManager()
 # temple.print_map()
 
 # from  modules.tests.fight_test import Fight
+#
 # Fight.test_combat()

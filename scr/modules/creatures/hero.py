@@ -33,6 +33,7 @@ class Hero(Creature):
     def _add_weapon_to_slots(self, inventory):
         weapon_title = inventory.get("weapon")
         weapon = ItemFactory.create_item(weapon_title)
+
         self.equipment.equip_new_item(weapon)
 
     def _add_food_items_to_backpack(self, inventory):
@@ -46,7 +47,12 @@ class Hero(Creature):
         self.add_item_to_backpack(food)
 
     def get_defense(self):
-        return self.defense + self.equipment.get_artifact_effect("DefensiveRelic")
+        return self._apply_armor_effect() + self.equipment.get_artifact_effect("DefensiveRelic")
+
+    def _apply_armor_effect(self):
+        if self.equipment.has_armor():
+            return self.equipment.get_armor_effect()
+        return 0
 
     def get_agility(self):
         return self.agility + self.equipment.get_artifact_effect("SurvivalRelic")
@@ -77,26 +83,26 @@ class Hero(Creature):
         self.spiritual_power = value
 
     def set_defense(self, value):
-        self.defense = value
-        self._remove_armor_if_needed()
-
-    def _remove_armor_if_needed(self):
-        if self.defense == 0 and self.equipment.has_armor():
-            self.equipment.delete_armor()
+        self.equipment.update_armor_defence(value)
+        self.equipment.remove_armor_if_needed()
 
     def apply_book_effect(self):
-        new_spiritual_power = self.spiritual_power + self.equipment.get_book_effect()
-        self.set_spiritual_power(new_spiritual_power)
-        self.equipment.delete_book()
-
-    def apply_armor_effect(self):
-        effect = self.equipment.get_armor_effect()
-        self.set_defense(effect)
+        if self.equipment.has_book():
+            new_spiritual_power = self.spiritual_power + self.equipment.get_book_effect()
+            self.set_spiritual_power(new_spiritual_power)
+            self.equipment.delete_book()
 
     def apply_food_effect(self):
-        effect = self.equipment.get_food_effect
-        self.healing(effect)
-        self.equipment.delete_food()
+        if self.equipment.has_food():
+            effect = self.equipment.get_food_effect()
+            self.healing(effect)
+            self.equipment.delete_food()
+
+    def get_key_from_slots(self):
+        return self.equipment.get_key()
+
+    def delete_key_from_slots(self):
+        self.equipment.delete_key()
 
     def add_item_to_backpack(self, item):
         return self.backpack.add_item(item)
@@ -185,7 +191,7 @@ class Hero(Creature):
         if enemy.title == "Fire Choker": enemy.apply_abilities(self)
 
     def _decrease_weapon_durability(self):
-        if self.equipment.has_weapon():
+        if self.equipment.is_weapon_usable():
             self.equipment.decrease_weapon_durability(1)
             if self.equipment.weapon_is_broken():
                 self.equipment.delete_weapon()
