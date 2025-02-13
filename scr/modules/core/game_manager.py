@@ -1,6 +1,7 @@
-from .input_handler import InputHandler
+from .input_handler import InputHandler,refresh_display
 from ..maps.level_manager import LevelManager
 from ..maps.level_generator import LevelGenerator
+from .icons import Icon
 
 MAX_LEVEL = 5
 
@@ -22,11 +23,11 @@ class GameManager:
         while self.has_closed_levels():
             self.handle_level()
             while self.level_manager.is_level_in_progress():
-                self.level_manager.display_map()
+                self.level_manager.display()
                 self.input_handler.handle_player_action()
                 self.level_manager.handle_creatures_action()
                 if not self.level_manager.validate_hero_is_alive():
-                    self._handle_end_game()
+                    self._show_end_game()
                     return
 
     def has_closed_levels(self):
@@ -66,10 +67,13 @@ class GameManager:
     def get_previous_level(self):
         return self.levels[self.current_level_number - 1]
 
-    def _handle_end_game(self):
-        print(f"THE END. LOSER!")
-
     def handle_levels_creatures_action(self):
         """TODO: handle action creature for next map and previous map"""
         for level_manager in self.levels:
             level_manager.handle_creatures_action()
+
+    def _show_end_game(self):
+        refresh_display()
+        print(f"{Icon.GAME_OVER}")
+
+

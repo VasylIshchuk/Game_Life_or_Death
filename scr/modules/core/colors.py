@@ -31,5 +31,6 @@ class Color:
 
     CORNFLOWER_BLUE_TEXT = '\033[38;2;100;149;237m'
 
+    BOLD = "\033[1m"
 
     RESET = '\033[0m'

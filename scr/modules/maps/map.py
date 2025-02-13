@@ -1,5 +1,4 @@
 import copy
-import os
 import random
 
 from .tile import Tile
@@ -159,21 +158,22 @@ class Map:
         return None
 
     def print_map(self):
-        entity_grid = self._generate_map()
-        self._refresh_display()
+        entity_grid = self.generate_full_grid_for_display()
         print('\n')
         for y in range(entity_grid.height):
             print(
                 ''.join(str(entity_grid.get_value(Position(x, y)).icon) for x in range(entity_grid.width)))
         print('\n')
 
-    def _refresh_display(self):
-        if os.name == 'nt':
-            os.system("cls")
-        else:
-            print("\033c", end="")
+    def generate_map_text(self):
+        map_text = []
+        entity_grid = self.generate_full_grid_for_display()
+        for y in range(entity_grid.height):
+            row_text = ''.join(str(entity_grid.get_value(Position(x, y)).icon) for x in range(entity_grid.width))
+            map_text.append(row_text)
+        return map_text
 
-    def _generate_map(self):
+    def generate_full_grid_for_display(self):
         entity_grid = copy.deepcopy(self.grid)
 
         for creature in self.creatures:

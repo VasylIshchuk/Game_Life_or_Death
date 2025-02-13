@@ -1,7 +1,13 @@
 import sys
 import os
 from ..maps.direction import Direction
-from .icons import Icon
+
+
+def refresh_display():
+    if os.name == 'nt':
+        os.system("cls")
+    else:
+        print("\033c", end="")
 
 
 def get_player_action():
@@ -49,7 +55,6 @@ class InputHandler:
         self.level_manager = level_manager
 
     def handle_player_action(self):
-        # self._prompt_hero_stats()
         while True:
             action = get_player_action()
 
@@ -128,29 +133,4 @@ class InputHandler:
             elif action == 's':
                 return "Stats"
             if action == 'q':
-                return  None
-
-    def _prompt_hero_stats(self):
-        stats = {
-            "Health Points": self.level_manager.hero.health_points,
-            "Mental State": self.level_manager.hero.mental_state,
-            "Level": self.level_manager.hero.level,
-            "Defense": self.level_manager.hero.get_defense(),
-            "Spiritual Power": self.level_manager.hero.spiritual_power,
-            "Attack Power": self.level_manager.hero.attack_power,
-            "Agility": self.level_manager.hero.agility,
-            "Attack Range": self.level_manager.hero.attack_range,
-            "Attack Range (Spirit Power)": self.level_manager.hero.attack_range_spirit_power,
-            "Experience points": self.level_manager.hero.experience_points
-        }
-
-        print("\nHero Stats:")
-        for stat, value in stats.items():
-            print(f"\t· {stat}: {value}")
-
-        print("\nEquipment:")
-        for index in range(self.level_manager.hero.equipment.size):
-            item = self.level_manager.hero.equipment.get_item(index)
-            if item is None: print(f"\t· {Icon.EMPTY_SLOT}")
-            else: print(f"\t· {item.icon} - {item.title} ({item.category})")
-
+                return None

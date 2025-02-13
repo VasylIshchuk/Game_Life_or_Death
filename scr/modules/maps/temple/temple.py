@@ -1,7 +1,7 @@
 from .floor import Floor
 from ...core.icons import Icon
 
-MAIN_FLOOR_WIDTH = 43
+MAIN_FLOOR_WIDTH = 51
 MIN_FLOOR_HEIGHT = 41
 INITIAL_LEVEL = 1
 

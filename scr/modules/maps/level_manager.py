@@ -1,10 +1,10 @@
 from ..creatures.creature_factory import CreatureFactory
 from ..maps.direction import Direction, get_position_toward_direction
 from ..core.icons import Icon
-from ..core.input_handler import InputHandler
+from ..core.input_handler import InputHandler, refresh_display
 from .temple.temple import Temple
+from ..core.user_prompt import UserPrompt
 from ..creatures.AI_controller import AIController
-from ..items.gear.equipment import EQUIPMENT_SLOTS
 
 TRANSITION_TILES = (Icon.GATEWAY_EXIT, Icon.GATEWAY_ENTRANCE, Icon.STAIRS,
                     Icon.LEVEL_EXIT, Icon.LEVEL_ENTRANCE, Icon.CLOSED_LEVEL_EXIT,
@@ -33,6 +33,7 @@ class LevelManager:
         self.move_to_previous_level = False
         self.hero = CreatureFactory.create_creature("Mark")
         self.input_handler = InputHandler(self)
+        self.user_prompt = UserPrompt(self.hero)
 
     def set_current_map(self):
         self.current_map = self._get_current_map()
@@ -82,8 +83,24 @@ class LevelManager:
     def should_move_to_previous_level(self):
         return self.move_to_previous_level
 
-    def display_map(self):
-        self.current_map.print_map()
+    def display(self):
+        refresh_display()
+        map_text = self.current_map.generate_map_text()
+        text = self.user_prompt.get_text()
+
+        max_map_width = self.get_current_map_width() * 3
+        text_width = 10
+        separator = "             "
+
+        for i in range(max(len(map_text), len(text))):
+            map_part = map_text[i] if i < len(map_text) else " " * max_map_width
+            text_part = text[i] if i < len(text) else ""
+            print(map_part.ljust(max_map_width) + separator + text_part.ljust(text_width))
+
+        self.user_prompt.reset_text()
+
+    def get_current_map_width(self):
+        return self.current_map.get_map_width()
 
     def move_hero(self, direction):
         new_position = get_position_toward_direction(self.hero.get_position(), direction)
@@ -117,6 +134,8 @@ class LevelManager:
         elif cell_icon == Icon.CLOSED_LEVEL_EXIT:
             if not self.current_map.is_completed_quest(): return
             self.current_map.open_quest_room()
+            points = self.hero.calculate_xp_for_map_level_up(self.level.get_level_number())
+            self.hero.add_experience_points(points)
 
     def _set_next_map(self):
         self._set_index_in_next_map()
@@ -137,7 +156,8 @@ class LevelManager:
     def _move_to_adjacent_floor(self):
         direction = ""
         if 0 < self.current_floor < self.get_temple_total_floors() - 1:
-            self._prompt_floor_direction()
+            self.user_prompt.show_floor_direction_menu()
+            self.display()
             direction = self.input_handler.get_floor_movement_input()
 
         if direction == "up" or self._is_ground_floor():
@@ -221,13 +241,14 @@ class LevelManager:
             item = self._take_item_from_chest(chest)
             if item is None: return
             if not self.hero.add_item_to_backpack(item):
-                print("BACKPACK IS FULL")
+                self.user_prompt.show_backpack_is_full()
                 return
             chest.remove_item(item)
-        print('Chest is empty ;(')
+        self.user_prompt.show_chest_is_empty()
 
     def _take_item_from_chest(self, chest):
-        self._prompt_chest_items(chest)
+        self.user_prompt.show_chest_items(chest)
+        self.display()
         index = self.input_handler.select_item(chest)
         if index is None: return None
         return chest.get_item(index)
@@ -248,13 +269,16 @@ class LevelManager:
 
     def handle_backpack(self):
         while True:
-            self._prompt_backpack(self.hero.backpack)
+            self.user_prompt.show_backpack()
+            self.display()
             index = self.input_handler.select_item(self.hero.backpack)
             if index is None: return
 
             item = self.hero.backpack.get_item(index)
 
-            self._prompt_action_for_item_in_backpack()
+            self.user_prompt.show_backpack()
+            self.user_prompt.show_item_action_menu()
+            self.display()
             action = self.input_handler.handle_bacpack_action()
 
             if action == "Equip":
@@ -289,48 +313,10 @@ class LevelManager:
                 chest.remove_item(chest_item)
                 chest.put_item(backpack_item)
             elif action == "Stats":
-                print(f"\n{item.icon} - {item.title}")
-                item.show_attributes()
+                self.user_prompt.show_item_stats(item)
 
     def handle_book_effect(self):
         self.hero.apply_book_effect()
 
     def handle_food_effect(self):
         self.hero.apply_food_effect()
-
-    def _prompt_action_for_item_in_backpack(self):
-        print(f"\n· U – Equip or use an item")
-        print(f"· D – Drop an item in chest")
-        print(f"· E – Exchange an item with item in chest")
-        print(f"· S – View character stats")
-        print(f"· Q – Return back")
-
-    def _prompt_floor_direction(self):
-        print("Select a direction:")
-        print("1 - Move up")
-        print("2 - Move down")
-
-    def _prompt_chest_items(self, chest):
-        print('\nChoose an item by entering a number, or press "q" to exit.')
-        print("\nChest items:")
-
-        for index, item in enumerate(chest.get_slots(), start=1):
-            print(f"{index}) {item.icon} - {item.title}")
-            item.show_attributes()
-
-    def _prompt_backpack(self, backpack):
-        print('\nChoose an item by entering a number, or press "q" to exit.')
-        print("\nBackpack:")
-        for index, item in enumerate(backpack.get_slots(), start=1):
-            if item is None:
-                print(f"\t· {index}) {Icon.EMPTY_SLOT}")
-            else:
-                print(f"\t· {index}) {item.icon} - {item.title} ({item.category})")
-
-        print("\nEquipment:")
-        for slot_title, index in EQUIPMENT_SLOTS.items():
-            item = self.hero.equipment.get_item(index)
-            if item is None:
-                print(f"\t· {index + 1}) {slot_title} - {Icon.EMPTY_SLOT}")
-            else:
-                print(f"\t· {index + 1}) {slot_title} - {item.icon}  \"{item.title}\" ")

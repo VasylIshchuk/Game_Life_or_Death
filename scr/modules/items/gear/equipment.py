@@ -78,7 +78,7 @@ class Equipment(Inventory):
         self._handle_ranged_weapon()
 
         weapon_power = self._get_weapon_strike_power()
-        if self._has_artifact("WarriorsRelic"):
+        if self.has_artifact("WarriorsRelic"):
             return weapon_power + self.get_artifact_effect("WarriorsRelic")
 
         return weapon_power
@@ -132,12 +132,12 @@ class Equipment(Inventory):
         return weapon.strike_power
 
     def get_artifact_effect(self, artifact_type):
-        if self._has_artifact(artifact_type):
+        if self.has_artifact(artifact_type):
             effect = self._process_artifact_effect()
             return effect
         return 0
 
-    def _has_artifact(self, artifact_type):
+    def has_artifact(self, artifact_type):
         if self.slot_has_item(self.artifact_slot_index):
             artifact = self.get_item(self.artifact_slot_index)
             return artifact.type == artifact_type
@@ -147,7 +147,6 @@ class Equipment(Inventory):
         if not self._artifact_is_usable():
             self._delete_artifact()
             return 0
-        self._decrease_artefact_durability(1)
         return self._get_artifact_effect()
 
     def _artifact_is_usable(self):
@@ -157,13 +156,13 @@ class Equipment(Inventory):
     def _delete_artifact(self):
         self.delete_item(self.artifact_slot_index)
 
-    def _decrease_artefact_durability(self, value):
-        artifact = self.get_item(self.artifact_slot_index)
-        artifact.decrease_durability(value)
-
     def _get_artifact_effect(self):
         artifact = self.get_item(self.artifact_slot_index)
         return artifact.effect
+
+    def decrease_artefact_durability(self, value):
+        artifact = self.get_item(self.artifact_slot_index)
+        artifact.decrease_durability(value)
 
     def get_cursed_relic_health_cost(self):
         artifact = self.get_item(self.artifact_slot_index)

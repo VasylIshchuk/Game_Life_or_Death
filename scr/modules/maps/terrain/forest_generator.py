@@ -2,8 +2,8 @@ from .forest import Forest
 from .forest_creature_spawner import ForestCreatureSpawner
 from .forest_item_spawner import ForestItemSwamper
 
-MAIN_FLOOR_WIDTH = 43
-MIN_FLOOR_HEIGHT = 41
+MAIN_FLOOR_WIDTH = 41
+MIN_FLOOR_HEIGHT = 31
 
 
 def _calculate_forest_height(level_number):

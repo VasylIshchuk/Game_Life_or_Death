@@ -55,6 +55,8 @@ class Hero(Creature):
         return 0
 
     def get_agility(self):
+        if self.equipment.has_artifact("SurvivalRelic"):
+            self.equipment.decrease_artefact_durability(1)
         return self.agility + self.equipment.get_artifact_effect("SurvivalRelic")
 
     def get_attack_power(self):
@@ -82,9 +84,10 @@ class Hero(Creature):
     def set_spiritual_power(self, value):
         self.spiritual_power = value
 
-    def set_defense(self, value):
+    def update_defense(self, value):
         self.equipment.update_armor_defence(value)
         self.equipment.remove_armor_if_needed()
+        if self.equipment.has_artifact("DefensiveRelic"): self.equipment.decrease_artefact_durability(1)
 
     def apply_book_effect(self):
         if self.equipment.has_book():
@@ -164,6 +167,10 @@ class Hero(Creature):
 
         self._execute_attack(enemy, self.get_attack_power())
 
+        if (self.equipment.has_artifact("CursedPowerRelic") or
+                self.equipment.has_artifact("PowerRelic")):
+            self.equipment.decrease_artefact_durability(1)
+
     def _is_attack_ineffective(self, enemy):
         return (
                 enemy.type == "phantom" or
@@ -173,6 +180,9 @@ class Hero(Creature):
 
     def spiritual_attack(self, enemy):
         self._execute_attack(enemy, self.get_spiritual_power())
+        if (self.equipment.has_artifact("CursedSpiritualRelic") or
+                self.equipment.has_artifact("SpiritualRelic")):
+            self.equipment.decrease_artefact_durability(1)
 
     def _execute_attack(self, enemy, attack_power):
         self._apply_special_conditions_pre_attack(enemy)

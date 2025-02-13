@@ -48,7 +48,7 @@ class Creature(GameEntity):
     def get_defense(self):
         return self.defense
 
-    def set_defense(self, value):
+    def update_defense(self, value):
         self.defense = value
 
     def increase_attack_power(self, value):
@@ -131,10 +131,10 @@ class Creature(GameEntity):
         if enemy.get_defense() > 0:
             if enemy.get_defense() >= attack:
                 new_defence = enemy.get_defense() - attack
-                enemy.set_defense(new_defence)
+                enemy.update_defense(new_defence)
             else:
                 enemy.health_points -= attack - enemy.get_defense()
-                enemy.set_defense(0)
+                enemy.update_defense(0)
         elif enemy.health_points > attack:
             enemy.health_points -= attack
         else:
