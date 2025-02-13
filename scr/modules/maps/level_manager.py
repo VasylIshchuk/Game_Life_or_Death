@@ -33,7 +33,7 @@ class LevelManager:
         self.move_to_previous_level = False
         self.hero = CreatureFactory.create_creature("Mark")
         self.input_handler = InputHandler(self)
-        self.user_prompt = UserPrompt(self.hero)
+        self.user_prompt = UserPrompt(self.hero, self.level.get_level_number())
 
     def set_current_map(self):
         self.current_map = self._get_current_map()

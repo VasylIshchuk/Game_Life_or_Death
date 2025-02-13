@@ -84,7 +84,7 @@ class InputHandler:
                 self.level_manager.handle_food_effect()
                 break
             elif action == ESC_KEY:
-                print("Exiting...")
+                refresh_display()
                 exit(0)
 
     def _handle_transition(self, action):

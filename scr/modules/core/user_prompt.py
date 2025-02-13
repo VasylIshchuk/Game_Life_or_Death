@@ -3,19 +3,24 @@ from ..items.gear.equipment import EQUIPMENT_SLOTS
 
 
 class UserPrompt:
-    def __init__(self, hero):
+    def __init__(self, hero, level_number):
         self.text = []
         self.hero = hero
+        self.level_number = level_number
         self._initialize_stable_text()
 
     def get_text(self):
         return self.text
+
+    def add_text(self, text):
+        self.text.append(text)
 
     def reset_text(self):
         self.text.clear()
         self._initialize_stable_text()
 
     def _initialize_stable_text(self):
+        self.add_text(f'Level: {self.level_number}')
         self.show_hero_stats()
         self.show_equipment()
 
@@ -116,5 +121,3 @@ class UserPrompt:
         for attr_name, value in item.__dict__.items():
             if attr_name in ("icon", "title", "position"): continue
             self.text.append(f"\t\t{attr_name}: {value}")
-
-

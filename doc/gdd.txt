@@ -31,43 +31,11 @@ Nazwa: "Life or Death"
 
 ---
 
-**Towarzysze:**
-	+ (Punkty zdrowia: 15-25; Obrona: 0-5; Zwinność: 0-2)	
-	- **Kot:**
-	  - Wygląd:
-	  - Opis: Mały czarny kot, porusza się cicho i z gracją, jego obecność dodaje otuchy bohaterowi
-	  - Poziom: 4
-	  - Obrona: 0
-	  - Siła uderzenia: 0
-	  - Odległość uderzenia: 1
-	  - Umiejętności: Stan psychiczny bohatera zwiększa się o 2 punkty po zabiciu 10 wrogów
-
-	- **Sowa:**
-	  - Wygląd:
-	  - Opis: Wielka, biała sowa. Leczy bohatera unosząc się w pobliżu i wydając delikatne, uspokajające pohukiwanie
-	  - Poziom: 4
-	  - Obrona: 0
-	  - Siła uderzenia: 0
-	  - Odległość leczenia: 3
-	  - Umiejętności: Leczy bohatera za 1 punkt
-
-	- **Duch:**
-	  - Wygląd:
-	  - Opis: Niematerialna postać przypominająca dawno zapomnianą osobę
-	  - Poziom: 4
-	  - Obrona: 0
-	  - Siła uderzenia: 0
-	  - Moc duchowa: 3
-	  - Odległość uderzenia: 2
-	  - Umiejętności: "Ochronna aura" – Tymczasowo zwiększa duchową odporność bohatera
-
----
-
 **Przeciwnicy:**
 
 	- **Psychologiczni przeciwnicy**
 		- **Cienie:**
-		  - Wygląd:
+		  - Wygląd: ♟ 
 		  - Typ: Psychologiczny
 		  - Opis: Rozmyta, niematerialna sylwetka przypominająca cień człowieka. W mroku może przybierać wygląd bliskich osób bohatera lub darzonych zaufaniem. Porusza się niepostrzeżenie, wywołując niepokój i wzmacniając lęki bohatera.
 		  - Punkty zdrowia: 12
@@ -79,6 +47,7 @@ Nazwa: "Life or Death"
 		  - Umiejętności: Może zmieniać wygląd na osobę bliską bohaterowi, zadając silny cios w stan psychiczny
 
 		- **Statua:**
+		  - Wygląd:  ☤  
 		  - Typ: Psychologiczny
 		  - Opis: Kamienna figura przypominająca starożytne bóstwo lub wojownika, trzymająca fragmenty połamanych cłonków jako broń
 		  - Punkty zdrowia: 85
@@ -92,7 +61,7 @@ Nazwa: "Life or Death"
 	- **Slabi przeciwnicy**
 		+ (Punkty zdrowia: 10-20; Obrona: 0; Zwinność: 0-2)
 		- **Zgniły Życia:**
-		  - Wygląd:
+		  - Wygląd: ♟ 
 		  - Opis: Żyjąca masa przypominająca czarną, pełzającą maź
 		  - Poziom: 0
 		  - Siła uderzenia: 1
@@ -100,7 +69,7 @@ Nazwa: "Life or Death"
 		  - Umiejętności: Brak
 
 		- **Zakrwawiona Pijawka:**
-		  - Wygląd:
+		  - Wygląd: ♟ 
 		  - Opis: Długie, wijące się stworzenie przypominające gigantycznego robaka
 		  - Poziom: 0
 		  - Siła uderzenia: 2
@@ -108,7 +77,7 @@ Nazwa: "Life or Death"
 		  - Umiejętności: Brak
 
 		- **Rozwścieczony Strażnik:**
-		  - Wygląd:
+		  - Wygląd: ♟ 
 		  - Opis: Ogromna metalowa zbroja bez widocznego właściciela, której ciosy są powolne, ale niszczące
 		  - Poziom: 0
 		  - Siła uderzenia: 2
@@ -118,7 +87,7 @@ Nazwa: "Life or Death"
 	- **Podstawowe przeciwnicy**
 		+ (Punkty zdrowia: 20-30; Obrona: 0-5; Zwinność: 3-6)	
 		- **Inkwizytor Agonii:**
-		  - Wygląd:
+		  - Wygląd: ♙ 
 		  - Opis: Były kapłan, który zamienił się w oprawcę, fanatycznie wierzący, że przez cierpienie "oczyszcza" dusze
 		  - Poziom: 1
 		  - Siła uderzenia: 6
@@ -126,7 +95,7 @@ Nazwa: "Life or Death"
 		  - Umiejętności: Brak
 
 		- **Wyniszczony Mag:**
-		  - Wygląd:
+		  - Wygląd: ♙ 
 		  - Opis: Postać w kapturze unosząca się nad ziemią, z długimi, cienkimi ramionami
 		  - Poziom: 1
 		  - Siła uderzenia: 5
@@ -134,7 +103,7 @@ Nazwa: "Life or Death"
 		  - Umiejętności: Brak
 
 		- **Głodny Widmo:**
-		  - Wygląd:
+		  - Wygląd: ♙ 
 		  - Opis: Upiorna postać z kościstymi dłońmi i twarzą z rozwartymi ustami, zdaje się wiecznie krzyczeć
 		  - Poziom: 1
 		  - Siła uderzenia: 5
@@ -142,7 +111,7 @@ Nazwa: "Life or Death"
 		  - Umiejętności: Działają na niego tylko ataki duchowe
 
 		- **Szczur:**
-		  - Wygląd:
+		  - Wygląd:  ♙ 
 		  - Opis: Mały gryzoń o czerwonych oczach i długim ogonie. Jego zęby błyszczą jadowitą śliną
 		  - Poziom: 1
 		  - Siła uderzenia: 4
@@ -152,7 +121,7 @@ Nazwa: "Life or Death"
 	- **Zwykli przeciwnicy**
 		+ (Punkty zdrowia: 30-40; Obrona: 5-10; Zwinność: 7-9)
 		- **Zbrukany Kultysta:**
-		  - Wygląd:
+		  - Wygląd: ♞ 
 		  - Opis: Człowiek o zniekształconych rysach twarzy, ubrany w szaty kultysty, trzymający stary, zakrwawiony kostur
 		  - Poziom: 2
 		  - Siła uderzenia: 7
@@ -160,7 +129,7 @@ Nazwa: "Life or Death"
 		  - Umiejętności: Brak
 
 		- **Martwe Drzewo:**
-		  - Wygląd:
+		  - Wygląd: ♞ 
 		  - Opis: Pradawne drzewo przypominające przerażającą, humanoidalną postać z pustymi oczodołami
 		  - Poziom: 2
 		  - Siła uderzenia: 8
@@ -168,7 +137,7 @@ Nazwa: "Life or Death"
 		  - Umiejętności: Oddziałuje na stan psychiczny po trafieniu przeciwnika
 
 		- **Popielny Widmo:**
-		  - Wygląd:
+		  - Wygląd: ♞ 
 		  - Opis: Duch ofiary spalonej na stosie, którego ciało wciąż dymi od wiecznego gorąca
 		  - Poziom: 2
 		  - Siła uderzenia: 6
@@ -176,7 +145,7 @@ Nazwa: "Life or Death"
 		  - Umiejętności: Działają na niego tylko ataki duchowe
 
 		- **Złamana Marionetka:**
-		  - Wygląd:
+		  - Wygląd: ♞ 
 		  - Opis: Porzucona kukła z drewnianymi kończynami, popękaną twarzą i porwanymi sznurkami
 		  - Poziom: 2
 		  - Siła uderzenia: 8
@@ -186,7 +155,7 @@ Nazwa: "Life or Death"
 	- **Średni przeciwnicy**
 		+ (Punkty zdrowia: 40-50; Obrona: 15-20; Zwinność: 12-15)
 		- **Zatruty Mnich:**
-		  - Wygląd:
+		  - Wygląd: ♝ 
 		  - Opis: Wyniszczona postać w brudnym habicie. Jego ręce pokryte są wrzodami
 		  - Poziom: 3
 		  - Siła uderzenia: 12
@@ -194,7 +163,7 @@ Nazwa: "Life or Death"
 		  - Umiejętności: Po śmierci eksploduje trującym gazem
 
 		- **Strażnik Korzeni:**
-		  - Wygląd:
+		  - Wygląd: ♝ 
 		  - Opis: Gigantyczny korzeń z kolczastymi pędami, pokryty sokami przypominającymi krew
 		  - Poziom: 3
 		  - Siła uderzenia: 13
@@ -202,6 +171,7 @@ Nazwa: "Life or Death"
 		  - Umiejętności: Oddziałuje na stan psychiczny po trafieniu przeciwnika
 		  
 		- **Wyniszczony Akolita:**
+		  - Wygląd: ♝ 
 		  - Typ: Specjalny
 		  - Opis: Fanatyczny wyznawca mrocznego kultu, którego ciało zostało wyniszczone jako ofiara dla jego mistrza. Jego ścięgła skóra pokryta jest rytualnymi znakami.
 		  - Poziom: 3
@@ -212,7 +182,7 @@ Nazwa: "Life or Death"
 	- **Silni przeciwnicy**
 		+ (Punkty zdrowia: 60-70; Obrona: 30-40; Zwinność: 20-22)
 		- **Ognisty Dusiciel:**
-		  - Wygląd:
+		  - Wygląd: ♜
 		  - Opis: Demon o płonącej skórze i czerwonych oczach
 		  - Poziom: 4
 		  - Siła uderzenia: 16
@@ -220,7 +190,7 @@ Nazwa: "Life or Death"
 		  - Umiejętności: Zadaje 3 obrażenia każdemu w promieniu 2 pól przy ataku lub przy otrzymaniu obrażeń
 
 		- **Skrzydlaty Koszmar:**
-		  - Wygląd:
+		  - Wygląd: ♜
 		  - Opis: Ogromny stwór o skrzydłach przypominających podartą skórę
 		  - Poziom: 4
 		  - Siła uderzenia: 18
@@ -230,7 +200,7 @@ Nazwa: "Life or Death"
 	- **Bardzo silni przeciwnicy**
 		+ (Punkty zdrowia: 80-90; Obrona: 50-60; Zwinność: 28-30)	
 		- **Gnijące Ciało:**
-		  - Wygląd:
+		  - Wygląd: ♜
 		  - Opis: Ogromny stwór zbudowany z rozkładających się części ciał
 		  - Poziom: 5
 		  - Siła uderzenia: 25
@@ -239,25 +209,18 @@ Nazwa: "Life or Death"
 	
 	- **Władca góry**
 		- **Strażnik Świątyni:**
-		  - Wygląd:
-		  - Opis: (Brak opisu)
+		  - Wygląd: ♚
 		  - Punkty zdrowia: 100
 		  - Poziom: 6
 		  - Obrona: 100
 		  - Siła uderzenia: 35
 		  - Odległość uderzenia: 2
 		  - Zwinność: 10
-		  - Umiejętności: Brak
+		  - Umiejętności: Raz na 5 tur przywołuje losową istotę
 
 			
  ## 4. Projekt poziomów/środowiska
  	Środowisko
-		- Ściany
-			= Wygląd: '|' '—'
-		
-		- Podłoga
-			= Wygląd: '·'
-		
 		- Pokoje
 			= Zwykłe pokoje
 			= Pomieszczenia do ratowania (ludzi lub zwierząt w celu poprawy stanu psychicznego)
@@ -270,7 +233,7 @@ Nazwa: "Life or Death"
 		
 			= Książki do nauki 
 				(+ powiększa duchową moc)
-				+ Wygląd:
+				+ Wygląd: 🕮
 					"Księga Starożytnych Zaklęć"
 						Efekt: 3 
 						Opis: Zawiera potężne zaklęcia i sekrety dawnych magów
@@ -308,50 +271,70 @@ Nazwa: "Life or Death"
 						Opis: Książka, która uczy o duchowych połączeniach z naturą i jej siłami
 						
 			= Artefakty 
-				(+ Siła uderzenia równa się: duchowa moc gracza + efekt uderzenia artefaktu )
-				(+ Można użyć tylko raz )
-				(+ Odległość: 2 )
-				(+ Wygląd)
-					* Amulet Mocy
-						Efekt: 5 
-						Opis: Starożytny amulet, który wzmacnia magiczne uderzenia
+				(+ Wygląd: 👁)
+					Artefakty:
+						- Amulet Mocy:
+							Opis: Starożytny amulet wzmacniający duchowe uderzenia
+							Wytrzymałość: 5
+							Efekt: 5
+							
+						- Runiczny Księżyc:
+							Opis: Artefakt powiązany z mocą księżyca, zwiększający siłę duchową
+							Wytrzymałość: 5
+							Efekt: 3
 						
-					* Zbroja Duchów
-						Efekt: 3  
-						Opis: Zbroja stworzona z esencji duchów, które chronią noszącego oraz zapewnia dodatkową obronę przed atakami psychicznymi
-						
-					* Amulet Przetrwania
-						Efekt: 3 
-						Opis: Amulet stworzony przez dawnych kapłanów, który wzmacnia wolę przetrwania w obliczu zagrożenia
-						
-					* Runiczny Księżyc
-						Efekt: 4
-						Opis: Artefakt związany z mocą księżyca, który wzmacnia duchowe zdolności postaci
-					
-					* Eliksir Ostatecznego Wyboru
-						Efekt: Zwiększa siłę duchową o 8 punktów, ale wymaga ofiary zdrowia (obniża zdrowie o 15 punkty)
-						Opis: Potężny eliksir, który dodaje mocy, ale wymaga poświęcenia, zmuszając do trudnych wyborów
+						- Łza Światła:
+							Opis: Kropla czystego światła wzmacniająca duszę, lecz pochłaniająca część energii fizycznej
+							Wytrzymałość: 3
+							Efekt: 8
+							Koszt zdrowia: 10
+							
+						- Zbroja Ducha:
+							Opis: Zbroja stworzona z esencji ducha, zapewniająca dodatkową ochronę przed atakami
+							Wytrzymałość: 5
+							Efekt: 20
+							
+						- Amulet Przetrwania:
+							Opis: Stworzony przez starożytnych kapłanów, wzmacnia wolę przetrwania i zwiększa zwinność
+							Wytrzymałość: 3
+							Efekt: 5
+							
+						- Pancerz Kamiennego Strażnika:
+							Opis: Ciężka zbroja stworzona przez starożytnych strażników świątyń, zwiększa siłę ataku
+							Wytrzymałość: 5
+							Efekt: 6
+							
+						- Rękawice Gniewu:
+							Opis: Zakrwawione rękawice starożytnych wojowników, przepełnione ich nieustępliwą żądzą walki, wzmacniają siłę uderzenia broni
+							Wytrzymałość: 5
+							Efekt: 5
+							
+						- Eliksir Ostatecznego Wyboru:
+							Opis: Potężny eliksir zwiększający siłę ataku, lecz wymagający poświęcenia, zmuszający do trudnych wyborów
+							Wytrzymałość: 1
+							Efekt: 15
+							Koszt zdrowia: 35
 					
 			= Broń
 					-- Broń bliskiego zasięgu
 						(+ Odległość: 1 )
 							* Widły:
-								+ Wygład:
+								+ Wygład:  ♆
 								+ Wytrzymałość: 30
 								+ Siła uderzenia: 1
 								
 							* Miecz:
-								+ Wygląd:
+								+ Wygląd: 𓌜
 								+ Wytrzymałość: 80
 								+ Siła uderzenia: 5
 							
 							* Topór:
-								+ Wygląd:
+								+ Wygląd: 𓌏
 								+ Wytrzymałość: 60
 								+ Siła uderzenia: 4
 								
 							* Oszczep:
-								+ Wygląd:
+								+ Wygląd: ↑
 								+ Wytrzymałość: 50
 								+ Siła uderzenia: 3
 							
@@ -359,93 +342,89 @@ Nazwa: "Life or Death"
 						(+ Bez amunicji broń nie działa)
 						(+ Odległość: 3 )
 							* Łuk
-								+ Wygląd:
+								+ Wygląd: ⨭
 								+ Amunicja: Strzały
 								+ Wytrzymałość: 25
 								+ Siła uderzenia: 3
 								
 							* Młotek:
-								+ Wygląd: 
+								+ Wygląd: ⚒
 								+ Amunicja: Gwoździe
 								+ Wytrzymałość: 30
 								+ Siła uderzenia: 4
 								
 					-- Amunicja:
 							* Gwoździe:
-								+ Wygłąd:
+								+ Wygłąd: ➵
 								+ Ilość: 5
 								
 							* Strzały:
-								+ Wygłąd:
+								+ Wygłąd: ➳
 								+ Ilość: 5
 								
-					-- Odłamki:
-						(+ Po zużyciu broni, na zieme pojawają sie odłamki)
-							+ Wygłąd:
-					
 								
 			= Zbroja:
 				*Białe habicie:
-					+ Wygłąd:
+					+ Wygłąd: ⛉
 					+ Obrona: 20
 					
 				*Niebieskie habicie:
-					+ Wygłąd:
+					+ Wygłąd: ⛉
 					+ Obrona: 40
 					
 				*Czarne habicie:
-					+ Wygłąd:
+					+ Wygłąd: ⛉
 					+ Obrona: 60
 					
 						
 			= Jedzenie:
 				*Jabłko
-					Wygląd:
+					Wygląd: 🍽
 					Efekt: 4 
 				* Zupa z grzybów
-					Wygląd:
+					Wygląd: 🍽
 					Efekt: 10 
 				* Suszone mięso
-					Wygląd:
+					Wygląd: 🍽
 					Efekt: 8 
 				* Miód
-					Wygląd:
+					Wygląd:🍽
 					Efekt: 3 
 				* Owoce pradawnego drzewa
-					Wygląd:
+					Wygląd: 🍽
 					Efekt: 15 
 				* Czekoladowy muffin
-					Wygląd:
+					Wygląd: 🍽
 					Efekt: 5 
 				* Chleb
-					Wygląd:
+					Wygląd: 🍽
 					Efekt: 5
 				
 			= Klucz
-				+ Wygląd:
+				+ Wygląd: 🗝
 			
 			
 			
  	Interaktywne elementy:	
 		- Skrytki:
-			+ Wygląd:
+			+ Wygląd: □
 			= Otwarte skrytki
 			= Zamknięte skrytki z zagadką
 				
 		- Drzwi:
-			+ Wygląd:
 			= Otwarte drzwi
 			= Zamknięte drzwi na klucz
-			= Zamknięte drzwi z zagadką
-			
-		- Przyciski 
-			(+ które otwierają ścianę prowadzącą do sekretnego pokoju)
-				+ Wygląd:
+
 
  ## 5. Rozgrywka
 Mechaniki:
-	- Generowanie mapy zostało zrealizowane za pomocą algorytmu "Rooms and Mazes":
-		https://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/
+	- Mapy:
+		- Temple zostało zrealizowane za pomocą algorytmu "Rooms and Mazes":
+			+ https://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/
+			+ Ma poziomów (level_game * 2)
+			
+			
+		- Forest zostało zrealizowane za pomocą algorytmu "Random walk" and "Cluster growth":
 
 	- Jeśli psychiczny stan spada 0 to postać popada w obłed i gra sie kończy
 
@@ -469,19 +448,6 @@ Mechaniki:
                     (+ Jeśli oddasz własną krew, tracisz część zdrowia.)
                     (+ Jeśli użyjesz cudzej krwi, tracisz część stanu psychicznego.)
 
-
-		
-	- Pomieszczenia do ratowania 
-		= Na drzwiach będzie zagadka. Po ich otwarciu musisz pokonać wrogów i uratować 
-			+ człowieka (otrzymujesz 10 punków do stanu psychicznego)
-			+ zwierzę lub dobrego ducha (otrzymujesz 5 punków do stanu psychicznego) 
-	
-	- Sekretny pokój 
-		= Pokój wypełniony jest gazem trującym z gromadą trupów
-			( + jezegi wylosuje taki pokój, tracisz 20 punktów do stanu psychicznego)
-		= Pokój, w którym będą tylko wrogowie 
-			(+ ilość oraz rodzaje wrogów zostały losowo wygenerowane)
-		= Pokój z kilkoma skrytkami
 		
 	- Rozwiązywanie zagadek, aby otwierać zamki 
 		* Kod:
@@ -509,7 +475,6 @@ Mechaniki:
 				+ Jeśli atakuje bronią, wytrzymałość broni zmniejsza się o 1 punkt.
 					++ Po zużyciu broni, czyli gdy wytrzymałość osiąga 0, broń łamie się i znika z ekwipunku bohatera, a na zieme pojawają sie odłamki.
 				 
-
 	
 	- Poziomy doświadczenia:
 		= Aby osiągnąć nowy poziom należy zdobyć punkty według wzory: (numer pozioma + 1)^2 * 10 ;
@@ -526,21 +491,26 @@ Mechaniki:
 
  ## 6. Interfejs użytkownika i sterowanie
 Interfejs:
-	- Na górze znajdą się teksty z napisami i podpowiedziami
+	- Po lewej stronie sama gra
 	
-	- Po lewej stronie sama gra, a po prawej stronie od gry sloty na plecak
+	- Po prawej stronie od gry sloty i teksty z napisami i podpowiedziami i statystyki bohatera
 	
-	- 12 slotów plecaka
+	- 15 slotów plecaka
 	
-	- Na dole pasek 
-		= poziomu podziemia
-		= punktów zdrowia
-		= doświadczenia
-		= stanu psychicznego
-		= siły uderzenia
-		= siły uderzenia mocy duchowej
 	
 Sterowanie:
-	- Klawiatura: W - przód, S - tył, A - lewo, D - prawo
+	- Klawiatura: 
+		= 'w' - przód
+		= 's' - tył 
+		= 'a' - lewo
+		= 'd' - prawo
+		= 't' – otwieranie skrzyni
+		= 'e' – atak 
+		= 'q' – atak duchowy
+		= 'b' – otwieranie ekwipunku
+		= 'l' – użycie efektu książki
+		= 'c' – spożycie jedzenia
+		= 'ESC' -  kończy działanie
+	
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
